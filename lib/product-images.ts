@@ -30,6 +30,35 @@ export const PHOTOS = {
   foodBowl: '1546069901-ba9599a7e63c',
 } as const;
 
+/** Gallery — verified food-supply imagery */
+export const GALLERY_IMAGES = [
+  {
+    src: buildImageUrl(PHOTOS.fish, { w: 800, h: 600, crop: 'center' }),
+    label: 'أسماك طازجة يومياً',
+    alt: 'أسماك طازجة من البحر',
+  },
+  {
+    src: buildImageUrl(PHOTOS.frozenVeg, { w: 600, h: 800, crop: 'entropy' }),
+    label: 'سلسلة تبريد متكاملة',
+    alt: 'خضار مجمدة في التخزين المبرد',
+  },
+  {
+    src: buildImageUrl(PHOTOS.chicken, { w: 600, h: 800, crop: 'center' }),
+    label: 'دواجن مبردة',
+    alt: 'دواجن طازجة معتمدة',
+  },
+  {
+    src: buildImageUrl(PHOTOS.rice, { w: 800, h: 500, crop: 'entropy' }),
+    label: 'أرز ومواد غذائية',
+    alt: 'أرز بسمتي premium',
+  },
+  {
+    src: buildImageUrl(PHOTOS.meat, { w: 800, h: 500, crop: 'center' }),
+    label: 'لحوم طازجة',
+    alt: 'لحوم بلدي طازجة',
+  },
+] as const;
+
 /** Canonical image per SKU — overrides broken DB URLs. */
 export const SKU_IMAGES: Record<string, string> = {
   'ARA-SAL-001': buildImageUrl(PHOTOS.salmon),

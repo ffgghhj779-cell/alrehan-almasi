@@ -99,7 +99,7 @@ export default function ProductGrid({
             .map((_, i) => (
               <div
                 key={i}
-                className="bg-white border border-gray-100 flex flex-col h-[420px] w-full max-w-[320px]"
+                className="bg-white border border-gray-100 rounded-2xl flex flex-col h-[420px] w-full max-w-[320px] overflow-hidden ring-1 ring-gray-100"
                 aria-hidden="true"
               >
                 <div className="h-56 bg-orange-accent/10 w-full skeleton-shimmer" />
