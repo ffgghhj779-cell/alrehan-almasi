@@ -14,7 +14,7 @@ export default function Clients() {
   const repeatedClients = [...clients, ...clients, ...clients, ...clients];
 
   return (
-    <section className="py-24 bg-white overflow-hidden border-y border-gray-100">
+    <section className="py-12 md:py-24 bg-white overflow-hidden border-y border-gray-100">
       <div className="container mx-auto px-4 md:px-8 mb-16">
         <div className="text-center">
           <h2 className="font-cairo text-2xl md:text-4xl font-bold text-blue-deep mb-4">

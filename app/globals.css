@@ -127,14 +127,16 @@ body {
   transition: transform 0.12s ease-out;
 }
 
-.scrollbar-hide {
+.scrollbar-hide,
+.hide-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
 }
 
-.scrollbar-hide::-webkit-scrollbar {
+.scrollbar-hide::-webkit-scrollbar,
+.hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
 

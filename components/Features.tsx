@@ -45,7 +45,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="py-24 bg-gradient-to-b from-secondary to-primary" id="المميزات">
+    <section className="py-12 md:py-20 bg-gradient-to-b from-secondary to-primary" id="المميزات">
       <div className="container mx-auto px-4 md:px-8">
         <motion.div
           className="text-center mb-16"

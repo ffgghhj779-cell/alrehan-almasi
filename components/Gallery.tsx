@@ -13,7 +13,7 @@ const images = [
 
 export default function Gallery() {
   return (
-    <section className="py-24 bg-primary" id="المعرض">
+    <section className="py-12 md:py-24 bg-primary" id="المعرض">
       <div className="container mx-auto px-4 md:px-8">
         <motion.div
           className="text-center mb-16"

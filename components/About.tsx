@@ -6,18 +6,18 @@ import { CheckCircle2 } from 'lucide-react';
 
 export default function About() {
   return (
-    <section className="py-24 bg-white relative overflow-hidden" id="من نحن">
+    <section className="py-12 md:py-20 bg-white relative overflow-hidden" id="من نحن">
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-secondary/40 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/4 pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-8">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
+        <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-16">
           <motion.div
-            className="lg:w-1/2 relative"
+            className="lg:w-1/2 relative w-full"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
           >
-            <div className="relative h-[500px] w-full overflow-hidden luxury-shadow border-4 border-white">
+            <div className="relative h-[260px] sm:h-[380px] lg:h-[500px] w-full overflow-hidden luxury-shadow border-4 border-white rounded-xl">
               <Image
                 src="https://picsum.photos/seed/warehousefood/800/1000"
                 alt="المستودعات والمرافق"
@@ -28,7 +28,7 @@ export default function About() {
               />
             </div>
             <motion.div
-              className="absolute -bottom-6 -left-6 bg-white p-6 luxury-shadow border-l-4 border-orange-accent"
+              className="absolute -bottom-4 -left-2 sm:-bottom-6 sm:-left-6 bg-white p-4 sm:p-6 luxury-shadow border-l-4 border-orange-accent rounded-lg"
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3 }}
@@ -51,9 +51,9 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
           >
-            <h2 className="font-cairo text-3xl md:text-5xl font-bold text-blue-deep mb-6">من نحن</h2>
-            <div className="w-16 h-1 bg-orange-accent mb-8 rounded-full" />
-            <p className="text-lg text-gray-600 leading-relaxed mb-8 font-tajawal">
+            <h2 className="font-cairo text-2xl md:text-5xl font-bold text-blue-deep mb-4 md:mb-6">من نحن</h2>
+            <div className="w-16 h-1 bg-orange-accent mb-5 md:mb-8 rounded-full" />
+            <p className="text-sm md:text-lg text-gray-600 leading-relaxed mb-6 md:mb-8 font-tajawal">
               الرهان الماسي شركة متخصصة في توريد المنتجات الغذائية الطازجة والمجمدة داخل المملكة
               العربية السعودية، ونقدم حلول توريد متكاملة للمطاعم والفنادق والأسواق المركزية
               وشركات التموين.
@@ -70,7 +70,7 @@ export default function About() {
                   <div className="w-8 h-8 bg-blue-primary/10 flex items-center justify-center shrink-0">
                     <CheckCircle2 className="text-green-accent" size={20} />
                   </div>
-                  <span className="text-text-dark font-semibold text-lg font-tajawal">{item}</span>
+                  <span className="text-text-dark font-semibold text-sm md:text-lg font-tajawal">{item}</span>
                 </div>
               ))}
             </div>

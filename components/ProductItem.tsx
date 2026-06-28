@@ -72,7 +72,7 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
 
   return (
     <motion.article
-      className={`bg-primary overflow-hidden group flex flex-col h-full border border-gray-100 hover:luxury-shadow transition-colors duration-300 gpu-accelerated touch-press ${
+      className={`bg-primary overflow-hidden group flex flex-col h-full w-full max-w-[320px] mx-auto border border-gray-100 hover:luxury-shadow transition-colors duration-300 gpu-accelerated touch-press ${
         outOfStock ? 'opacity-90' : 'hover:border-orange-accent active:scale-[0.98]'
       }`}
       initial={{ opacity: 0, y: 24 }}

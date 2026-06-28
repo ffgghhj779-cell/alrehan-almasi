@@ -10,10 +10,12 @@ function CategoryCard({
   cat,
   index,
   className = '',
+  compact = false,
 }: {
   cat: (typeof STORE_CATEGORIES)[number];
   index: number;
   className?: string;
+  compact?: boolean;
 }) {
   return (
     <motion.div
@@ -25,38 +27,44 @@ function CategoryCard({
     >
       <Link
         href={`/products?category=${encodeURIComponent(cat.name)}`}
-        className="group block relative h-[220px] md:h-[260px] rounded-2xl overflow-hidden luxury-shadow-lg border border-white/60 touch-press active:scale-[0.98] transition-transform gpu-accelerated"
+        className={`group block relative overflow-hidden luxury-shadow-lg border border-white/80 touch-press active:scale-[0.98] transition-transform gpu-accelerated glass-panel ${
+          compact
+            ? 'h-[190px] w-[220px] rounded-2xl snap-start shrink-0'
+            : 'h-[220px] md:h-[260px] rounded-2xl'
+        }`}
       >
         <Image
           src={cat.image}
           alt={cat.name}
           fill
           quality={90}
-          sizes="(max-width: 768px) 180px, 25vw"
+          sizes={compact ? '220px' : '(max-width: 768px) 50vw, 25vw'}
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-blue-deep/95 via-blue-deep/45 to-blue-deep/10" />
-        <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-blue-deep/95 via-blue-deep/50 to-blue-deep/15" />
+        <div className="absolute inset-0 ring-1 ring-inset ring-white/15 rounded-2xl pointer-events-none" />
 
-        <div className="absolute top-3 left-3">
-          <span className="inline-block px-2.5 py-1 text-[10px] font-bold font-cairo text-white/90 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full">
+        <div className="absolute top-2.5 left-2.5">
+          <span className="inline-block px-2 py-0.5 text-[9px] font-bold font-cairo text-white/95 bg-white/20 backdrop-blur-sm border border-white/25 rounded-full">
             فئة مميزة
           </span>
         </div>
 
-        <div className="absolute bottom-0 inset-x-0 p-4 md:p-5">
-          <h3 className="font-cairo font-bold text-white text-base md:text-lg leading-snug mb-1">
+        <div className="absolute bottom-0 inset-x-0 p-3.5 md:p-5">
+          <h3 className="font-cairo font-bold text-white text-sm md:text-lg leading-snug mb-0.5 line-clamp-2">
             {cat.name}
           </h3>
-          <p className="text-white/75 text-xs font-tajawal mb-3">{cat.subtitle}</p>
-          <span className="inline-flex items-center gap-1.5 text-orange-accent text-xs font-bold font-cairo group-hover:gap-2.5 transition-all">
-            تصفح المنتجات
-            <ArrowLeft size={14} aria-hidden="true" />
+          <p className="text-white/75 text-[11px] md:text-xs font-tajawal mb-2 line-clamp-1">
+            {cat.subtitle}
+          </p>
+          <span className="inline-flex items-center gap-1 text-orange-accent text-[11px] font-bold font-cairo">
+            تصفح
+            <ArrowLeft size={12} aria-hidden="true" />
           </span>
         </div>
 
-        <div className="category-accent-bar absolute bottom-0 inset-x-0 h-1 bg-orange-accent z-10" />
+        <div className="category-accent-bar absolute bottom-0 inset-x-0 h-0.5 bg-orange-accent z-10" />
       </Link>
     </motion.div>
   );
@@ -64,38 +72,38 @@ function CategoryCard({
 
 export default function Categories() {
   return (
-    <section className="py-16 md:py-20 bg-gradient-to-b from-white to-secondary/40 flex-1" id="الأقسام">
+    <section
+      className="relative z-10 -mt-10 md:-mt-14 pt-6 pb-8 md:py-16 bg-primary rounded-t-3xl md:rounded-none luxury-shadow-lg md:shadow-none border-t border-white/80 md:border-t-0"
+      id="الأقسام"
+    >
       <div className="container mx-auto px-4 md:px-12">
-        <div className="flex justify-between items-end mb-8">
-          <div>
-            <h3 className="text-2xl md:text-3xl font-bold font-cairo text-blue-deep mb-2">
+        <div className="flex justify-between items-end mb-5 md:mb-8 gap-3">
+          <div className="min-w-0">
+            <h3 className="text-xl md:text-3xl font-bold font-cairo text-blue-deep mb-1 md:mb-2">
               تصفح الفئات الرئيسية
             </h3>
-            <p className="text-sm text-gray-500 font-tajawal">
+            <p className="text-xs md:text-sm text-gray-500 font-tajawal">
               منتجات طازجة ومجمدة بمعايير توريد احترافية
             </p>
           </div>
           <Link
             href="/products"
-            className="text-sm text-orange-accent font-bold touch-target touch-press shrink-0"
+            className="text-xs md:text-sm text-orange-accent font-bold touch-target touch-press shrink-0 whitespace-nowrap"
           >
             عرض الكل &larr;
           </Link>
         </div>
 
-        <div className="md:hidden -mx-4 px-4">
-          <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-3">
+        {/* Mobile: premium horizontal carousel */}
+        <div className="md:hidden -mx-4">
+          <div className="flex gap-3 overflow-x-auto scrollbar-hide snap-x snap-mandatory px-4 pb-2 overscroll-x-contain">
             {STORE_CATEGORIES.map((cat, index) => (
-              <CategoryCard
-                key={cat.name}
-                cat={cat}
-                index={index}
-                className="shrink-0 w-[180px] snap-start"
-              />
+              <CategoryCard key={cat.name} cat={cat} index={index} compact />
             ))}
           </div>
         </div>
 
+        {/* Desktop grid */}
         <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-6 gap-4">
           {STORE_CATEGORIES.map((cat, index) => (
             <CategoryCard key={cat.name} cat={cat} index={index} />

@@ -24,7 +24,7 @@ export default function Navbar() {
   return (
     <>
       <motion.header
-        className={`fixed top-0 w-full z-50 px-4 md:px-12 py-3 md:py-4 pt-safe gpu-layer ${
+        className={`fixed top-0 w-full z-50 px-4 md:px-12 py-2.5 md:py-4 pt-safe gpu-layer ${
           isScrolled
             ? 'glass-panel luxury-shadow border-b border-orange-accent/20'
             : 'glass-panel border-b border-blue-primary/10'
@@ -34,12 +34,12 @@ export default function Navbar() {
         transition={{ duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
         style={{ willChange: 'transform, opacity' }}
       >
-        <div className="container mx-auto flex justify-between items-center">
+        <div className="container mx-auto flex justify-between items-center gap-3 min-h-[48px]">
           <Link
             href="/"
-            className="flex items-center gap-4 md:gap-5 group touch-press active:scale-[0.98] transition-transform"
+            className="flex items-center gap-3 min-w-0 flex-1 md:flex-none group touch-press active:scale-[0.98] transition-transform"
           >
-            <div className="relative w-20 h-20 md:w-24 md:h-24 shrink-0 rounded-2xl overflow-hidden luxury-shadow group-hover:scale-[1.02] transition-transform duration-300 ring-2 ring-blue-primary/10">
+            <div className="relative h-10 w-10 md:h-24 md:w-24 shrink-0 rounded-xl md:rounded-2xl overflow-hidden luxury-shadow ring-2 ring-blue-primary/10 group-hover:scale-[1.02] transition-transform duration-300">
               <Image
                 src="/logo.png"
                 alt="شعار الرهان الماسي"
@@ -47,13 +47,14 @@ export default function Navbar() {
                 quality={90}
                 className="object-cover"
                 priority
+                sizes="(max-width: 768px) 40px, 96px"
               />
             </div>
-            <div className="flex flex-col justify-center gap-1 md:gap-1.5">
-              <span className="font-cairo font-black tracking-tight text-xl md:text-3xl text-blue-deep leading-none">
+            <div className="flex flex-col justify-center min-w-0 md:gap-1.5">
+              <span className="font-cairo font-black tracking-tight text-base md:text-3xl text-blue-deep leading-tight truncate">
                 الرهان الماسي
               </span>
-              <span className="text-[10px] md:text-xs font-bold text-orange-accent tracking-wider">
+              <span className="hidden md:block text-xs font-bold text-orange-accent tracking-wider">
                 شريكك الموثوق للتوريد
               </span>
             </div>
@@ -88,12 +89,12 @@ export default function Navbar() {
 
           <button
             type="button"
-            className="md:hidden text-blue-primary touch-target touch-press active:scale-95 transition-transform"
+            className="md:hidden shrink-0 text-blue-primary touch-target touch-press active:scale-95 transition-transform flex items-center justify-center w-11 h-11 rounded-xl border border-blue-primary/10 bg-white/50"
             onClick={() => setIsMobileMenuOpen((open) => !open)}
             aria-label={isMobileMenuOpen ? 'إغلاق القائمة' : 'فتح القائمة'}
             aria-expanded={isMobileMenuOpen}
           >
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </motion.header>
@@ -123,7 +124,7 @@ export default function Navbar() {
           <Link
             href="/#منتجاتنا"
             onClick={closeMobileMenu}
-            className="mt-4 block w-full text-center px-6 py-3.5 border border-orange-accent text-orange-accent text-sm font-bold touch-press active:scale-95 transition-transform"
+            className="mt-4 block w-full text-center px-6 py-3.5 border border-orange-accent text-orange-accent text-sm font-bold touch-press active:scale-95 transition-transform rounded-xl"
           >
             طلب عرض سعر
           </Link>
