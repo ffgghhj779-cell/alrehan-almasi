@@ -102,7 +102,7 @@ export default function Navbar() {
         isOpen={isMobileMenuOpen}
         onClose={closeMobileMenu}
         ariaLabelledBy="mobile-nav-title"
-        maxHeightClass="max-h-[70vh]"
+        maxHeightClass="h-[90vh] max-h-[90vh]"
       >
         <div className="px-4 pb-4 overflow-y-auto">
           <h2 id="mobile-nav-title" className="sr-only">

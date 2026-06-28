@@ -7,12 +7,12 @@ import { MagneticMotionAnchor } from './MagneticMotion';
 export default function Hero() {
   return (
     <section
-      className="relative h-[380px] md:h-[600px] flex items-center px-4 md:px-12 bg-gradient-to-l from-secondary via-primary to-white overflow-hidden"
+      className="relative min-h-[320px] sm:h-[600px] flex items-center px-4 md:px-12 pt-24 sm:pt-0 bg-gradient-to-l from-secondary via-primary to-white overflow-hidden"
       id="الرئيسية"
     >
-      <div className="absolute left-0 top-0 w-1/2 h-full bg-blue-primary opacity-[0.04] skew-x-12 transform -translate-x-20" />
-      <div className="absolute left-12 w-[340px] h-[340px] rounded-full border-2 border-orange-accent border-dashed opacity-20 animate-[spin_30s_linear_infinite]" />
-      <div className="absolute left-24 w-[280px] h-[280px] rounded-full border border-green-accent opacity-15" />
+      <div className="absolute left-0 top-0 w-1/2 h-full bg-blue-primary opacity-[0.04] skew-x-12 transform -translate-x-20 hidden sm:block" />
+      <div className="absolute left-12 w-[340px] h-[340px] rounded-full border-2 border-orange-accent border-dashed opacity-20 animate-[spin_30s_linear_infinite] hidden md:block" />
+      <div className="absolute left-24 w-[280px] h-[280px] rounded-full border border-green-accent opacity-15 hidden md:block" />
 
       <div className="absolute right-0 top-0 w-full h-full mix-blend-multiply opacity-10 pointer-events-none z-0">
         <Image
@@ -26,9 +26,9 @@ export default function Hero() {
         />
       </div>
 
-      <div className="container mx-auto relative z-10 w-full md:w-2/3 space-y-6 flex flex-col items-start pt-20">
+      <div className="container mx-auto relative z-10 w-full md:w-2/3 space-y-4 sm:space-y-6 flex flex-col items-start">
         <motion.div
-          className="inline-block px-3 py-1 bg-white border-r-4 border-orange-accent text-xs font-bold text-orange-accent uppercase tracking-widest luxury-shadow"
+          className="inline-block px-3 py-1 bg-white border-r-4 border-orange-accent text-[10px] sm:text-xs font-bold text-orange-accent uppercase tracking-widest luxury-shadow"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -37,7 +37,7 @@ export default function Hero() {
         </motion.div>
 
         <motion.h1
-          className="font-cairo text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-text-dark max-w-4xl"
+          className="font-cairo text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-text-dark max-w-4xl"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -47,7 +47,7 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p
-          className="text-lg text-gray-600 leading-relaxed max-w-xl"
+          className="text-sm sm:text-lg text-gray-600 leading-relaxed max-w-xl"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}

@@ -11,6 +11,7 @@ type BottomSheetProps = {
   children: ReactNode;
   ariaLabelledBy?: string;
   maxHeightClass?: string;
+  sheetClassName?: string;
 };
 
 export default function BottomSheet({
@@ -18,7 +19,8 @@ export default function BottomSheet({
   onClose,
   children,
   ariaLabelledBy,
-  maxHeightClass = 'max-h-[85vh]',
+  maxHeightClass = 'h-[90vh] max-h-[90vh]',
+  sheetClassName = 'rounded-t-3xl',
 }: BottomSheetProps) {
   const panelRef = useRef<HTMLDivElement>(null);
 
@@ -57,7 +59,7 @@ export default function BottomSheet({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: '100%' }}
             transition={{ type: 'spring', stiffness: 420, damping: 36 }}
-            className={`fixed inset-x-0 bottom-0 z-50 flex flex-col bottom-sheet-panel glass-panel luxury-shadow-lg border-t border-blue-primary/10 gpu-layer pb-safe ${maxHeightClass}`}
+            className={`fixed inset-x-0 bottom-0 z-50 flex flex-col bottom-sheet-panel glass-panel luxury-shadow-lg border-t border-blue-primary/10 gpu-layer pb-safe overflow-hidden ${maxHeightClass} ${sheetClassName}`}
             style={{ willChange: 'transform, opacity' }}
           >
             <div className="sheet-drag-handle shrink-0" aria-hidden="true" />

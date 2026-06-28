@@ -12,7 +12,19 @@ import React, {
 export type QuoteItem = {
   id: number;
   name: string;
+  sku: string;
   quantity: number;
+  unitPrice: number;
+  unitLabel: string;
+};
+
+export type AddItemPayload = {
+  id: number;
+  name: string;
+  sku: string;
+  unitPrice: number;
+  unitLabel: string;
+  quantity?: number;
 };
 
 type Toast = {
@@ -23,9 +35,12 @@ type Toast = {
 
 type QuoteContextType = {
   items: QuoteItem[];
-  addItem: (id: number, name: string) => void;
+  addItem: (payload: AddItemPayload) => void;
   addBulkItems: (items: QuoteItem[]) => void;
   removeItem: (id: number) => void;
+  updateQuantity: (id: number, quantity: number) => void;
+  incrementItem: (id: number) => void;
+  decrementItem: (id: number) => void;
   clearCart: () => void;
   toast: Toast | null;
   removeToast: () => void;
@@ -80,18 +95,35 @@ export function QuoteProvider({ children }: { children: ReactNode }) {
     setToast(null);
   }, [clearToastTimer]);
 
-  const addItem = (id: number, name: string) => {
+  const addItem = (payload: AddItemPayload) => {
+    const qty = payload.quantity ?? 1;
     setItems((prev) => {
-      const existing = prev.find((item) => item.id === id);
-      const newQuantity = existing ? existing.quantity + 1 : 1;
+      const existing = prev.find((item) => item.id === payload.id);
+      const newQuantity = existing ? existing.quantity + qty : qty;
       const newItems = existing
-        ? prev.map((item) => (item.id === id ? { ...item, quantity: newQuantity } : item))
-        : [...prev, { id, name, quantity: 1 }];
+        ? prev.map((item) =>
+            item.id === payload.id
+              ? {
+                  ...item,
+                  quantity: newQuantity,
+                  unitPrice: payload.unitPrice,
+                  unitLabel: payload.unitLabel,
+                }
+              : item
+          )
+        : [
+            ...prev,
+            {
+              id: payload.id,
+              name: payload.name,
+              sku: payload.sku,
+              quantity: qty,
+              unitPrice: payload.unitPrice,
+              unitLabel: payload.unitLabel,
+            },
+          ];
 
-      showToast(
-        `تمت إضافة ${name} إلى قائمة طلب التسعير (الكمية: ${newQuantity})`,
-        id
-      );
+      showToast(`تمت إضافة ${payload.name} إلى السلة (${newQuantity})`, payload.id);
       return newItems;
     });
   };
@@ -105,6 +137,8 @@ export function QuoteProvider({ children }: { children: ReactNode }) {
         const existing = updatedItems.find((i) => i.id === newItem.id);
         if (existing) {
           existing.quantity += newItem.quantity;
+          existing.unitPrice = newItem.unitPrice;
+          existing.unitLabel = newItem.unitLabel;
         } else {
           updatedItems.push({ ...newItem });
         }
@@ -112,18 +146,58 @@ export function QuoteProvider({ children }: { children: ReactNode }) {
       return updatedItems;
     });
 
-    showToast(`تمت إضافة ${incoming.length} منتجات عبر ملف CSV`, BULK_TOAST_KEY);
+    showToast(`تمت إضافة ${incoming.length} منتجات إلى السلة`, BULK_TOAST_KEY);
   };
 
   const removeItem = (id: number) => {
     setItems((prev) => prev.filter((item) => item.id !== id));
   };
 
+  const updateQuantity = (id: number, quantity: number) => {
+    if (quantity <= 0) {
+      removeItem(id);
+      return;
+    }
+    setItems((prev) =>
+      prev.map((item) => (item.id === id ? { ...item, quantity } : item))
+    );
+  };
+
+  const incrementItem = (id: number) => {
+    setItems((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
+  };
+
+  const decrementItem = (id: number) => {
+    setItems((prev) => {
+      const target = prev.find((i) => i.id === id);
+      if (!target) return prev;
+      if (target.quantity <= 1) return prev.filter((i) => i.id !== id);
+      return prev.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+      );
+    });
+  };
+
   const clearCart = () => setItems([]);
 
   return (
     <QuoteContext.Provider
-      value={{ items, addItem, addBulkItems, removeItem, clearCart, toast, removeToast }}
+      value={{
+        items,
+        addItem,
+        addBulkItems,
+        removeItem,
+        updateQuantity,
+        incrementItem,
+        decrementItem,
+        clearCart,
+        toast,
+        removeToast,
+      }}
     >
       {children}
     </QuoteContext.Provider>

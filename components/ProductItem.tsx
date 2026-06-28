@@ -27,7 +27,13 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
 
   const handleAdd = () => {
     if (outOfStock) return;
-    addItem(prod.id, prod.name);
+    addItem({
+      id: prod.id,
+      name: prod.name,
+      sku: prod.sku,
+      unitPrice: tierPrice,
+      unitLabel: prod.unitLabel,
+    });
     setJustAdded(true);
     window.setTimeout(() => setJustAdded(false), 1200);
   };
@@ -60,7 +66,7 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
   ) : (
     <>
       <MessageCircle size={20} aria-hidden="true" />
-      إضافة للطلب
+      إضافة للسلة
     </>
   );
 
@@ -76,7 +82,7 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
       whileTap={outOfStock ? undefined : { scale: 0.98 }}
       style={{ willChange: 'transform, opacity' }}
     >
-      <div className="h-56 relative overflow-hidden bg-gray-100 shrink-0">
+      <div className="h-40 sm:h-56 relative overflow-hidden bg-gray-100 shrink-0">
         <ProductImage
           src={prod.image}
           sku={prod.sku}
@@ -100,8 +106,8 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
         )}
       </div>
 
-      <div className="p-5 sm:p-6 flex flex-col flex-grow bg-white">
-        <h3 className="font-cairo font-bold text-lg sm:text-xl text-text-dark mb-2 line-clamp-2">
+      <div className="p-3 sm:p-6 flex flex-col flex-grow bg-white min-w-0">
+        <h3 className="font-cairo font-bold text-sm sm:text-xl text-text-dark mb-1.5 sm:mb-2 line-clamp-2">
           {prod.name}
         </h3>
 
@@ -117,7 +123,7 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
           ) : (
             <>
               <div className="flex items-baseline gap-2 flex-wrap">
-                <span className="font-cairo font-black text-xl sm:text-2xl text-blue-primary">
+                <span className="font-cairo font-black text-lg sm:text-2xl text-blue-primary">
                   {tierPrice.toFixed(2)} ر.س
                 </span>
                 <span className="text-sm text-gray-500 font-tajawal">/ {prod.unitLabel}</span>
@@ -151,7 +157,7 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
               aria-label={
                 outOfStock
                   ? `${prod.name} — نفدت الكمية`
-                  : `إضافة ${prod.name} إلى قائمة التسعير`
+                  : `إضافة ${prod.name} إلى السلة`
               }
               className={buttonClass}
             >
@@ -165,7 +171,7 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
               aria-label={
                 outOfStock
                   ? `${prod.name} — نفدت الكمية`
-                  : `إضافة ${prod.name} إلى قائمة التسعير`
+                  : `إضافة ${prod.name} إلى السلة`
               }
               className={buttonClass}
             >

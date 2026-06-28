@@ -1,6 +1,6 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import WhatsAppButton from '@/components/WhatsAppButton';
+import Cart from '@/components/Cart';
 import ProductGrid from '@/components/ProductGrid';
 import TierSelector from '@/components/TierSelector';
 import { fetchProductsResult } from '@/lib/products';
@@ -16,16 +16,16 @@ export default async function ProductsPage({
   const { category } = await searchParams;
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-primary via-secondary/30 to-primary">
+    <main className="min-h-screen bg-gradient-to-b from-primary via-secondary/30 to-primary overflow-x-hidden mobile-contain">
       <Navbar />
-      <section className="pt-28 sm:pt-32 pb-20 sm:pb-24">
-        <div className="container mx-auto px-4 md:px-8 max-w-[1400px]">
-          <div className="mb-10">
-            <h1 className="font-cairo text-3xl md:text-5xl font-bold text-blue-deep mb-4">
+      <section className="pt-24 sm:pt-32 pb-20 sm:pb-24 overflow-x-hidden">
+        <div className="container mx-auto px-4 md:px-8 max-w-[1400px] overflow-x-hidden">
+          <div className="mb-8 sm:mb-10">
+            <h1 className="font-cairo text-2xl sm:text-3xl md:text-5xl font-bold text-blue-deep mb-3 sm:mb-4">
               دليل المنتجات
             </h1>
             <div className="w-24 h-1 bg-orange-accent rounded-full mb-4" />
-            <p className="text-gray-600 font-tajawal text-lg max-w-2xl">
+            <p className="text-gray-600 font-tajawal text-sm sm:text-lg max-w-2xl">
               تصفح كامل قائمة منتجات الرهان الماسي مع أسعار الجملة المخصصة حسب مستوى
               عميلك B2B.
             </p>
@@ -42,7 +42,7 @@ export default async function ProductsPage({
         </div>
       </section>
       <Footer />
-      <WhatsAppButton />
+      <Cart />
     </main>
   );
 }

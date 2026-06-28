@@ -62,7 +62,10 @@ export default function CsvUploader({
             parsedItems.push({
               id: product.id,
               name: product.name,
+              sku: product.sku,
               quantity,
+              unitPrice: product.basePrice,
+              unitLabel: product.unitLabel,
             });
           }
 
