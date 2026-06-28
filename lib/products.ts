@@ -6,14 +6,21 @@ import {
   type DbProductRow,
 } from './supabase';
 
+export type ProductStatus = 'متوفر' | 'عند الطلب' | 'نفدت الكمية';
+
 export type Product = {
   id: number;
   sku: string;
   name: string;
   category: string;
-  status: 'متوفر' | 'عند الطلب';
+  status: ProductStatus;
   image: string;
   basePrice: number;
+  descriptionAr: string | null;
+  stockQuantity: number;
+  unitLabel: string;
+  originCountry: string | null;
+  packaging: string | null;
 };
 
 export type FetchProductsResult = {
@@ -22,20 +29,127 @@ export type FetchProductsResult = {
   fromFallback: boolean;
 };
 
+const PRODUCT_COLUMNS =
+  'id, sku, name, category, status, image_url, base_price, is_active, description_ar, stock_quantity, unit_label, origin_country, packaging';
+
 const FALLBACK_PRODUCTS: Product[] = [
-  { id: 1, sku: 'ARA-SAL-001', name: 'سمك سلمون طازج', category: 'الأسماك الطازجة', status: 'متوفر', image: 'https://picsum.photos/seed/salmonfish/500/400', basePrice: 89 },
-  { id: 2, sku: 'ARA-CHK-001', name: 'دجاج كامل مبرد', category: 'الدواجن الطازجة', status: 'متوفر', image: 'https://picsum.photos/seed/freshchicken/500/400', basePrice: 32 },
-  { id: 3, sku: 'ARA-VEG-001', name: 'طماطم محمية', category: 'الخضروات', status: 'متوفر', image: 'https://picsum.photos/seed/freshtomato/500/400', basePrice: 18 },
-  { id: 4, sku: 'ARA-RIC-001', name: 'أرز بسمتي درجة أولى', category: 'الأرز', status: 'متوفر', image: 'https://picsum.photos/seed/ricebag/500/400', basePrice: 45 },
-  { id: 5, sku: 'ARA-OIL-001', name: 'زيت دوار الشمس', category: 'الزيوت', status: 'متوفر', image: 'https://picsum.photos/seed/cookingoil/500/400', basePrice: 28 },
-  { id: 6, sku: 'ARA-FRT-001', name: 'برتقال أبو صرة', category: 'الفواكه الطازجة', status: 'متوفر', image: 'https://picsum.photos/seed/freshorange/500/400', basePrice: 22 },
-  { id: 7, sku: 'ARA-FRZ-001', name: 'بطاطس مقلية نصف مقلية', category: 'المنتجات المجمدة', status: 'متوفر', image: 'https://picsum.photos/seed/frozenfries/500/400', basePrice: 35 },
-  { id: 8, sku: 'ARA-MET-001', name: 'لحم عجل بلدي', category: 'اللحوم الطازجة', status: 'عند الطلب', image: 'https://picsum.photos/seed/freshmeat/500/400', basePrice: 120 },
-  { id: 9, sku: 'ARA-OLV-001', name: 'زيت زيتون بكر ممتاز', category: 'الزيوت', status: 'متوفر', image: 'https://picsum.photos/seed/oliveoil/500/400', basePrice: 55 },
-  { id: 10, sku: 'ARA-FSH-002', name: 'سمك الهامور الطازج', category: 'الأسماك الطازجة', status: 'متوفر', image: 'https://picsum.photos/seed/hammour/500/400', basePrice: 95 },
-  { id: 11, sku: 'ARA-DAI-001', name: 'لبن طازج كامل الدسم', category: 'المواد الغذائية', status: 'متوفر', image: 'https://picsum.photos/seed/freshmilk/500/400', basePrice: 12 },
-  { id: 12, sku: 'ARA-HON-001', name: 'عسل سدر طبيعي', category: 'المواد الغذائية', status: 'متوفر', image: 'https://picsum.photos/seed/honeyjar/500/400', basePrice: 75 },
+  {
+    id: 1,
+    sku: 'ARA-SAL-001',
+    name: 'سمك سلمون طازج',
+    category: 'الأسماك الطازجة',
+    status: 'متوفر',
+    image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b9a2?w=500&q=80&auto=format&fit=crop',
+    basePrice: 89,
+    descriptionAr: 'سلمون أطلنطي نرويجي طازج، مستزرع في مياه باردة نظيفة.',
+    stockQuantity: 240,
+    unitLabel: 'كجم',
+    originCountry: 'النرويج',
+    packaging: 'صندوق 5 كجم',
+  },
+  {
+    id: 2,
+    sku: 'ARA-CHK-001',
+    name: 'دجاج كامل مبرد',
+    category: 'الدواجن الطازجة',
+    status: 'متوفر',
+    image: 'https://images.unsplash.com/photo-1604503468506-a8da13daff91?w=500&q=80&auto=format&fit=crop',
+    basePrice: 32,
+    descriptionAr: 'دجاج كامل طازج مبرد، معتمد HACCP، مناسب للمطاعم والفنادق.',
+    stockQuantity: 180,
+    unitLabel: 'حبة',
+    originCountry: 'المملكة العربية السعودية',
+    packaging: 'كرتون 10 حبات',
+  },
+  {
+    id: 3,
+    sku: 'ARA-RIC-001',
+    name: 'أرز بسمتي درجة أولى',
+    category: 'الأرز',
+    status: 'متوفر',
+    image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500&q=80&auto=format&fit=crop',
+    basePrice: 52,
+    descriptionAr: 'أرز بسمتي هندي طويل الحبة، عطر فاخر وقوام ممتاز.',
+    stockQuantity: 420,
+    unitLabel: 'كيس',
+    originCountry: 'الهند',
+    packaging: 'كيس 10 كجم',
+  },
+  {
+    id: 4,
+    sku: 'ARA-OIL-001',
+    name: 'زيت دوار الشمس',
+    category: 'الزيوت الغذائية',
+    status: 'متوفر',
+    image: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500&q=80&auto=format&fit=crop',
+    basePrice: 145,
+    descriptionAr: 'زيت دوار شمس مكرر للطبخ والقلي، ثبات حراري عالي.',
+    stockQuantity: 210,
+    unitLabel: 'جركن',
+    originCountry: 'أوكرانيا',
+    packaging: 'جركن 18 لتر',
+  },
+  {
+    id: 5,
+    sku: 'ARA-FRZ-001',
+    name: 'بطاطس مقلية نصف مقلية',
+    category: 'المنتجات المجمدة',
+    status: 'متوفر',
+    image: 'https://images.unsplash.com/photo-1573080496216-afa8aec2846f?w=500&q=80&auto=format&fit=crop',
+    basePrice: 38,
+    descriptionAr: 'بطاطس مقلية Straight Cut نصف مقلية، ذهبية ومقرمشة.',
+    stockQuantity: 520,
+    unitLabel: 'كيس',
+    originCountry: 'بلجيكا',
+    packaging: 'كيس 2.5 كجم',
+  },
+  {
+    id: 6,
+    sku: 'ARA-MET-001',
+    name: 'لحم غنم طازج',
+    category: 'اللحوم الطازجة',
+    status: 'عند الطلب',
+    image: 'https://images.unsplash.com/photo-1603048588665-791ca794ae1a?w=500&q=80&auto=format&fit=crop',
+    basePrice: 135,
+    descriptionAr: 'لحم غنم طازج بلدي، تقطيع حسب الطلب.',
+    stockQuantity: 45,
+    unitLabel: 'كجم',
+    originCountry: 'المملكة العربية السعودية',
+    packaging: 'كيس Vacuume',
+  },
+  {
+    id: 7,
+    sku: 'ARA-OLV-001',
+    name: 'زيت زيتون بكر ممتاز',
+    category: 'الزيوت الغذائية',
+    status: 'متوفر',
+    image: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500&q=80&auto=format&fit=crop',
+    basePrice: 185,
+    descriptionAr: 'زيت زيتون بكر ممتاز من أشجار معمرة، حموضة منخفضة.',
+    stockQuantity: 95,
+    unitLabel: 'لتر',
+    originCountry: 'إسبانيا',
+    packaging: 'تنك 5 لتر',
+  },
+  {
+    id: 8,
+    sku: 'ARA-FSH-002',
+    name: 'سمك الهامور الطازج',
+    category: 'الأسماك الطازجة',
+    status: 'متوفر',
+    image: 'https://images.unsplash.com/photo-1544943910-04c54e739fe9?w=500&q=80&auto=format&fit=crop',
+    basePrice: 95,
+    descriptionAr: 'هامور بلدي طازج من مياه الخليج العربي، يُصطاد يومياً.',
+    stockQuantity: 85,
+    unitLabel: 'كجم',
+    originCountry: 'الخليج العربي',
+    packaging: 'كيس على ثلج',
+  },
 ];
+
+export function isProductOutOfStock(prod: Product): boolean {
+  return prod.stockQuantity === 0 || prod.status === 'نفدت الكمية';
+}
 
 export function mapProductRow(row: DbProductRow): Product {
   return {
@@ -46,6 +160,11 @@ export function mapProductRow(row: DbProductRow): Product {
     status: row.status,
     image: row.image_url,
     basePrice: Number(row.base_price),
+    descriptionAr: row.description_ar ?? null,
+    stockQuantity: row.stock_quantity ?? 0,
+    unitLabel: row.unit_label ?? 'كجم',
+    originCountry: row.origin_country ?? null,
+    packaging: row.packaging ?? null,
   };
 }
 
@@ -59,7 +178,7 @@ export async function fetchProductsResult(limit?: number): Promise<FetchProducts
 
   let query = client
     .from('products')
-    .select('id, sku, name, category, status, image_url, base_price, is_active')
+    .select(PRODUCT_COLUMNS)
     .eq('is_active', true)
     .order('id', { ascending: true });
 
@@ -110,7 +229,7 @@ export async function lookupProductBySku(sku: string): Promise<Product | null> {
 
   const { data, error } = await client
     .from('products')
-    .select('id, sku, name, category, status, image_url, base_price, is_active')
+    .select(PRODUCT_COLUMNS)
     .eq('sku', normalized)
     .eq('is_active', true)
     .maybeSingle();
@@ -131,7 +250,7 @@ export async function getProductById(id: number): Promise<Product | null> {
 
   const { data, error } = await client
     .from('products')
-    .select('id, sku, name, category, status, image_url, base_price, is_active')
+    .select(PRODUCT_COLUMNS)
     .eq('id', id)
     .eq('is_active', true)
     .maybeSingle();

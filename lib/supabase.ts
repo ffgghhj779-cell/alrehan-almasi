@@ -82,10 +82,15 @@ export type DbProductRow = {
   sku: string;
   name: string;
   category: string;
-  status: 'متوفر' | 'عند الطلب';
+  status: 'متوفر' | 'عند الطلب' | 'نفدت الكمية';
   image_url: string;
   base_price: number;
   is_active: boolean;
+  description_ar?: string | null;
+  stock_quantity?: number | null;
+  unit_label?: string | null;
+  origin_country?: string | null;
+  packaging?: string | null;
 };
 
 export const TIER_LABELS: Record<UserTier, string> = {

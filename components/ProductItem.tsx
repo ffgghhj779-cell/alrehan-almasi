@@ -3,13 +3,15 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
-import { MessageCircle, Check } from 'lucide-react';
+import { MessageCircle, Check, PackageX } from 'lucide-react';
 import { useQuote } from './QuoteContext';
 import { useAuth } from './AuthContext';
 import { MagneticMotionButton } from './MagneticMotion';
 import { usePointerFine } from '@/hooks/usePointerFine';
 import { calculateTierPrice, getDiscountForTier } from '@/lib/supabase';
-import type { Product } from '@/lib/products';
+import { isProductOutOfStock, type Product } from '@/lib/products';
+
+const LOW_STOCK_THRESHOLD = 10;
 
 export function ProductItem({ prod, index }: { prod: Product; index: number }) {
   const { addItem } = useQuote();
@@ -19,22 +21,54 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
 
   const discount = getDiscountForTier(tier);
   const tierPrice = calculateTierPrice(prod.basePrice, tier);
+  const outOfStock = isProductOutOfStock(prod);
+  const isLowStock =
+    !outOfStock && prod.stockQuantity > 0 && prod.stockQuantity < LOW_STOCK_THRESHOLD;
 
   const handleAdd = () => {
+    if (outOfStock) return;
     addItem(prod.id, prod.name);
     setJustAdded(true);
     window.setTimeout(() => setJustAdded(false), 1200);
   };
 
   const buttonClass = `w-full border flex items-center justify-center gap-2 py-3 font-bold transition-all duration-300 ${
-    justAdded
-      ? 'bg-green-accent text-white border-green-accent'
-      : 'bg-secondary text-blue-deep border-orange-accent/20 group-hover:bg-orange-accent group-hover:text-white'
+    outOfStock
+      ? 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed'
+      : justAdded
+        ? 'bg-green-accent text-white border-green-accent'
+        : 'bg-secondary text-blue-deep border-orange-accent/20 group-hover:bg-orange-accent group-hover:text-white'
   }`;
+
+  const statusLabel = outOfStock ? 'نفدت الكمية' : prod.status;
+  const statusClass = outOfStock
+    ? 'text-red-500'
+    : prod.status === 'متوفر'
+      ? 'text-green-accent'
+      : 'text-orange-accent';
+
+  const buttonLabel = outOfStock ? (
+    <>
+      <PackageX size={20} aria-hidden="true" />
+      نفدت الكمية
+    </>
+  ) : justAdded ? (
+    <>
+      <Check size={20} aria-hidden="true" />
+      تمت الإضافة
+    </>
+  ) : (
+    <>
+      <MessageCircle size={20} aria-hidden="true" />
+      إضافة للطلب
+    </>
+  );
 
   return (
     <motion.article
-      className="bg-primary overflow-hidden group flex flex-col h-full border border-gray-100 hover:border-orange-accent hover:luxury-shadow transition-colors duration-300 gpu-accelerated"
+      className={`bg-primary overflow-hidden group flex flex-col h-full border border-gray-100 hover:luxury-shadow transition-colors duration-300 gpu-accelerated ${
+        outOfStock ? 'opacity-90' : 'hover:border-orange-accent'
+      }`}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
@@ -47,7 +81,9 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
           fill
           quality={90}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-          className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+          className={`object-cover transition-transform duration-700 ease-out ${
+            outOfStock ? 'grayscale-[30%]' : 'group-hover:scale-105'
+          }`}
           referrerPolicy="no-referrer"
         />
         <div className="absolute top-3 right-3 glass-panel text-blue-deep text-xs font-bold px-3 py-1 border border-orange-accent/30">
@@ -56,12 +92,23 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
         <div className="absolute top-3 left-3 bg-blue-deep/90 text-white text-[10px] font-bold px-2 py-1 font-mono">
           {prod.sku}
         </div>
+        {isLowStock && (
+          <div className="absolute bottom-3 right-3 bg-orange-accent text-white text-[10px] font-bold px-2 py-1 font-cairo">
+            متبقي {prod.stockQuantity} {prod.unitLabel}
+          </div>
+        )}
       </div>
 
       <div className="p-5 sm:p-6 flex flex-col flex-grow bg-white">
         <h3 className="font-cairo font-bold text-lg sm:text-xl text-text-dark mb-2 line-clamp-2">
           {prod.name}
         </h3>
+
+        {prod.descriptionAr && !isLowStock && (
+          <p className="text-xs text-gray-500 font-tajawal leading-relaxed line-clamp-2 mb-3">
+            {prod.descriptionAr}
+          </p>
+        )}
 
         <div className="min-h-[52px] mb-3">
           {loading ? (
@@ -72,6 +119,7 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
                 <span className="font-cairo font-black text-xl sm:text-2xl text-blue-primary">
                   {tierPrice.toFixed(2)} ر.س
                 </span>
+                <span className="text-sm text-gray-500 font-tajawal">/ {prod.unitLabel}</span>
                 {discount > 0 && (
                   <span className="text-sm text-gray-400 line-through">
                     {prod.basePrice.toFixed(2)} ر.س
@@ -88,51 +136,39 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
         </div>
 
         <span
-          className={`text-sm font-semibold mb-4 inline-flex items-center gap-2 ${
-            prod.status === 'متوفر' ? 'text-green-accent' : 'text-orange-accent'
-          }`}
+          className={`text-sm font-semibold mb-4 inline-flex items-center gap-2 ${statusClass}`}
         >
           <span className="w-2 h-2 rounded-full bg-current shrink-0" aria-hidden="true" />
-          {prod.status}
+          {statusLabel}
         </span>
 
         <div className="mt-auto pt-2">
           {pointerFine ? (
             <MagneticMotionButton
               onClick={handleAdd}
-              aria-label={`إضافة ${prod.name} إلى قائمة التسعير`}
+              disabled={outOfStock}
+              aria-label={
+                outOfStock
+                  ? `${prod.name} — نفدت الكمية`
+                  : `إضافة ${prod.name} إلى قائمة التسعير`
+              }
               className={buttonClass}
             >
-              {justAdded ? (
-                <>
-                  <Check size={20} aria-hidden="true" />
-                  تمت الإضافة
-                </>
-              ) : (
-                <>
-                  <MessageCircle size={20} aria-hidden="true" />
-                  إضافة للطلب
-                </>
-              )}
+              {buttonLabel}
             </MagneticMotionButton>
           ) : (
             <button
               type="button"
               onClick={handleAdd}
-              aria-label={`إضافة ${prod.name} إلى قائمة التسعير`}
+              disabled={outOfStock}
+              aria-label={
+                outOfStock
+                  ? `${prod.name} — نفدت الكمية`
+                  : `إضافة ${prod.name} إلى قائمة التسعير`
+              }
               className={buttonClass}
             >
-              {justAdded ? (
-                <>
-                  <Check size={20} aria-hidden="true" />
-                  تمت الإضافة
-                </>
-              ) : (
-                <>
-                  <MessageCircle size={20} aria-hidden="true" />
-                  إضافة للطلب
-                </>
-              )}
+              {buttonLabel}
             </button>
           )}
         </div>
