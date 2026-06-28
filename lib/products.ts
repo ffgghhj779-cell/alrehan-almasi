@@ -5,6 +5,7 @@ import {
   isMockSupabase,
   type DbProductRow,
 } from './supabase';
+import { resolveProductImage } from './product-images';
 
 export type ProductStatus = 'متوفر' | 'عند الطلب' | 'نفدت الكمية';
 
@@ -158,7 +159,7 @@ export function mapProductRow(row: DbProductRow): Product {
     name: row.name,
     category: row.category,
     status: row.status,
-    image: row.image_url,
+    image: resolveProductImage(row.sku, row.category, row.image_url),
     basePrice: Number(row.base_price),
     descriptionAr: row.description_ar ?? null,
     stockQuantity: row.stock_quantity ?? 0,

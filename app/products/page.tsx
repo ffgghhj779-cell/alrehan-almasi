@@ -7,8 +7,13 @@ import { fetchProductsResult } from '@/lib/products';
 
 export const revalidate = 60;
 
-export default async function ProductsPage() {
+export default async function ProductsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ category?: string }>;
+}) {
   const { products, error } = await fetchProductsResult();
+  const { category } = await searchParams;
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-primary via-secondary/30 to-primary">
@@ -31,6 +36,7 @@ export default async function ProductsPage() {
               initialProducts={products}
               showSearch
               fetchError={error}
+              initialCategory={category ?? null}
             />
           </div>
         </div>

@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import Image from 'next/image';
 import { MessageCircle, Check, PackageX } from 'lucide-react';
+import ProductImage from './ProductImage';
 import { useQuote } from './QuoteContext';
 import { useAuth } from './AuthContext';
 import { MagneticMotionButton } from './MagneticMotion';
@@ -77,16 +77,15 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
       style={{ willChange: 'transform, opacity' }}
     >
       <div className="h-56 relative overflow-hidden bg-gray-100 shrink-0">
-        <Image
+        <ProductImage
           src={prod.image}
+          sku={prod.sku}
+          category={prod.category}
           alt={prod.name}
-          fill
-          quality={90}
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-          className={`object-cover transition-transform duration-700 ease-out ${
+          className={`transition-transform duration-700 ease-out ${
             outOfStock ? 'grayscale-[30%]' : 'group-hover:scale-105'
-          }`}
-          referrerPolicy="no-referrer"
+          } object-cover`}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />
         <div className="absolute top-3 right-3 glass-panel text-blue-deep text-xs font-bold px-3 py-1 border border-orange-accent/30">
           {prod.category}

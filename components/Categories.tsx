@@ -3,103 +3,103 @@
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { ArrowLeft } from 'lucide-react';
+import { STORE_CATEGORIES } from '@/lib/product-images';
 
-const categories = [
-  { name: 'الفواكه الطازجة', icon: '🍎', image: 'https://picsum.photos/seed/fruits/400/300' },
-  { name: 'الخضروات الطازجة', icon: '🥬', image: 'https://picsum.photos/seed/veggies/400/300' },
-  { name: 'الأسماك الطازجة', icon: '🐟', image: 'https://picsum.photos/seed/fish/400/300' },
-  { name: 'الدواجن الطازجة', icon: '🐔', image: 'https://picsum.photos/seed/poultry/400/300' },
-  { name: 'المنتجات المجمدة', icon: '🧊', image: 'https://picsum.photos/seed/frozen/400/300' },
-  { name: 'الأرز', icon: '🌾', image: 'https://picsum.photos/seed/rice/400/300' },
-  { name: 'الزيوت الغذائية', icon: '🫒', image: 'https://picsum.photos/seed/oil/400/300' },
-  { name: 'المواد الغذائية', icon: '🥫', image: 'https://picsum.photos/seed/grocery/400/300' },
-];
-
-function CategoryCard({ cat, index }: { cat: (typeof categories)[number]; index: number }) {
+function CategoryCard({
+  cat,
+  index,
+  className = '',
+}: {
+  cat: (typeof STORE_CATEGORIES)[number];
+  index: number;
+  className?: string;
+}) {
   return (
     <motion.div
-      className="group relative overflow-hidden bg-secondary border border-gray-100 flex flex-col justify-end p-4 hover:border-orange-accent transition-colors cursor-pointer h-[200px] touch-press active:scale-[0.98] gpu-accelerated shrink-0 w-[160px] md:w-auto snap-start"
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ delay: index * 0.08 }}
-      whileTap={{ scale: 0.97 }}
-      style={{ willChange: 'transform, opacity' }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ delay: Math.min(index * 0.07, 0.35), duration: 0.45 }}
+      className={className}
     >
-      <div className="absolute inset-0 z-0">
+      <Link
+        href={`/products?category=${encodeURIComponent(cat.name)}`}
+        className="group block relative h-[220px] md:h-[260px] rounded-2xl overflow-hidden luxury-shadow-lg border border-white/60 touch-press active:scale-[0.98] transition-transform gpu-accelerated"
+      >
         <Image
           src={cat.image}
           alt={cat.name}
           fill
           quality={90}
-          sizes="(max-width: 768px) 160px, 25vw"
-          className="object-cover group-hover:scale-110 transition-transform duration-700 opacity-20"
+          sizes="(max-width: 768px) 180px, 25vw"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           referrerPolicy="no-referrer"
         />
-      </div>
-      <div className="relative z-10 flex flex-col h-full justify-between">
-        <div className="text-3xl">{cat.icon}</div>
-        <div>
-          <h3 className="font-bold text-blue-primary font-cairo text-sm">{cat.name}</h3>
-          <div className="text-xs opacity-60 font-tajawal">أجود الأنواع اليومية</div>
+        <div className="absolute inset-0 bg-gradient-to-t from-blue-deep/95 via-blue-deep/45 to-blue-deep/10" />
+        <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
+
+        <div className="absolute top-3 left-3">
+          <span className="inline-block px-2.5 py-1 text-[10px] font-bold font-cairo text-white/90 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full">
+            فئة مميزة
+          </span>
         </div>
-      </div>
-      <div className="category-accent-bar h-1 w-full bg-green-accent absolute bottom-0 right-0 z-20" />
+
+        <div className="absolute bottom-0 inset-x-0 p-4 md:p-5">
+          <h3 className="font-cairo font-bold text-white text-base md:text-lg leading-snug mb-1">
+            {cat.name}
+          </h3>
+          <p className="text-white/75 text-xs font-tajawal mb-3">{cat.subtitle}</p>
+          <span className="inline-flex items-center gap-1.5 text-orange-accent text-xs font-bold font-cairo group-hover:gap-2.5 transition-all">
+            تصفح المنتجات
+            <ArrowLeft size={14} aria-hidden="true" />
+          </span>
+        </div>
+
+        <div className="category-accent-bar absolute bottom-0 inset-x-0 h-1 bg-orange-accent z-10" />
+      </Link>
     </motion.div>
   );
 }
 
 export default function Categories() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 600);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <section className="py-16 bg-white flex-1" id="الأقسام">
+    <section className="py-16 md:py-20 bg-gradient-to-b from-white to-secondary/40 flex-1" id="الأقسام">
       <div className="container mx-auto px-4 md:px-12">
-        <div className="flex justify-between items-end mb-6">
-          <h3 className="text-xl font-bold border-r-4 border-orange-accent pr-4 font-cairo">
-            تصفح الفئات الرئيسية
-          </h3>
-          <Link href="/products" className="text-sm text-orange-accent font-bold">
+        <div className="flex justify-between items-end mb-8">
+          <div>
+            <h3 className="text-2xl md:text-3xl font-bold font-cairo text-blue-deep mb-2">
+              تصفح الفئات الرئيسية
+            </h3>
+            <p className="text-sm text-gray-500 font-tajawal">
+              منتجات طازجة ومجمدة بمعايير توريد احترافية
+            </p>
+          </div>
+          <Link
+            href="/products"
+            className="text-sm text-orange-accent font-bold touch-target touch-press shrink-0"
+          >
             عرض الكل &larr;
           </Link>
         </div>
 
-        <div className="md:hidden -mx-4 px-4 mb-2">
-          <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-2">
-            {isLoading
-              ? Array(4)
-                  .fill(0)
-                  .map((_, i) => (
-                    <div
-                      key={i}
-                      className="bg-secondary border border-gray-100 h-[200px] w-[160px] shrink-0 skeleton-shimmer snap-start"
-                    />
-                  ))
-              : categories.map((cat, index) => (
-                  <CategoryCard key={cat.name} cat={cat} index={index} />
-                ))}
+        <div className="md:hidden -mx-4 px-4">
+          <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-3">
+            {STORE_CATEGORIES.map((cat, index) => (
+              <CategoryCard
+                key={cat.name}
+                cat={cat}
+                index={index}
+                className="shrink-0 w-[180px] snap-start"
+              />
+            ))}
           </div>
         </div>
 
-        <div className="hidden md:grid md:grid-cols-4 gap-4 auto-rows-[200px]">
-          {isLoading
-            ? Array(8)
-                .fill(0)
-                .map((_, i) => (
-                  <div
-                    key={i}
-                    className="bg-secondary border border-gray-100 h-[200px] skeleton-shimmer"
-                  />
-                ))
-            : categories.map((cat, index) => (
-                <CategoryCard key={cat.name} cat={cat} index={index} />
-              ))}
+        <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {STORE_CATEGORIES.map((cat, index) => (
+            <CategoryCard key={cat.name} cat={cat} index={index} />
+          ))}
         </div>
       </div>
     </section>

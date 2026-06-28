@@ -13,6 +13,7 @@ type ProductGridProps = {
   limit?: number;
   showSearch?: boolean;
   fetchError?: string | null;
+  initialCategory?: string | null;
 };
 
 function filterProducts(
@@ -37,6 +38,7 @@ export default function ProductGrid({
   limit,
   showSearch = false,
   fetchError: initialError = null,
+  initialCategory = null,
 }: ProductGridProps) {
   const hasInitialData = Boolean(initialProducts?.length);
   const [products, setProducts] = useState<Product[]>(() =>
@@ -49,7 +51,7 @@ export default function ProductGrid({
   const [isLoading, setIsLoading] = useState(!hasInitialData);
   const [error, setError] = useState<string | null>(initialError);
   const [query, setQuery] = useState('');
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string | null>(initialCategory);
 
   const loadProducts = useCallback(async () => {
     setIsLoading(true);
