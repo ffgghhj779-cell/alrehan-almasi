@@ -68,7 +68,8 @@ export default function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
+              whileHover={{ scale: 1.02 }}
+              style={{ willChange: 'transform, opacity' }}
             >
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-secondary rounded-sm opacity-50 group-hover:scale-150 group-hover:rotate-45 transition-transform duration-500 ease-out -z-10" />
 

@@ -16,6 +16,40 @@ const categories = [
   { name: 'المواد الغذائية', icon: '🥫', image: 'https://picsum.photos/seed/grocery/400/300' },
 ];
 
+function CategoryCard({ cat, index }: { cat: (typeof categories)[number]; index: number }) {
+  return (
+    <motion.div
+      className="group relative overflow-hidden bg-secondary border border-gray-100 flex flex-col justify-end p-4 hover:border-orange-accent transition-colors cursor-pointer h-[200px] touch-press active:scale-[0.98] gpu-accelerated shrink-0 w-[160px] md:w-auto snap-start"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ delay: index * 0.08 }}
+      whileTap={{ scale: 0.97 }}
+      style={{ willChange: 'transform, opacity' }}
+    >
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={cat.image}
+          alt={cat.name}
+          fill
+          quality={90}
+          sizes="(max-width: 768px) 160px, 25vw"
+          className="object-cover group-hover:scale-110 transition-transform duration-700 opacity-20"
+          referrerPolicy="no-referrer"
+        />
+      </div>
+      <div className="relative z-10 flex flex-col h-full justify-between">
+        <div className="text-3xl">{cat.icon}</div>
+        <div>
+          <h3 className="font-bold text-blue-primary font-cairo text-sm">{cat.name}</h3>
+          <div className="text-xs opacity-60 font-tajawal">أجود الأنواع اليومية</div>
+        </div>
+      </div>
+      <div className="category-accent-bar h-1 w-full bg-green-accent absolute bottom-0 right-0 z-20" />
+    </motion.div>
+  );
+}
+
 export default function Categories() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -36,7 +70,24 @@ export default function Categories() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+        <div className="md:hidden -mx-4 px-4 mb-2">
+          <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-2">
+            {isLoading
+              ? Array(4)
+                  .fill(0)
+                  .map((_, i) => (
+                    <div
+                      key={i}
+                      className="bg-secondary border border-gray-100 h-[200px] w-[160px] shrink-0 skeleton-shimmer snap-start"
+                    />
+                  ))
+              : categories.map((cat, index) => (
+                  <CategoryCard key={cat.name} cat={cat} index={index} />
+                ))}
+          </div>
+        </div>
+
+        <div className="hidden md:grid md:grid-cols-4 gap-4 auto-rows-[200px]">
           {isLoading
             ? Array(8)
                 .fill(0)
@@ -47,35 +98,7 @@ export default function Categories() {
                   />
                 ))
             : categories.map((cat, index) => (
-                <motion.div
-                  key={cat.name}
-                  className="group relative overflow-hidden bg-secondary border border-gray-100 flex flex-col justify-end p-4 hover:border-orange-accent transition-all cursor-pointer h-[200px]"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  transition={{ delay: index * 0.08 }}
-                  whileHover={{ y: -4 }}
-                >
-                  <div className="absolute inset-0 z-0">
-                    <Image
-                      src={cat.image}
-                      alt={cat.name}
-                      fill
-                      quality={90}
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                      className="object-cover group-hover:scale-110 transition-transform duration-700 opacity-20"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                  <div className="relative z-10 flex flex-col h-full justify-between">
-                    <div className="text-3xl">{cat.icon}</div>
-                    <div>
-                      <h3 className="font-bold text-blue-primary font-cairo">{cat.name}</h3>
-                      <div className="text-xs opacity-60 font-tajawal">أجود الأنواع اليومية</div>
-                    </div>
-                  </div>
-                  <div className="h-1 w-0 group-hover:w-full bg-green-accent absolute bottom-0 right-0 transition-all duration-500 z-20" />
-                </motion.div>
+                <CategoryCard key={cat.name} cat={cat} index={index} />
               ))}
         </div>
       </div>

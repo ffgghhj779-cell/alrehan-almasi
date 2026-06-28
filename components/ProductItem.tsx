@@ -32,7 +32,7 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
     window.setTimeout(() => setJustAdded(false), 1200);
   };
 
-  const buttonClass = `w-full border flex items-center justify-center gap-2 py-3 font-bold transition-all duration-300 ${
+  const buttonClass = `w-full border flex items-center justify-center gap-2 py-3.5 font-bold transition-all duration-300 touch-press active:scale-[0.96] min-h-[44px] ${
     outOfStock
       ? 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed'
       : justAdded
@@ -66,13 +66,15 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
 
   return (
     <motion.article
-      className={`bg-primary overflow-hidden group flex flex-col h-full border border-gray-100 hover:luxury-shadow transition-colors duration-300 gpu-accelerated ${
-        outOfStock ? 'opacity-90' : 'hover:border-orange-accent'
+      className={`bg-primary overflow-hidden group flex flex-col h-full border border-gray-100 hover:luxury-shadow transition-colors duration-300 gpu-accelerated touch-press ${
+        outOfStock ? 'opacity-90' : 'hover:border-orange-accent active:scale-[0.98]'
       }`}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ delay: Math.min(index * 0.06, 0.4), duration: 0.4 }}
+      whileTap={outOfStock ? undefined : { scale: 0.98 }}
+      style={{ willChange: 'transform, opacity' }}
     >
       <div className="h-56 relative overflow-hidden bg-gray-100 shrink-0">
         <Image

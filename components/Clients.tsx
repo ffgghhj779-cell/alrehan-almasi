@@ -24,8 +24,11 @@ export default function Clients() {
         </div>
       </div>
 
-      <div className="relative flex overflow-hidden bg-white w-full" style={{ direction: 'ltr' }}>
-        <div className="animate-marquee flex whitespace-nowrap min-w-max items-center py-4">
+      <div
+        className="relative flex overflow-hidden bg-white w-full scrollbar-hide"
+        style={{ direction: 'ltr' }}
+      >
+        <div className="animate-marquee flex whitespace-nowrap min-w-max items-center py-4 gpu-accelerated">
           {repeatedClients.map((client, i) => (
             <div
               key={i}

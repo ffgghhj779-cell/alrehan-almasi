@@ -9,7 +9,7 @@ export default function ToastContainer() {
 
   return (
     <div
-      className="fixed bottom-24 left-1/2 -translate-x-1/2 z-[60] pointer-events-none flex justify-center w-full px-4 max-w-sm"
+      className="fixed left-1/2 -translate-x-1/2 z-[60] pointer-events-none flex justify-center w-full px-4 max-w-sm toast-bottom-safe"
       aria-live="polite"
       aria-atomic="true"
     >
@@ -21,7 +21,7 @@ export default function ToastContainer() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95, y: 16 }}
             transition={{ type: 'spring', stiffness: 400, damping: 28 }}
-            className="bg-white border-r-4 border-orange-accent luxury-shadow px-4 py-3 flex items-center gap-3 w-full pointer-events-auto gpu-accelerated"
+            className="bg-white border-r-4 border-orange-accent luxury-shadow px-4 py-3 flex items-center gap-3 w-full pointer-events-auto gpu-layer"
             role="status"
           >
             <CheckCircle className="text-green-accent shrink-0" size={20} aria-hidden="true" />

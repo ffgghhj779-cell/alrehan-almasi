@@ -36,14 +36,14 @@ export default function ProductSearchBar({
           value={query}
           onChange={(e) => onQueryChange(e.target.value)}
           placeholder="ابحث بالاسم أو رمز SKU..."
-          className="w-full py-3 pr-12 pl-10 bg-white border border-blue-primary/15 font-tajawal text-text-dark placeholder:text-gray-400 focus:outline-none focus:border-blue-primary focus:ring-2 focus:ring-blue-primary/20 transition-all luxury-shadow"
+          className="w-full py-3.5 pr-12 pl-10 bg-white border border-blue-primary/15 font-tajawal text-text-dark placeholder:text-gray-400 focus:outline-none focus:border-blue-primary focus:ring-2 focus:ring-blue-primary/20 transition-all luxury-shadow min-h-[44px]"
           autoComplete="off"
         />
         {query && (
           <button
             type="button"
             onClick={() => onQueryChange('')}
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-orange-accent transition-colors"
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-orange-accent transition-colors touch-target touch-press active:scale-95"
             aria-label="مسح البحث"
           >
             <X size={18} />
@@ -52,14 +52,14 @@ export default function ProductSearchBar({
       </div>
 
       <div
-        className="flex flex-wrap gap-2"
+        className="flex gap-2 overflow-x-auto scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap snap-x snap-mandatory"
         role="group"
         aria-label="تصفية حسب الفئة"
       >
         <button
           type="button"
           onClick={() => onCategoryChange(null)}
-          className={`px-4 py-1.5 text-sm font-bold transition-all ${
+          className={`shrink-0 snap-start px-4 py-2.5 text-sm font-bold transition-all touch-press active:scale-95 min-h-[44px] ${
             activeCategory === null
               ? 'bg-blue-primary text-white luxury-shadow'
               : 'bg-white text-blue-deep border border-blue-primary/20 hover:border-orange-accent'
@@ -73,7 +73,7 @@ export default function ProductSearchBar({
             key={cat}
             type="button"
             onClick={() => onCategoryChange(cat === activeCategory ? null : cat)}
-            className={`px-4 py-1.5 text-sm font-bold transition-all ${
+            className={`shrink-0 snap-start px-4 py-2.5 text-sm font-bold transition-all touch-press active:scale-95 min-h-[44px] ${
               activeCategory === cat
                 ? 'bg-orange-accent text-white luxury-shadow'
                 : 'bg-white text-blue-deep border border-blue-primary/20 hover:border-orange-accent'

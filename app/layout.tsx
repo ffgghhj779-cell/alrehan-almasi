@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Cairo, Tajawal } from 'next/font/google';
 import './globals.css';
 
@@ -20,6 +20,12 @@ export const metadata: Metadata = {
   title: 'الرهان الماسي | شريكك الموثوق لتوريد المنتجات الغذائية',
   description:
     'الرهان الماسي شركة متخصصة في توريد المنتجات الغذائية الطازجة والمجمدة داخل المملكة العربية السعودية.',
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({
