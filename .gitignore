@@ -1,0 +1,20 @@
+node_modules/
+.next/
+coverage/
+tsconfig.tsbuildinfo
+.DS_Store
+*.log
+
+# Environment secrets — NEVER commit
+.env
+.env.local
+.env.*
+!.env.example
+
+# Vercel
+.vercel
+
+# IDE / OS
+.idea/
+.vscode/
+Thumbs.db

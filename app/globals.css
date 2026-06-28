@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #FFFFFF;
+  --color-secondary: #F8FAFC;
+  --color-blue-primary: #1D4ED8;
+  --color-blue-deep: #1E3A8A;
+  --color-orange-accent: #F97316;
+  --color-green-accent: #16A34A;
+  --color-green-bright: #22C55E;
+  --color-text-dark: #0F172A;
+
+  --font-family-cairo: var(--font-cairo), "Cairo", sans-serif;
+  --font-family-tajawal: var(--font-tajawal), "Tajawal", sans-serif;
+}
+
+@utility font-cairo {
+  font-family: var(--font-family-cairo);
+}
+
+@utility font-tajawal {
+  font-family: var(--font-family-tajawal);
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.luxury-shadow {
+  box-shadow: 0 20px 50px -12px rgba(29, 78, 216, 0.12);
+}
+
+.luxury-shadow-lg {
+  box-shadow: 0 25px 60px -15px rgba(29, 78, 216, 0.2);
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 1.5s infinite;
+}
+
+.skeleton-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-marquee,
+  .animate-shimmer,
+  .skeleton-shimmer::after,
+  .animate-ping {
+    animation: none !important;
+  }
+
+  .gpu-accelerated {
+    transform: none;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1400px;
+  }
+}

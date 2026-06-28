@@ -1,0 +1,142 @@
+"use client";
+
+import { useState } from 'react';
+import { motion } from 'motion/react';
+import Image from 'next/image';
+import { MessageCircle, Check } from 'lucide-react';
+import { useQuote } from './QuoteContext';
+import { useAuth } from './AuthContext';
+import { MagneticMotionButton } from './MagneticMotion';
+import { usePointerFine } from '@/hooks/usePointerFine';
+import { calculateTierPrice, getDiscountForTier } from '@/lib/supabase';
+import type { Product } from '@/lib/products';
+
+export function ProductItem({ prod, index }: { prod: Product; index: number }) {
+  const { addItem } = useQuote();
+  const { tier, tierLabel, loading } = useAuth();
+  const pointerFine = usePointerFine();
+  const [justAdded, setJustAdded] = useState(false);
+
+  const discount = getDiscountForTier(tier);
+  const tierPrice = calculateTierPrice(prod.basePrice, tier);
+
+  const handleAdd = () => {
+    addItem(prod.id, prod.name);
+    setJustAdded(true);
+    window.setTimeout(() => setJustAdded(false), 1200);
+  };
+
+  const buttonClass = `w-full border flex items-center justify-center gap-2 py-3 font-bold transition-all duration-300 ${
+    justAdded
+      ? 'bg-green-accent text-white border-green-accent'
+      : 'bg-secondary text-blue-deep border-orange-accent/20 group-hover:bg-orange-accent group-hover:text-white'
+  }`;
+
+  return (
+    <motion.article
+      className="bg-primary overflow-hidden group flex flex-col h-full border border-gray-100 hover:border-orange-accent hover:luxury-shadow transition-colors duration-300 gpu-accelerated"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ delay: Math.min(index * 0.06, 0.4), duration: 0.4 }}
+    >
+      <div className="h-56 relative overflow-hidden bg-gray-100 shrink-0">
+        <Image
+          src={prod.image}
+          alt={prod.name}
+          fill
+          quality={90}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+          referrerPolicy="no-referrer"
+        />
+        <div className="absolute top-3 right-3 glass-panel text-blue-deep text-xs font-bold px-3 py-1 border border-orange-accent/30">
+          {prod.category}
+        </div>
+        <div className="absolute top-3 left-3 bg-blue-deep/90 text-white text-[10px] font-bold px-2 py-1 font-mono">
+          {prod.sku}
+        </div>
+      </div>
+
+      <div className="p-5 sm:p-6 flex flex-col flex-grow bg-white">
+        <h3 className="font-cairo font-bold text-lg sm:text-xl text-text-dark mb-2 line-clamp-2">
+          {prod.name}
+        </h3>
+
+        <div className="min-h-[52px] mb-3">
+          {loading ? (
+            <div className="h-8 w-24 bg-gray-100 skeleton-shimmer rounded-sm" aria-hidden="true" />
+          ) : (
+            <>
+              <div className="flex items-baseline gap-2 flex-wrap">
+                <span className="font-cairo font-black text-xl sm:text-2xl text-blue-primary">
+                  {tierPrice.toFixed(2)} ر.س
+                </span>
+                {discount > 0 && (
+                  <span className="text-sm text-gray-400 line-through">
+                    {prod.basePrice.toFixed(2)} ر.س
+                  </span>
+                )}
+              </div>
+              {discount > 0 && (
+                <span className="text-xs font-bold text-green-accent">
+                  خصم {tierLabel} ({Math.round(discount * 100)}%)
+                </span>
+              )}
+            </>
+          )}
+        </div>
+
+        <span
+          className={`text-sm font-semibold mb-4 inline-flex items-center gap-2 ${
+            prod.status === 'متوفر' ? 'text-green-accent' : 'text-orange-accent'
+          }`}
+        >
+          <span className="w-2 h-2 rounded-full bg-current shrink-0" aria-hidden="true" />
+          {prod.status}
+        </span>
+
+        <div className="mt-auto pt-2">
+          {pointerFine ? (
+            <MagneticMotionButton
+              onClick={handleAdd}
+              aria-label={`إضافة ${prod.name} إلى قائمة التسعير`}
+              className={buttonClass}
+            >
+              {justAdded ? (
+                <>
+                  <Check size={20} aria-hidden="true" />
+                  تمت الإضافة
+                </>
+              ) : (
+                <>
+                  <MessageCircle size={20} aria-hidden="true" />
+                  إضافة للطلب
+                </>
+              )}
+            </MagneticMotionButton>
+          ) : (
+            <button
+              type="button"
+              onClick={handleAdd}
+              aria-label={`إضافة ${prod.name} إلى قائمة التسعير`}
+              className={buttonClass}
+            >
+              {justAdded ? (
+                <>
+                  <Check size={20} aria-hidden="true" />
+                  تمت الإضافة
+                </>
+              ) : (
+                <>
+                  <MessageCircle size={20} aria-hidden="true" />
+                  إضافة للطلب
+                </>
+              )}
+            </button>
+          )}
+        </div>
+      </div>
+    </motion.article>
+  );
+}

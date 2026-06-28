@@ -1,0 +1,8 @@
+{
+  "name": "Al Rehan Almasi",
+  "description": "الرهان الماسي شريكك الموثوق لتوريد المنتجات الغذائية الطازجة والمجمدة داخل المملكة العربية السعودية.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
