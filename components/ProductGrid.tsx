@@ -112,7 +112,7 @@ export default function ProductGrid({
               </div>
             ))}
 
-        {!isLoading && error && (
+        {!isLoading && error && products.length === 0 && (
           <ErrorState message={error} onRetry={loadProducts} />
         )}
 

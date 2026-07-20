@@ -7,7 +7,7 @@ import { Phone, MessageCircle } from 'lucide-react';
 export default function Hero() {
   return (
     <section
-      className="relative min-h-[100svh] md:min-h-0 md:h-[680px] flex items-center px-4 md:px-12 pt-[calc(4.5rem+env(safe-area-inset-top))] md:pt-0 pb-16 md:pb-0 overflow-hidden"
+      className="relative min-h-[100svh] md:min-h-[700px] flex items-center px-4 md:px-12 pt-[calc(5.5rem+env(safe-area-inset-top))] md:pt-32 pb-16 md:pb-0 overflow-hidden"
       id="الرئيسية"
     >
       {/* Farm background image */}
