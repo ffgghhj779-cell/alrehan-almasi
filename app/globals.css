@@ -2,13 +2,13 @@
 
 @theme {
   --color-primary: #FDFBF7;
-  --color-secondary: #EACCA0;
-  --color-blue-primary: #0c2549;
-  --color-blue-deep: #072040;
-  --color-orange-accent: #87714e;
-  --color-green-accent: #608ac8;
-  --color-green-bright: #EACCA0;
-  --color-text-dark: #072040;
+  --color-secondary: #F3B64A;
+  --color-blue-primary: #113264;
+  --color-blue-deep: #0A1B35;
+  --color-orange-accent: #E59F24;
+  --color-green-accent: #159F5C;
+  --color-green-bright: #20C475;
+  --color-text-dark: #0A1B35;
 
   --font-family-cairo: var(--font-cairo), "Cairo", sans-serif;
   --font-family-tajawal: var(--font-tajawal), "Tajawal", sans-serif;
