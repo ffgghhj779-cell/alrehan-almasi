@@ -78,15 +78,23 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
 
               <div className="flex flex-col md:flex-row h-full overflow-y-auto md:overflow-hidden">
                 {/* Image Section */}
-                <div className="relative w-full md:w-1/2 aspect-square md:aspect-auto bg-gray-50 shrink-0">
+                <div className="relative w-full md:w-1/2 aspect-square md:aspect-auto bg-white shrink-0 p-4 flex items-center justify-center">
                   <Image
                     src={product.image}
                     alt={product.name}
                     fill
-                    className={`object-cover ${outOfStock ? 'grayscale-[40%]' : ''}`}
+                    className={`object-contain filter contrast-[1.1] saturate-[1.1] brightness-[1.05] p-2 ${outOfStock ? 'grayscale-[40%]' : ''}`}
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  
+                  {/* Watermark Logo Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-25">
+                    <span className="font-tajawal font-black text-2xl md:text-4xl tracking-widest text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] transform -rotate-12 select-none border-y-2 border-white/50 px-6 py-2">
+                      الرهان الماسي
+                    </span>
+                  </div>
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
                   <div className="absolute top-6 left-6">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold font-cairo text-white bg-blue-deep/90 backdrop-blur-md rounded-full">
                       <Sparkles size={14} />

@@ -88,18 +88,26 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
       style={{ willChange: 'transform, opacity' }}
     >
       {/* Image */}
-      <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-secondary to-gray-100 shrink-0">
+      <div className="relative aspect-[4/3] overflow-hidden bg-white shrink-0 ring-1 ring-gray-100 flex items-center justify-center p-2">
         <ProductImage
           src={prod.image}
           sku={prod.sku}
           category={prod.category}
           alt={prod.name}
-          className={`transition-transform duration-700 ease-out object-cover ${
+          className={`transition-transform duration-700 ease-out object-contain w-full h-full filter contrast-[1.1] saturate-[1.1] brightness-[1.05] ${
             outOfStock ? 'grayscale-[40%] scale-100' : 'group-hover:scale-105'
           }`}
           sizes="(max-width: 640px) 100vw, 320px"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+        
+        {/* Watermark Logo Overlay */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-25">
+          <span className="font-tajawal font-black text-xl md:text-3xl tracking-widest text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] transform -rotate-12 select-none border-y-2 border-white/50 px-4 py-1">
+            الرهان الماسي
+          </span>
+        </div>
+
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
         <div className="absolute top-2.5 right-2.5">
           <span className="inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-bold font-cairo text-white bg-blue-deep/85 backdrop-blur-sm rounded-full border border-white/20">

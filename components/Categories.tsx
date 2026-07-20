@@ -33,16 +33,25 @@ function CategoryCard({
             : 'h-[220px] md:h-[260px] rounded-2xl'
         }`}
       >
+        <div className="absolute inset-0 bg-white" />
         <Image
           src={cat.image}
           alt={cat.name}
           fill
           quality={100}
           sizes={compact ? '220px' : '(max-width: 768px) 50vw, 25vw'}
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          className="object-contain transition-transform duration-700 ease-out group-hover:scale-105 filter contrast-[1.1] saturate-[1.1] brightness-[1.05] p-2"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-blue-deep/95 via-blue-deep/50 to-blue-deep/15" />
+        
+        {/* Watermark Logo Overlay */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
+          <span className="font-tajawal font-black text-2xl md:text-3xl tracking-widest text-blue-deep/30 transform -rotate-12 select-none px-4 py-1">
+            الرهان الماسي
+          </span>
+        </div>
+
+        <div className="absolute inset-0 bg-gradient-to-t from-blue-deep/95 via-blue-deep/40 to-transparent pointer-events-none" />
         <div className="absolute inset-0 ring-1 ring-inset ring-white/15 rounded-2xl pointer-events-none" />
 
         <div className="absolute top-2.5 left-2.5">
