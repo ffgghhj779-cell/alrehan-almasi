@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Categories from '@/components/Categories';
+import FarmSection from '@/components/FarmSection';
 import VideoSection from '@/components/VideoSection';
 import About from '@/components/About';
 import QualitySection from '@/components/QualitySection';
@@ -22,6 +23,7 @@ export default async function Home() {
       <Navbar />
       <Hero />
       <Categories />
+      <FarmSection />
       <VideoSection />
       <About />
       <QualitySection />

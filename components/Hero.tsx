@@ -32,7 +32,7 @@ export default function Hero() {
 
       {/* Seamless blend at bottom */}
       <div
-        className="absolute inset-x-0 bottom-0 h-40 md:h-32 bg-gradient-to-b from-transparent to-white z-[5] pointer-events-none"
+        className="absolute inset-x-0 bottom-0 h-40 md:h-32 bg-gradient-to-b from-transparent to-primary z-[5] pointer-events-none"
         aria-hidden="true"
       />
 
