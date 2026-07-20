@@ -20,15 +20,24 @@ export default async function ProductsPage({
       <Navbar />
       <section className="pt-24 sm:pt-32 pb-20 sm:pb-24 overflow-x-hidden">
         <div className="container mx-auto px-4 md:px-8 max-w-[1400px] overflow-x-hidden">
-          <div className="mb-8 sm:mb-10">
-            <h1 className="font-cairo text-2xl sm:text-3xl md:text-5xl font-bold text-blue-deep mb-3 sm:mb-4">
-              دليل المنتجات
-            </h1>
-            <div className="w-24 h-1 bg-orange-accent rounded-full mb-4" />
-            <p className="text-gray-600 font-tajawal text-sm sm:text-lg max-w-2xl">
-              تصفح كامل قائمة منتجات الرهان الماسي مع أسعار الجملة المخصصة حسب مستوى
-              عميلك B2B.
-            </p>
+          <div className="relative rounded-3xl overflow-hidden mb-12 luxury-shadow">
+            <div className="absolute inset-0 bg-blue-deep">
+              <img
+                src="https://images.unsplash.com/photo-1548550160-a93f6a1a10c4?w=1920&h=400&q=90&auto=format&fit=crop&crop=center"
+                alt="دليل المنتجات"
+                className="w-full h-full object-cover opacity-40 mix-blend-overlay"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-deep/95 via-blue-deep/80 to-transparent" />
+            </div>
+            <div className="relative z-10 px-6 py-16 md:px-12 md:py-20 flex flex-col justify-center min-h-[300px]">
+              <h1 className="font-cairo text-3xl md:text-5xl font-black text-white mb-4 leading-tight">
+                دليل المنتجات الشامل
+              </h1>
+              <div className="w-20 h-1.5 bg-orange-accent rounded-full mb-6" />
+              <p className="text-gray-200 font-tajawal text-sm md:text-lg max-w-xl leading-relaxed">
+                تصفح كامل قائمة منتجات الرهان الماسي من الدواجن الطازجة والمجمدة بمعايير توريد احترافية وأسعار جملة مخصصة لك.
+              </p>
+            </div>
           </div>
           <TierSelector />
           <div className="mt-8">

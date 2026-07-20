@@ -4,14 +4,18 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ShoppingBag } from 'lucide-react';
 import BottomSheet from './BottomSheet';
+import { useQuote } from './QuoteContext';
 
 const navItems = ['الرئيسية', 'الأقسام', 'من نحن', 'المميزات', 'منتجاتنا', 'المعرض'];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { items } = useQuote();
+
+  const itemCount = items.reduce((acc, item) => acc + item.quantity, 0);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -39,15 +43,15 @@ export default function Navbar() {
             href="/"
             className="flex items-center gap-3 min-w-0 flex-1 md:flex-none group touch-press active:scale-[0.98] transition-transform"
           >
-            <div className="relative h-10 w-10 md:h-24 md:w-24 shrink-0 rounded-xl md:rounded-2xl overflow-hidden luxury-shadow ring-2 ring-blue-primary/10 group-hover:scale-[1.02] transition-transform duration-300">
+            <div className="relative h-10 w-10 md:h-20 md:w-20 shrink-0 rounded-xl md:rounded-2xl overflow-hidden luxury-shadow ring-2 ring-white bg-white p-1 md:p-1.5 group-hover:scale-[1.02] transition-transform duration-300">
               <Image
                 src="/logo.png"
                 alt="شعار الرهان الماسي"
                 fill
                 quality={100}
-                className="object-cover"
+                className="object-contain"
                 priority
-                sizes="(max-width: 768px) 40px, 96px"
+                sizes="(max-width: 768px) 40px, 80px"
               />
             </div>
             <div className="flex flex-col justify-center min-w-0 md:gap-1.5">
@@ -78,24 +82,52 @@ export default function Navbar() {
             </Link>
           </nav>
 
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event('open-cart'))}
+              className="relative p-2.5 text-white hover:text-orange-accent transition-colors touch-target touch-press active:scale-95"
+              aria-label={itemCount > 0 ? `عرض السلة (${itemCount} منتج)` : 'عرض السلة'}
+            >
+              <ShoppingBag size={22} />
+              {itemCount > 0 && (
+                <span className="absolute top-1.5 right-1 bg-orange-accent text-white text-[10px] font-bold min-w-[18px] h-[18px] px-1 flex items-center justify-center rounded-full luxury-shadow border border-blue-deep">
+                  {itemCount}
+                </span>
+              )}
+            </button>
             <Link
               href="/#منتجاتنا"
-              className="px-6 py-2.5 bg-white text-blue-deep text-sm font-bold hover:bg-orange-accent hover:text-white transition-all luxury-shadow touch-press active:scale-95 rounded-sm"
+              className="px-5 py-2.5 bg-white text-blue-deep text-sm font-bold hover:bg-orange-accent hover:text-white transition-all luxury-shadow touch-press active:scale-95 rounded-lg"
             >
               طلب عرض سعر
             </Link>
           </div>
 
-          <button
-            type="button"
-            className="md:hidden shrink-0 text-white touch-target touch-press active:scale-95 transition-transform flex items-center justify-center w-11 h-11 rounded-xl border border-white/20 bg-white/10"
-            onClick={() => setIsMobileMenuOpen((open) => !open)}
-            aria-label={isMobileMenuOpen ? 'إغلاق القائمة' : 'فتح القائمة'}
-            aria-expanded={isMobileMenuOpen}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex md:hidden items-center gap-2">
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event('open-cart'))}
+              className="relative text-white touch-target touch-press active:scale-95 transition-transform flex items-center justify-center w-10 h-10 rounded-xl border border-white/20 bg-white/10"
+              aria-label={itemCount > 0 ? `عرض السلة (${itemCount} منتج)` : 'عرض السلة'}
+            >
+              <ShoppingBag size={20} />
+              {itemCount > 0 && (
+                <span className="absolute -top-1.5 -right-1.5 bg-orange-accent text-white text-[10px] font-bold min-w-[20px] h-[20px] px-1 flex items-center justify-center rounded-full luxury-shadow">
+                  {itemCount}
+                </span>
+              )}
+            </button>
+            <button
+              type="button"
+              className="text-white touch-target touch-press active:scale-95 transition-transform flex items-center justify-center w-10 h-10 rounded-xl border border-white/20 bg-white/10"
+              onClick={() => setIsMobileMenuOpen((open) => !open)}
+              aria-label={isMobileMenuOpen ? 'إغلاق القائمة' : 'فتح القائمة'}
+              aria-expanded={isMobileMenuOpen}
+            >
+              {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
       </motion.header>
 

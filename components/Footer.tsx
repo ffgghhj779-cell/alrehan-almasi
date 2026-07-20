@@ -8,8 +8,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div>
             <div className="flex items-center gap-4 mb-8">
-              <div className="relative w-20 h-20 shrink-0 rounded-2xl overflow-hidden luxury-shadow ring-2 ring-orange-accent/30">
-                <Image src="/logo.png" alt="شعار الرهان الماسي" fill quality={100} className="object-cover" />
+              <div className="relative w-24 h-24 shrink-0 rounded-2xl overflow-hidden luxury-shadow ring-2 ring-white/20 bg-white p-2">
+                <Image src="/logo.png" alt="شعار الرهان الماسي" fill quality={100} className="object-contain" />
               </div>
               <span className="font-cairo font-bold text-3xl text-white">الرهان الماسي</span>
             </div>

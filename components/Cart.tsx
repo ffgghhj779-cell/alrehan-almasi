@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback, useMemo } from 'react';
+import { useState, useRef, useCallback, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   ShoppingBag,
@@ -429,6 +429,12 @@ export default function Cart() {
     setError(null);
     setOrderNumber(null);
     setIsSubmitting(false);
+  }, []);
+
+  useEffect(() => {
+    const handleOpen = () => setIsOpen(true);
+    window.addEventListener('open-cart', handleOpen);
+    return () => window.removeEventListener('open-cart', handleOpen);
   }, []);
 
   const closePanel = useCallback(() => {

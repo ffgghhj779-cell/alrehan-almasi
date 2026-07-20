@@ -4,6 +4,7 @@ import './globals.css';
 
 import Providers from '@/components/Providers';
 import PageTransition from '@/components/PageTransition';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 const cairo = Cairo({
   subsets: ['arabic', 'latin'],
@@ -41,6 +42,7 @@ export default function RootLayout({
       >
         <Providers>
           <PageTransition>{children}</PageTransition>
+          <WhatsAppButton />
         </Providers>
       </body>
     </html>
