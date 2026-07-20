@@ -53,34 +53,32 @@ export default function Hero() {
 
         {/* Main title */}
         <motion.h1
-          className="font-cairo font-bold leading-tight text-white drop-shadow-lg flex flex-col items-center gap-3"
+          className="font-tajawal font-extrabold leading-tight text-white drop-shadow-2xl flex flex-col items-center gap-1 md:gap-2"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <span className="text-3xl md:text-4xl lg:text-5xl tracking-wide">مؤسسة الرهان الماسي</span>
-          <span className="text-2xl md:text-3xl lg:text-4xl text-orange-accent drop-shadow-md">للدواجن</span>
+          <span className="text-4xl md:text-6xl lg:text-[4.5rem] tracking-tight">مؤسسة الرهان الماسي</span>
+          <span className="text-3xl md:text-5xl lg:text-[3.5rem] text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-orange-accent to-yellow-400 pb-2">للدواجن</span>
         </motion.h1>
 
         {/* Premium Slogan */}
         <motion.div
-          className="flex items-center justify-center w-full mt-4"
+          className="flex items-center justify-center w-full mt-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
         >
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-[1px] bg-gradient-to-r from-transparent to-orange-accent/50 hidden md:block" />
-            <span className="text-white/90 text-lg md:text-xl font-cairo font-semibold tracking-widest px-4 py-1.5 border border-white/10 rounded-full bg-white/5 backdrop-blur-sm">
-              من المزرعة إلى المائدة
-            </span>
-            <div className="w-12 h-[1px] bg-gradient-to-l from-transparent to-orange-accent/50 hidden md:block" />
-          </div>
+          <p className="text-secondary text-xl md:text-3xl font-tajawal font-bold tracking-wide drop-shadow-lg flex items-center gap-4">
+            <span className="w-10 md:w-16 h-[2px] bg-secondary/60 rounded-full"></span>
+            من المزرعة إلى المائدة
+            <span className="w-10 md:w-16 h-[2px] bg-secondary/60 rounded-full"></span>
+          </p>
         </motion.div>
 
         {/* Description */}
         <motion.p
-          className="text-sm md:text-base lg:text-lg text-white/70 leading-relaxed max-w-2xl font-cairo font-medium pt-4"
+          className="text-sm md:text-lg lg:text-xl text-white/80 leading-relaxed max-w-2xl font-tajawal font-medium pt-6"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
