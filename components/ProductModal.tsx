@@ -8,6 +8,7 @@ import { useAuth } from './AuthContext';
 import { calculateTierPrice, getDiscountForTier } from '@/lib/supabase';
 import { isProductOutOfStock, type Product } from '@/lib/products';
 import { useState, useEffect } from 'react';
+import ProductImage from './ProductImage';
 
 type ProductModalProps = {
   product: Product | null;
@@ -79,10 +80,11 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
               <div className="flex flex-col md:flex-row h-full overflow-y-auto md:overflow-hidden">
                 {/* Image Section */}
                 <div className="relative w-full md:w-1/2 aspect-square md:aspect-auto bg-white shrink-0 p-4 flex items-center justify-center">
-                  <Image
+                  <ProductImage
                     src={product.image}
+                    sku={product.sku}
+                    category={product.category}
                     alt={product.name}
-                    fill
                     className={`object-contain filter contrast-[1.1] saturate-[1.1] brightness-[1.05] p-2 ${outOfStock ? 'grayscale-[40%]' : ''}`}
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
