@@ -36,7 +36,7 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <div className="container mx-auto relative z-10 w-full space-y-5 sm:space-y-7 flex flex-col items-center md:items-start text-center md:text-right max-w-3xl">
+      <div className="container mx-auto relative z-10 w-full space-y-6 flex flex-col items-center text-center max-w-4xl pt-8 md:pt-16">
 
         {/* Badge */}
         <motion.div
@@ -46,39 +46,39 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
         >
           <span className="w-2 h-2 rounded-full bg-secondary animate-pulse shrink-0" />
-          <span className="text-secondary text-[10px] md:text-xs font-bold font-cairo tracking-widest uppercase">
+          <span className="text-secondary text-[10px] md:text-sm font-bold font-cairo tracking-widest uppercase">
             الرهان الماسي للدواجن
           </span>
         </motion.div>
 
         {/* Main title */}
         <motion.h1
-          className="font-cairo text-3xl md:text-5xl lg:text-6xl font-black leading-[1.3] text-white"
+          className="font-cairo text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white drop-shadow-md"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
           مؤسسة الرهان الماسي{' '}
-          <span className="text-secondary">للدواجن</span>
+          <span className="text-secondary whitespace-nowrap">للدواجن</span>
         </motion.h1>
 
         {/* Slogan */}
         <motion.div
-          className="flex items-center gap-3"
+          className="flex items-center gap-4 justify-center w-full"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
         >
-          <div className="w-8 h-[2px] bg-orange-accent hidden sm:block" />
-          <p className="text-secondary text-base md:text-xl lg:text-2xl font-bold font-cairo">
+          <div className="w-12 md:w-20 h-[2px] bg-orange-accent/80 hidden sm:block" />
+          <p className="text-secondary text-lg md:text-2xl lg:text-3xl font-bold font-cairo drop-shadow-sm">
             من المزرعة إلى المائدة
           </p>
-          <div className="w-8 h-[2px] bg-orange-accent hidden sm:block" />
+          <div className="w-12 md:w-20 h-[2px] bg-orange-accent/80 hidden sm:block" />
         </motion.div>
 
         {/* Description */}
         <motion.p
-          className="text-xs sm:text-sm md:text-base text-white/80 leading-relaxed max-w-lg font-tajawal mx-auto md:mx-0"
+          className="text-sm md:text-lg text-white/90 leading-relaxed max-w-2xl font-tajawal mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
@@ -89,14 +89,14 @@ export default function Hero() {
 
         {/* CTA Buttons */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-3 pt-4 w-full max-w-xs sm:max-w-none mx-auto md:mx-0 items-stretch sm:items-center"
+          className="flex flex-col sm:flex-row gap-4 pt-6 w-full max-w-sm sm:max-w-none mx-auto justify-center items-center"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.35, ease: 'easeOut' }}
         >
           <a
             href="/#منتجاتنا"
-            className="w-full sm:w-auto sm:min-w-[180px] min-h-[48px] px-6 py-3 bg-orange-accent text-white font-bold text-sm luxury-shadow flex items-center justify-center gap-2 transition-all duration-300 hover:bg-orange-accent/90 rounded-xl touch-press active:scale-[0.98]"
+            className="w-full sm:w-auto sm:min-w-[200px] min-h-[52px] px-8 py-3.5 bg-orange-accent text-white font-bold text-base luxury-shadow-lg flex items-center justify-center gap-2 transition-all duration-300 hover:bg-orange-accent/90 rounded-2xl touch-press hover:-translate-y-1"
           >
             <span>تصفح منتجاتنا</span>
             <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -108,10 +108,10 @@ export default function Hero() {
             href="https://wa.me/966560706018"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto sm:min-w-[180px] min-h-[48px] px-6 py-3 bg-transparent border border-white/30 text-white font-bold text-sm hover:bg-white/10 flex items-center justify-center gap-2 transition-all duration-300 rounded-xl touch-press active:scale-[0.98]"
+            className="w-full sm:w-auto sm:min-w-[200px] min-h-[52px] px-8 py-3.5 bg-transparent border-2 border-white/30 text-white font-bold text-base hover:bg-white/10 flex items-center justify-center gap-3 transition-all duration-300 rounded-2xl touch-press hover:-translate-y-1"
           >
             <span dir="ltr" className="tracking-wider">+966 56 070 6018</span>
-            <Phone size={18} className="text-orange-accent shrink-0" />
+            <Phone size={20} className="text-orange-accent shrink-0" />
           </a>
         </motion.div>
 
