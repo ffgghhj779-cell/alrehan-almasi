@@ -20,8 +20,8 @@ export type Product = {
   descriptionAr: string | null;
   stockQuantity: number;
   unitLabel: string;
-  originCountry: string | null;
-  packaging: string | null;
+  originCountry?: string | null;
+  packaging?: string | null;
 };
 
 export type FetchProductsResult = {
