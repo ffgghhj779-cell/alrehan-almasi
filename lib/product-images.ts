@@ -77,29 +77,33 @@ export const GALLERY_IMAGES = [
 /** Canonical image per SKU */
 export const SKU_IMAGES: Record<string, string> = {
   // Chilled chicken
-  'ARA-CHK-001': '/assets/chicken-fresh-basket-branded.png',
-  'ARA-CHK-002': '/assets/chicken-chilled-bag-branded.png',
-  'ARA-CHK-003': '/assets/chicken-fresh-raw.jpeg',
+  'ARA-CHK-001': '/assets/real/media_12.jpeg',
+  'ARA-CHK-002': '/assets/real/media_12.jpeg',
+  'ARA-CHK-003': '/assets/real/media_12.jpeg',
   // Frozen chicken
-  'ARA-FRZ-001': '/assets/chicken-frozen-sadia-branded.png',
-  'ARA-FRZ-002': '/assets/chicken-frozen-box-branded.png',
-  'ARA-FRZ-003': buildImageUrl(PHOTOS.breast),
-  'ARA-FRZ-004': buildImageUrl(PHOTOS.chicken, { crop: 'entropy' }),
+  'ARA-FRZ-001': '/assets/real/media_10.jpeg',
+  'ARA-FRZ-002': '/assets/real/media_11.jpeg',
+  'ARA-FRZ-003': 'https://images.unsplash.com/photo-1604503468506-a8da13daff91?w=600&q=85&auto=format&fit=crop',
+  'ARA-FRZ-004': '/assets/real/media_11.jpeg',
   // Shawarma
-  'ARA-SHW-001': buildImageUrl(PHOTOS.shawarma),
-  'ARA-SHW-002': buildImageUrl(PHOTOS.shawarma, { crop: 'center' }),
+  'ARA-SHW-001': 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600&q=85&auto=format&fit=crop',
+  'ARA-SHW-002': 'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=600&q=85&auto=format&fit=crop',
   // Manufactured
-  'ARA-MNF-001': buildImageUrl(PHOTOS.nuggets),
-  'ARA-MNF-002': buildImageUrl(PHOTOS.nuggets, { crop: 'center' }),
+  'ARA-MNF-001': '/assets/real/media_13.jpeg',
+  'ARA-MNF-002': '/assets/real/media_13.jpeg',
+  'ARA-NUG-001': '/assets/real/media_13.jpeg',
   // Eggs
-  'ARA-EGG-001': '/assets/eggs-tray.jpeg',
+  'ARA-EGG-001': '/assets/real/media_15.jpeg',
   // Meat
-  'ARA-MET-001': buildImageUrl(PHOTOS.meat),
-  'ARA-MET-002': buildImageUrl(PHOTOS.meat, { crop: 'center' }),
+  'ARA-MET-001': 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=600&q=85&auto=format&fit=crop',
+  'ARA-MET-002': 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=600&q=85&auto=format&fit=crop',
   // Lamb
-  'ARA-LMB-001': buildImageUrl(PHOTOS.lamb),
-  'ARA-LMB-002': buildImageUrl(PHOTOS.lamb, { crop: 'center' }),
-  'ARA-LMB-003': buildImageUrl(PHOTOS.lamb, { crop: 'entropy' }),
+  'ARA-LMB-001': 'https://images.unsplash.com/photo-1544025162-d76538415491?w=600&q=85&auto=format&fit=crop',
+  'ARA-LMB-002': 'https://images.unsplash.com/photo-1603048588665-791ca794ae1a?w=600&q=85&auto=format&fit=crop',
+  'ARA-LMB-003': 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=600&q=85&auto=format&fit=crop',
+  'ARA-LMB-004': 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=85&auto=format&fit=crop',
+  'ARA-LMB-005': 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=600&q=85&auto=format&fit=crop',
+  'ARA-LMB-006': 'https://images.unsplash.com/photo-1603048588665-791ca794ae1a?w=600&q=85&auto=format&fit=crop',
   // Old SKUs kept for compatibility
   'ARA-SAL-001': buildImageUrl(PHOTOS.salmon),
   'ARA-FSH-002': buildImageUrl(PHOTOS.fish, { crop: 'center' }),
@@ -110,20 +114,20 @@ export const SKU_IMAGES: Record<string, string> = {
 };
 
 export const CATEGORY_IMAGES: Record<string, string> = {
-  'دجاج مجمد': '/assets/chicken-frozen-sadia-branded.png',
-  'دجاج مبرد': '/assets/chicken-fresh-basket-branded.png',
-  'شاورما مبردة': buildImageUrl(PHOTOS.shawarma),
-  'مصنعات الدجاج': buildImageUrl(PHOTOS.nuggets),
-  'بيض': '/assets/eggs-tray.jpeg',
-  'لحوم': buildImageUrl(PHOTOS.meat),
-  'لحوم الأغنام': buildImageUrl(PHOTOS.lamb),
+  'دجاج مجمد': '/assets/real/media_10.jpeg',
+  'دجاج مبرد': '/assets/real/media_5.jpeg',
+  'شاورما مبردة': 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600&q=85&auto=format&fit=crop',
+  'مصنعات الدجاج': '/assets/real/media_13.jpeg',
+  'بيض': '/assets/real/media_15.jpeg',
+  'لحوم': 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=600&q=85&auto=format&fit=crop',
+  'لحوم الأغنام': 'https://images.unsplash.com/photo-1544025162-d76538415491?w=600&q=85&auto=format&fit=crop',
   // Legacy categories
   'الأسماك الطازجة': buildImageUrl(PHOTOS.fish),
-  'الدواجن الطازجة': '/assets/chicken-fresh-basket-branded.png',
+  'الدواجن الطازجة': '/assets/real/media_5.jpeg',
   'الأرز': buildImageUrl(PHOTOS.rice),
   'الزيوت الغذائية': buildImageUrl(PHOTOS.oil),
-  'المنتجات المجمدة': '/assets/chicken-frozen-sadia-branded.png',
-  'اللحوم الطازجة': buildImageUrl(PHOTOS.meat),
+  'المنتجات المجمدة': '/assets/real/media_10.jpeg',
+  'اللحوم الطازجة': 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=600&q=85&auto=format&fit=crop',
   'المواد الغذائية': buildImageUrl(PHOTOS.grocery),
 };
 
