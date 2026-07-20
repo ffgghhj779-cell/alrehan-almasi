@@ -63,11 +63,16 @@ export default function Hero() {
 
         {/* Slogan */}
         <motion.div
-          className="flex items-center w-full"
+          className="flex items-center gap-3 w-full"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
         >
+          <div className="p-2 bg-orange-accent/10 rounded-lg border border-orange-accent/20">
+            <svg className="w-6 h-6 text-orange-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+            </svg>
+          </div>
           <p className="text-secondary text-xl md:text-2xl lg:text-3xl font-bold font-tajawal drop-shadow-sm">
             من المزرعة إلى المائدة
           </p>
