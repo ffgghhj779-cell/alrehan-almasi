@@ -145,36 +145,36 @@ export const STORE_CATEGORIES = [
   {
     name: 'دجاج مجمد',
     subtitle: 'دجاج مجمد عالي الجودة',
-    image: '/assets/real/media_1.jpeg',
+    image: '/assets/real/media_10.jpeg',
   },
   {
     name: 'دجاج مبرد',
     subtitle: 'دواجن مبردة طازجة يومياً',
-    image: '/assets/real/media_2.jpeg',
+    image: '/assets/real/media_5.jpeg',
   },
   {
     name: 'شاورما مبردة',
     subtitle: 'شاورما طازجة جاهزة',
-    image: '/assets/real/media_3.jpeg',
+    image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600&q=85&auto=format&fit=crop',
   },
   {
     name: 'مصنعات الدجاج',
     subtitle: 'استربس، زنجر، بانيه والمزيد',
-    image: '/assets/real/media_5.jpeg',
+    image: '/assets/real/media_13.jpeg',
   },
   {
     name: 'بيض',
     subtitle: 'بيض مائدة طازج',
-    image: '/assets/real/media_6.jpeg',
+    image: '/assets/real/media_15.jpeg',
   },
   {
     name: 'لحوم',
     subtitle: 'لحوم بقر وعجل مبردة وطازجة',
-    image: '/assets/real/media_7.jpeg',
+    image: 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=600&q=85&auto=format&fit=crop',
   },
   {
     name: 'لحوم الأغنام',
     subtitle: 'لحوم أغنام طازجة (حري وسواكني)',
-    image: '/assets/real/media_8.jpeg',
+    image: 'https://images.unsplash.com/photo-1544025162-d76538415491?w=600&q=85&auto=format&fit=crop',
   },
 ] as const;
