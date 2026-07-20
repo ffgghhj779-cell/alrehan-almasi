@@ -19,6 +19,10 @@ export const PHOTOS = {
   chicken: '1598103442097-8b74394b95c6',
   breast: '1603360946369-dc9bb6258143',
   meat: '1607623814075-e51df1bdc82f',
+  lamb: '1544025162-d76538415491',
+  shawarma: '1565299507177-b0ac66763828',
+  nuggets: '1562967916-eb82221dfb92',
+  eggs: '1582722872445-44dc9d70e95e',
   rice: '1586201375761-83865001e31c',
   oil: '1474979266404-7eaacbcd87c5',
   frozenVeg: '1610832958506-aa56368176cf',
@@ -30,65 +34,84 @@ export const PHOTOS = {
   foodBowl: '1546069901-ba9599a7e63c',
 } as const;
 
-/** Gallery — verified food-supply imagery */
+/** Gallery — real product imagery from data folder + Unsplash */
 export const GALLERY_IMAGES = [
   {
-    src: buildImageUrl(PHOTOS.fish, { w: 800, h: 600, crop: 'center' }),
-    label: 'أسماك طازجة يومياً',
-    alt: 'أسماك طازجة من البحر',
+    src: '/assets/chicken-supermarket.jpeg',
+    label: 'دواجن مبردة في الأسواق',
+    alt: 'أكياس دجاج مبرد في ثلاجة السوبرماركت',
   },
   {
-    src: buildImageUrl(PHOTOS.frozenVeg, { w: 600, h: 800, crop: 'entropy' }),
-    label: 'سلسلة تبريد متكاملة',
-    alt: 'خضار مجمدة في التخزين المبرد',
+    src: '/assets/eggs-tray.jpeg',
+    label: 'بيض مائدة الرهان الماسي',
+    alt: 'طبق بيض طازج',
   },
   {
-    src: buildImageUrl(PHOTOS.chicken, { w: 600, h: 800, crop: 'center' }),
-    label: 'دواجن مبردة',
-    alt: 'دواجن طازجة معتمدة',
+    src: '/assets/chicken-frozen-sadia.jpeg',
+    label: 'دجاج مجمد بالجملة',
+    alt: 'أكياس دجاج مجمد بالجملة',
   },
   {
-    src: buildImageUrl(PHOTOS.rice, { w: 800, h: 500, crop: 'entropy' }),
-    label: 'أرز ومواد غذائية',
-    alt: 'أرز بسمتي premium',
+    src: '/assets/chicken-fresh-basket.jpeg',
+    label: 'دجاج مبرد نخبة أولى',
+    alt: 'كيسا دجاج مبرد في سلة مع ثلج',
   },
   {
-    src: buildImageUrl(PHOTOS.meat, { w: 800, h: 500, crop: 'center' }),
-    label: 'لحوم طازجة',
-    alt: 'لحوم بلدي طازجة',
+    src: '/assets/eggs-carton-front.jpeg',
+    label: 'بيض طازج يومي',
+    alt: 'صناديق بيض طازج',
   },
 ] as const;
 
-/** Canonical image per SKU — overrides broken DB URLs. */
+/** Canonical image per SKU */
 export const SKU_IMAGES: Record<string, string> = {
+  // Chilled chicken
+  'ARA-CHK-001': '/assets/chicken-fresh-basket.jpeg',
+  'ARA-CHK-002': '/assets/chicken-chilled-bag.jpeg',
+  'ARA-CHK-003': '/assets/chicken-fresh-raw.jpeg',
+  // Frozen chicken
+  'ARA-FRZ-001': '/assets/chicken-frozen-sadia.jpeg',
+  'ARA-FRZ-002': '/assets/chicken-frozen-box.jpeg',
+  'ARA-FRZ-003': buildImageUrl(PHOTOS.breast),
+  'ARA-FRZ-004': buildImageUrl(PHOTOS.chicken, { crop: 'entropy' }),
+  // Shawarma
+  'ARA-SHW-001': buildImageUrl(PHOTOS.shawarma),
+  'ARA-SHW-002': buildImageUrl(PHOTOS.shawarma, { crop: 'center' }),
+  // Manufactured
+  'ARA-MNF-001': buildImageUrl(PHOTOS.nuggets),
+  'ARA-MNF-002': buildImageUrl(PHOTOS.nuggets, { crop: 'center' }),
+  // Eggs
+  'ARA-EGG-001': '/assets/eggs-tray.jpeg',
+  // Meat
+  'ARA-MET-001': buildImageUrl(PHOTOS.meat),
+  'ARA-MET-002': buildImageUrl(PHOTOS.meat, { crop: 'center' }),
+  // Lamb
+  'ARA-LMB-001': buildImageUrl(PHOTOS.lamb),
+  'ARA-LMB-002': buildImageUrl(PHOTOS.lamb, { crop: 'center' }),
+  'ARA-LMB-003': buildImageUrl(PHOTOS.lamb, { crop: 'entropy' }),
+  // Old SKUs kept for compatibility
   'ARA-SAL-001': buildImageUrl(PHOTOS.salmon),
   'ARA-FSH-002': buildImageUrl(PHOTOS.fish, { crop: 'center' }),
-  'ARA-FSH-003': buildImageUrl(PHOTOS.salmon, { crop: 'top' }),
   'ARA-SHR-001': buildImageUrl(PHOTOS.shrimp),
-  'ARA-CHK-001': buildImageUrl(PHOTOS.chicken),
-  'ARA-CHK-002': buildImageUrl(PHOTOS.breast),
-  'ARA-CHK-003': buildImageUrl(PHOTOS.chicken, { crop: 'edges' }),
   'ARA-RIC-001': buildImageUrl(PHOTOS.rice),
-  'ARA-RIC-002': buildImageUrl(PHOTOS.rice, { crop: 'top' }),
-  'ARA-RIC-003': buildImageUrl(PHOTOS.rice, { crop: 'bottom' }),
-  'ARA-OLV-001': buildImageUrl(PHOTOS.oil),
-  'ARA-OIL-001': buildImageUrl(PHOTOS.oil, { crop: 'center' }),
-  'ARA-OIL-002': buildImageUrl(PHOTOS.oil, { crop: 'edges' }),
-  'ARA-OIL-003': buildImageUrl(PHOTOS.oil, { crop: 'entropy' }),
-  'ARA-FRZ-001': buildImageUrl(PHOTOS.foodSpread),
-  'ARA-FRZ-002': buildImageUrl(PHOTOS.frozenVeg),
-  'ARA-FRZ-003': buildImageUrl(PHOTOS.chicken, { crop: 'entropy' }),
-  'ARA-FRZ-004': buildImageUrl(PHOTOS.salmon, { crop: 'edges' }),
-  'ARA-MET-001': buildImageUrl(PHOTOS.meat),
+  'ARA-OIL-001': buildImageUrl(PHOTOS.oil),
   'ARA-DAI-001': buildImageUrl(PHOTOS.milk),
 };
 
 export const CATEGORY_IMAGES: Record<string, string> = {
+  'دجاج مجمد': '/assets/chicken-frozen-sadia.jpeg',
+  'دجاج مبرد': '/assets/chicken-fresh-basket.jpeg',
+  'شاورما مبردة': buildImageUrl(PHOTOS.shawarma),
+  'مصنعات الدجاج': buildImageUrl(PHOTOS.nuggets),
+  'بيض': '/assets/eggs-tray.jpeg',
+  'لحوم': buildImageUrl(PHOTOS.meat),
+  'لحوم الأغنام': buildImageUrl(PHOTOS.lamb),
+  // Legacy categories
   'الأسماك الطازجة': buildImageUrl(PHOTOS.fish),
-  'الدواجن الطازجة': buildImageUrl(PHOTOS.chicken),
+  'الدواجن الطازجة': '/assets/chicken-fresh-basket.jpeg',
   'الأرز': buildImageUrl(PHOTOS.rice),
   'الزيوت الغذائية': buildImageUrl(PHOTOS.oil),
-  'المنتجات المجمدة': buildImageUrl(PHOTOS.frozenVeg),
+  'المنتجات المجمدة': '/assets/chicken-frozen-sadia.jpeg',
   'اللحوم الطازجة': buildImageUrl(PHOTOS.meat),
   'المواد الغذائية': buildImageUrl(PHOTOS.grocery),
 };
@@ -109,33 +132,38 @@ export function resolveProductImage(
 
 export const STORE_CATEGORIES = [
   {
-    name: 'الأسماك الطازجة',
-    subtitle: 'سلمون · هامور · روبيان',
-    image: CATEGORY_IMAGES['الأسماك الطازجة'],
+    name: 'دجاج مجمد',
+    subtitle: 'نخبة أولى • صدور • أفخاذ • شاورما',
+    image: CATEGORY_IMAGES['دجاج مجمد'],
   },
   {
-    name: 'الدواجن الطازجة',
-    subtitle: 'دجاج كامل · فيليه · أفخاذ',
-    image: CATEGORY_IMAGES['الدواجن الطازجة'],
+    name: 'دجاج مبرد',
+    subtitle: 'طازج يومياً • نخبة أولى • شاورما مبردة',
+    image: CATEGORY_IMAGES['دجاج مبرد'],
   },
   {
-    name: 'الأرز',
-    subtitle: 'بسمتي · مصري · ياسمين',
-    image: CATEGORY_IMAGES['الأرز'],
+    name: 'شاورما مبردة',
+    subtitle: 'شاورما دجاج مبرد وطازج',
+    image: CATEGORY_IMAGES['شاورما مبردة'],
   },
   {
-    name: 'الزيوت الغذائية',
-    subtitle: 'زيتون · دوار الشمس · نخيل',
-    image: CATEGORY_IMAGES['الزيوت الغذائية'],
+    name: 'مصنعات الدجاج',
+    subtitle: 'استربس · زنجر · بانيه',
+    image: CATEGORY_IMAGES['مصنعات الدجاج'],
   },
   {
-    name: 'المنتجات المجمدة',
-    subtitle: 'بطاطس · خضار · ناجتس',
-    image: CATEGORY_IMAGES['المنتجات المجمدة'],
+    name: 'بيض',
+    subtitle: 'بيض مائدة الرهان الماسي',
+    image: CATEGORY_IMAGES['بيض'],
   },
   {
-    name: 'اللحوم الطازجة',
-    subtitle: 'غنم · عجل · تقطيع حسب الطلب',
-    image: CATEGORY_IMAGES['اللحوم الطازجة'],
+    name: 'لحوم',
+    subtitle: 'لحوم مبردة وطازجة',
+    image: CATEGORY_IMAGES['لحوم'],
+  },
+  {
+    name: 'لحوم الأغنام',
+    subtitle: 'حري · سواكني · تيوس باكستاني وكيني',
+    image: CATEGORY_IMAGES['لحوم الأغنام'],
   },
 ] as const;

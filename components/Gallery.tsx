@@ -22,12 +22,15 @@ export default function Gallery() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
         >
+          <p className="text-[#E67E22] text-xs font-bold tracking-[0.25em] uppercase mb-3 font-cairo">
+            Our Gallery
+          </p>
           <h2 className="font-cairo text-2xl md:text-5xl font-bold text-blue-deep mb-3 md:mb-4">
-            معرض الصور
+            معرض منتجاتنا
           </h2>
           <div className="w-20 md:w-24 h-1 bg-orange-accent mx-auto rounded-full mb-4 md:mb-6" />
           <p className="text-gray-600 max-w-2xl mx-auto text-sm md:text-lg font-tajawal px-2">
-            من البحر إلى مائدتكم — جودة التوريد والتخزين المبرد في الرهان الماسي
+            من المزرعة إلى مائدتكم — جودة الدواجن والبيض واللحوم في كل صورة
           </p>
         </motion.div>
 
@@ -50,9 +53,8 @@ export default function Gallery() {
                   quality={90}
                   sizes="260px"
                   className="object-cover"
-                  referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-deep/85 via-blue-deep/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1B2B5E]/85 via-[#1B2B5E]/20 to-transparent" />
                 <p className="absolute bottom-3 right-3 left-3 font-cairo font-bold text-white text-sm">
                   {item.label}
                 </p>
@@ -79,9 +81,8 @@ export default function Gallery() {
                 quality={90}
                 sizes="(max-width: 1200px) 50vw, 25vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-deep/80 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1B2B5E]/80 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
               <p className="absolute bottom-4 right-4 left-4 font-cairo font-bold text-white text-lg">
                 {item.label}
               </p>

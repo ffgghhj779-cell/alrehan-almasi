@@ -14,8 +14,8 @@ export default function Footer() {
               <span className="font-cairo font-bold text-3xl text-white">الرهان الماسي</span>
             </div>
             <p className="text-white/70 text-base leading-relaxed mb-8 font-tajawal">
-              شريكك الموثوق لتوريد المنتجات الغذائية الطازجة والمجمدة داخل المملكة العربية
-              السعودية بأعلى معايير الجودة والاحترافية.
+              مؤسسة الرهان الماسي للدواجن — شريكك الموثوق لتوريد الدواجن المبردة والمجمدة
+              والبيض واللحوم داخل المملكة العربية السعودية.
             </p>
             <div className="flex gap-4">
               {[
@@ -76,7 +76,21 @@ export default function Footer() {
                 </div>
                 <div className="pt-1">
                   <h4 className="font-bold mb-2 text-lg font-cairo">الهاتف / واتساب</h4>
-                  <p className="text-white/70 dir-ltr text-right font-tajawal">056 070 6018</p>
+                  <a
+                    href="tel:+966560706018"
+                    className="text-white/70 font-tajawal block hover:text-white transition-colors"
+                    dir="ltr"
+                  >
+                    +966 56 070 6018
+                  </a>
+                  <a
+                    href="https://wa.me/966560706018"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-green-400 text-sm font-tajawal hover:text-green-300 transition-colors mt-1 block"
+                  >
+                    💬 تواصل عبر واتساب
+                  </a>
                 </div>
               </div>
 
@@ -95,7 +109,10 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/60 text-sm font-semibold font-tajawal" suppressHydrationWarning>
-            © {new Date().getFullYear()} الرهان الماسي. جميع الحقوق محفوظة.
+            © {new Date().getFullYear()} مؤسسة الرهان الماسي للدواجن. جميع الحقوق محفوظة.
+          </p>
+          <p className="text-white/40 text-xs font-tajawal">
+            Al Rehan Almasi Poultry Est. — Kingdom of Saudi Arabia
           </p>
         </div>
       </div>

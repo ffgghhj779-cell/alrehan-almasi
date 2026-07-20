@@ -2,94 +2,152 @@
 
 import { motion } from 'motion/react';
 import Image from 'next/image';
-import { MagneticMotionAnchor } from './MagneticMotion';
+import { Phone, MessageCircle } from 'lucide-react';
 
 export default function Hero() {
   return (
     <section
-      className="relative min-h-[100svh] md:min-h-0 md:h-[600px] flex items-center px-4 md:px-12 pt-[calc(4.5rem+env(safe-area-inset-top))] md:pt-0 pb-16 md:pb-0 bg-gradient-to-l from-secondary via-primary to-white overflow-hidden"
+      className="relative min-h-[100svh] md:min-h-0 md:h-[680px] flex items-center px-4 md:px-12 pt-[calc(4.5rem+env(safe-area-inset-top))] md:pt-0 pb-16 md:pb-0 overflow-hidden"
       id="الرئيسية"
     >
-      <div className="absolute left-0 top-0 w-1/2 h-full bg-blue-primary opacity-[0.04] skew-x-12 transform -translate-x-20 hidden sm:block" />
-      <div className="absolute left-12 w-[340px] h-[340px] rounded-full border-2 border-orange-accent border-dashed opacity-20 animate-[spin_30s_linear_infinite] hidden md:block" />
-      <div className="absolute left-24 w-[280px] h-[280px] rounded-full border border-green-accent opacity-15 hidden md:block" />
-
-      <div className="absolute right-0 top-0 w-full h-full mix-blend-multiply opacity-10 pointer-events-none z-0">
+      {/* Farm background image */}
+      <div className="absolute inset-0 z-0">
         <Image
-          src="https://picsum.photos/seed/foodlogistics/1920/1080"
-          alt="Fresh food logistics"
+          src="https://images.unsplash.com/photo-1548550160-a93f6a1a10c4?w=1920&h=1080&q=90&auto=format&fit=crop&crop=center"
+          alt="مزرعة دواجن الرهان الماسي"
           fill
           quality={90}
           className="object-cover"
           priority
           referrerPolicy="no-referrer"
         />
+        {/* Deep overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-l from-[#1B2B5E]/90 via-[#1B2B5E]/75 to-[#1B2B5E]/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1B2B5E]/60 via-transparent to-transparent" />
       </div>
 
-      {/* Seamless blend into Categories */}
+      {/* Decorative rings */}
+      <div className="absolute right-12 top-1/4 w-[320px] h-[320px] rounded-full border border-[#F5D5A0]/20 border-dashed animate-[spin_40s_linear_infinite] hidden md:block" />
+      <div className="absolute right-20 top-1/4 translate-y-8 w-[220px] h-[220px] rounded-full border border-[#F5D5A0]/10 hidden md:block" />
+
+      {/* Seamless blend at bottom */}
       <div
-        className="absolute inset-x-0 bottom-0 h-40 md:h-48 bg-gradient-to-b from-transparent via-primary/60 to-primary z-[5] pointer-events-none"
+        className="absolute inset-x-0 bottom-0 h-40 md:h-32 bg-gradient-to-b from-transparent to-white z-[5] pointer-events-none"
         aria-hidden="true"
       />
 
-      <div className="container mx-auto relative z-10 w-full md:w-2/3 space-y-4 sm:space-y-6 flex flex-col items-center md:items-start text-center md:text-right">
+      <div className="container mx-auto relative z-10 w-full space-y-5 sm:space-y-7 flex flex-col items-center md:items-start text-center md:text-right max-w-3xl">
+
+        {/* Badge */}
         <motion.div
-          className="inline-block px-3 py-1 bg-white border-r-4 border-orange-accent text-[10px] sm:text-xs font-bold text-orange-accent uppercase tracking-widest luxury-shadow"
+          className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#F5D5A0]/20 border border-[#F5D5A0]/40 backdrop-blur-sm rounded-full"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Al Rehan Almasi • Premium Supply
+          <span className="w-2 h-2 rounded-full bg-[#F5D5A0] animate-pulse shrink-0" />
+          <span className="text-[#F5D5A0] text-xs font-bold font-cairo tracking-widest uppercase">
+            Al Rehan Almasi • Premium Poultry
+          </span>
         </motion.div>
 
+        {/* Main title */}
         <motion.h1
-          className="font-cairo text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-text-dark max-w-4xl"
+          className="font-cairo text-3xl sm:text-5xl md:text-6xl font-black leading-tight text-white"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          شريكك الموثوق لتوريد{' '}
-          <span className="text-blue-primary">المنتجات الغذائية</span> الطازجة والمجمدة
+          مؤسسة الرهان الماسي{' '}
+          <span className="text-[#F5D5A0]">للدواجن</span>
         </motion.h1>
 
+        {/* Slogan */}
+        <motion.div
+          className="flex items-center gap-3"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+        >
+          <div className="w-10 h-[2px] bg-[#E67E22] hidden sm:block" />
+          <p className="text-[#F5D5A0] text-lg sm:text-2xl font-bold font-cairo">
+            من المزرعة إلى المائدة
+          </p>
+          <div className="w-10 h-[2px] bg-[#E67E22] hidden sm:block" />
+        </motion.div>
+
+        {/* Description */}
         <motion.p
-          className="text-sm sm:text-lg text-gray-600 leading-relaxed max-w-xl"
+          className="text-sm sm:text-lg text-white/75 leading-relaxed max-w-xl font-tajawal"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
         >
-          نوفر أفضل الخضروات والفواكه والأسماك والدواجن والزيوت والأرز والمواد الغذائية للسوق
-          السعودي بأعلى معايير الجودة العالمية واللوجستية.
+          نقدم أجود أنواع الدواجن المبردة والمجمدة والبيض واللحوم بمعايير جودة عالمية،
+          ملتزمون بأعلى معايير الذبح الحلال وسلامة الغذاء.
         </motion.p>
 
+        {/* CTA Buttons */}
         <motion.div
           className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 w-full max-w-md sm:max-w-none sm:w-auto items-stretch sm:items-center"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+          transition={{ duration: 0.8, delay: 0.35, ease: 'easeOut' }}
         >
-          <MagneticMotionAnchor
-            href="#منتجاتنا"
-            className="w-full sm:w-auto sm:min-w-[200px] min-h-[48px] px-6 py-3.5 bg-orange-accent text-white font-bold text-sm sm:text-base luxury-shadow flex items-center justify-center gap-2 transition-colors duration-300 hover:bg-[#ea580c] rounded-xl touch-press active:scale-[0.98]"
-          >
-            <span>ابدأ التوريد الآن</span>
-            <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </MagneticMotionAnchor>
           <a
-            href="#تواصل معنا"
-            className="w-full sm:w-auto sm:min-w-[200px] min-h-[48px] px-6 py-3.5 border-2 border-orange-accent text-orange-accent font-bold text-sm sm:text-base flex items-center justify-center rounded-xl hover:bg-orange-accent hover:text-white transition-all duration-300 touch-press active:scale-[0.98]"
+            href="/#منتجاتنا"
+            className="w-full sm:w-auto sm:min-w-[200px] min-h-[52px] px-7 py-3.5 bg-[#E67E22] text-white font-bold text-sm sm:text-base luxury-shadow flex items-center justify-center gap-2 transition-all duration-300 hover:bg-[#d35400] rounded-xl touch-press active:scale-[0.98]"
           >
-            تواصل معنا
+            <span>تصفح منتجاتنا</span>
+            <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+
+          <a
+            href="tel:+966560706018"
+            className="w-full sm:w-auto sm:min-w-[200px] min-h-[52px] px-7 py-3.5 border-2 border-[#F5D5A0]/60 text-[#F5D5A0] font-bold text-sm sm:text-base flex items-center justify-center gap-2 rounded-xl hover:bg-[#F5D5A0]/10 transition-all duration-300 touch-press active:scale-[0.98]"
+          >
+            <Phone size={18} />
+            <span dir="ltr">+966 56 070 6018</span>
           </a>
         </motion.div>
+
+        {/* WhatsApp quick contact */}
+        <motion.a
+          href="https://wa.me/966560706018"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm font-tajawal"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+        >
+          <MessageCircle size={16} className="text-green-400" />
+          <span>تواصل معنا عبر واتساب</span>
+        </motion.a>
       </div>
+
+      {/* Floating stats card */}
+      <motion.div
+        className="absolute bottom-12 left-8 md:left-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 hidden md:flex items-center gap-4 z-10"
+        initial={{ opacity: 0, x: -30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.8, duration: 0.6 }}
+      >
+        <div className="text-center px-4 border-l border-white/20">
+          <div className="text-[#F5D5A0] text-2xl font-black font-cairo">+10</div>
+          <div className="text-white/70 text-xs font-tajawal">سنوات خبرة</div>
+        </div>
+        <div className="text-center px-4 border-l border-white/20">
+          <div className="text-[#F5D5A0] text-2xl font-black font-cairo">100%</div>
+          <div className="text-white/70 text-xs font-tajawal">حلال معتمد</div>
+        </div>
+        <div className="text-center px-4">
+          <div className="text-[#F5D5A0] text-2xl font-black font-cairo">24/7</div>
+          <div className="text-white/70 text-xs font-tajawal">خدمة مستمرة</div>
+        </div>
+      </motion.div>
     </section>
   );
 }

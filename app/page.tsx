@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Categories from '@/components/Categories';
+import VideoSection from '@/components/VideoSection';
 import About from '@/components/About';
 import Features from '@/components/Features';
 import Products from '@/components/Products';
@@ -20,6 +21,7 @@ export default async function Home() {
       <Navbar />
       <Hero />
       <Categories />
+      <VideoSection />
       <About />
       <Features />
       <Products initialProducts={products} fetchError={error} />
