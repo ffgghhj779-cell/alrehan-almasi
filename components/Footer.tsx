@@ -76,7 +76,7 @@ export default function Footer() {
                 </div>
                 <div className="pt-1">
                   <h4 className="font-bold mb-2 text-lg font-cairo">الهاتف / واتساب</h4>
-                  <p className="text-white/70 dir-ltr text-right font-tajawal">+966 50 000 0000</p>
+                  <p className="text-white/70 dir-ltr text-right font-tajawal">056 070 6018</p>
                 </div>
               </div>
 

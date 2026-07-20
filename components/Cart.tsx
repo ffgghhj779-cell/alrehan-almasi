@@ -24,7 +24,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { calculateOrderTotals, formatSar } from '@/lib/checkout';
 import { saveOrderToDatabase, type CustomerDetails } from '@/lib/orders';
 
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '966500000000';
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '966560706018';
 
 type CheckoutStep = 'summary' | 'checkout' | 'success';
 
