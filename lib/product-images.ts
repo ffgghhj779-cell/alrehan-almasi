@@ -37,6 +37,12 @@ export const PHOTOS = {
 /** Gallery — real product imagery from data folder + Unsplash */
 export const GALLERY_IMAGES = [
   {
+    src: '/assets/real/packaging.png',
+    label: 'تصميم التغليف الجديد (الرهان الماسي)',
+    alt: 'تصميم كيس التغليف الحصري لمؤسسة الرهان الماسي',
+    href: '/products',
+  },
+  {
     src: '/assets/chicken-supermarket.jpeg',
     label: 'دواجن مبردة في الأسواق',
     alt: 'أكياس دجاج مبرد في ثلاجة السوبرماركت',
@@ -138,37 +144,37 @@ export function resolveProductImage(
 export const STORE_CATEGORIES = [
   {
     name: 'دجاج مجمد',
-    subtitle: 'نخبة أولى • صدور • أفخاذ • شاورما',
-    image: CATEGORY_IMAGES['دجاج مجمد'],
+    subtitle: 'دجاج مجمد عالي الجودة',
+    image: '/assets/real/media_1.jpeg',
   },
   {
     name: 'دجاج مبرد',
-    subtitle: 'طازج يومياً • نخبة أولى • شاورما مبردة',
-    image: CATEGORY_IMAGES['دجاج مبرد'],
+    subtitle: 'دواجن مبردة طازجة يومياً',
+    image: '/assets/real/media_2.jpeg',
   },
   {
     name: 'شاورما مبردة',
-    subtitle: 'شاورما دجاج مبرد وطازج',
-    image: CATEGORY_IMAGES['شاورما مبردة'],
+    subtitle: 'شاورما طازجة جاهزة',
+    image: '/assets/real/media_3.jpeg',
   },
   {
     name: 'مصنعات الدجاج',
-    subtitle: 'استربس · زنجر · بانيه',
-    image: CATEGORY_IMAGES['مصنعات الدجاج'],
+    subtitle: 'استربس، زنجر، بانيه والمزيد',
+    image: '/assets/real/media_5.jpeg',
   },
   {
     name: 'بيض',
-    subtitle: 'بيض مائدة الرهان الماسي',
-    image: CATEGORY_IMAGES['بيض'],
+    subtitle: 'بيض مائدة طازج',
+    image: '/assets/real/media_6.jpeg',
   },
   {
     name: 'لحوم',
-    subtitle: 'لحوم مبردة وطازجة',
-    image: CATEGORY_IMAGES['لحوم'],
+    subtitle: 'لحوم بقر وعجل مبردة وطازجة',
+    image: '/assets/real/media_7.jpeg',
   },
   {
     name: 'لحوم الأغنام',
-    subtitle: 'حري · سواكني · تيوس باكستاني وكيني',
-    image: CATEGORY_IMAGES['لحوم الأغنام'],
+    subtitle: 'لحوم أغنام طازجة (حري وسواكني)',
+    image: '/assets/real/media_8.jpeg',
   },
 ] as const;

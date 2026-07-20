@@ -12,15 +12,15 @@ export default function Hero() {
     >
       {/* Farm background image */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="https://images.unsplash.com/photo-1548550160-a93f6a1a10c4?w=1920&h=1080&q=90&auto=format&fit=crop&crop=center"
-          alt="مزرعة دواجن الرهان الماسي"
-          fill
-          quality={100}
-          className="object-cover"
-          priority
-          referrerPolicy="no-referrer"
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/assets/real/media_4.mp4" type="video/mp4" />
+        </video>
         {/* Deep overlay for readability */}
         <div className="absolute inset-0 bg-gradient-to-l from-blue-deep/90 via-blue-deep/75 to-blue-deep/50" />
         <div className="absolute inset-0 bg-gradient-to-t from-blue-deep/60 via-transparent to-transparent" />
@@ -47,7 +47,7 @@ export default function Hero() {
         >
           <span className="w-2 h-2 rounded-full bg-secondary animate-pulse shrink-0" />
           <span className="text-secondary text-xs font-bold font-cairo tracking-widest uppercase">
-            Al Rehan Almasi • Premium Poultry
+            الرهان الماسي للدواجن
           </span>
         </motion.div>
 
@@ -71,7 +71,7 @@ export default function Hero() {
         >
           <div className="w-10 h-[2px] bg-orange-accent hidden sm:block" />
           <p className="text-secondary text-lg sm:text-2xl font-bold font-cairo">
-            من المزرعة إلى المائدة
+            مؤسسة الرهان الماسي من المزرعة إلى المائدة
           </p>
           <div className="w-10 h-[2px] bg-orange-accent hidden sm:block" />
         </motion.div>

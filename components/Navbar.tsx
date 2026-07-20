@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import { Menu, X, ShoppingBag } from 'lucide-react';
+import { Menu, X, ShoppingBag, Phone } from 'lucide-react';
 import BottomSheet from './BottomSheet';
 import { useQuote } from './QuoteContext';
 
@@ -55,11 +55,11 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col justify-center min-w-0 md:gap-1.5">
-              <span className="font-cairo font-black tracking-tight text-base md:text-3xl text-white leading-tight truncate">
+              <span className="font-cairo font-black text-xl md:text-3xl tracking-tight text-white drop-shadow-sm truncate leading-tight">
                 الرهان الماسي
               </span>
-              <span className="hidden md:block text-xs font-bold text-orange-accent tracking-wider">
-                شريكك الموثوق للتوريد
+              <span className="text-orange-accent text-[11px] md:text-sm font-bold font-tajawal tracking-wide truncate">
+                مؤسسة الرهان الماسي للدواجن
               </span>
             </div>
           </Link>
@@ -82,7 +82,11 @@ export default function Navbar() {
             </Link>
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-4">
+            <a href="tel:+966560706018" className="flex items-center gap-2 text-white/90 hover:text-white transition-colors" dir="ltr">
+              <Phone size={18} className="text-orange-accent" />
+              <span className="font-tajawal font-bold text-sm tracking-wider">+966 56 070 6018</span>
+            </a>
             <button
               type="button"
               onClick={() => window.dispatchEvent(new Event('open-cart'))}
