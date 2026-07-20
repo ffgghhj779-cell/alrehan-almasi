@@ -22,7 +22,7 @@ export default function About() {
                 src="/assets/chicken-chilled-bag-branded.png"
                 alt="دواجن الرهان الماسي — منتجات مبردة"
                 fill
-                quality={90}
+                quality={100}
                 className="object-cover"
               />
             </div>

@@ -50,7 +50,7 @@ export default function Gallery() {
                   src={item.src}
                   alt={item.alt}
                   fill
-                  quality={90}
+                  quality={100}
                   sizes="260px"
                   className="object-cover"
                 />
@@ -78,7 +78,7 @@ export default function Gallery() {
                 src={item.src}
                 alt={item.alt}
                 fill
-                quality={90}
+                quality={100}
                 sizes="(max-width: 1200px) 50vw, 25vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />

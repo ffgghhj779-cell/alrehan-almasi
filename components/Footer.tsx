@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-4 mb-8">
               <div className="relative w-20 h-20 shrink-0 rounded-2xl overflow-hidden luxury-shadow ring-2 ring-orange-accent/30">
-                <Image src="/logo.png" alt="شعار الرهان الماسي" fill quality={90} className="object-cover" />
+                <Image src="/logo.png" alt="شعار الرهان الماسي" fill quality={100} className="object-cover" />
               </div>
               <span className="font-cairo font-bold text-3xl text-white">الرهان الماسي</span>
             </div>

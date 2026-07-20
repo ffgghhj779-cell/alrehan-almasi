@@ -37,7 +37,7 @@ function CategoryCard({
           src={cat.image}
           alt={cat.name}
           fill
-          quality={90}
+          quality={100}
           sizes={compact ? '220px' : '(max-width: 768px) 50vw, 25vw'}
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           referrerPolicy="no-referrer"

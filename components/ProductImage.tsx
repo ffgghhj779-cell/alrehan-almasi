@@ -46,7 +46,7 @@ export default function ProductImage({
       alt={alt}
       fill
       priority={priority}
-      quality={90}
+      quality={100}
       sizes={sizes}
       className={className}
       referrerPolicy="no-referrer"

@@ -16,7 +16,7 @@ export default function Hero() {
           src="https://images.unsplash.com/photo-1548550160-a93f6a1a10c4?w=1920&h=1080&q=90&auto=format&fit=crop&crop=center"
           alt="مزرعة دواجن الرهان الماسي"
           fill
-          quality={90}
+          quality={100}
           className="object-cover"
           priority
           referrerPolicy="no-referrer"

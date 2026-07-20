@@ -44,7 +44,7 @@ export default function Navbar() {
                 src="/logo.png"
                 alt="شعار الرهان الماسي"
                 fill
-                quality={90}
+                quality={100}
                 className="object-cover"
                 priority
                 sizes="(max-width: 768px) 40px, 96px"

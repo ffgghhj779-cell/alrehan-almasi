@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import Categories from '@/components/Categories';
 import VideoSection from '@/components/VideoSection';
 import About from '@/components/About';
+import QualitySection from '@/components/QualitySection';
 import Features from '@/components/Features';
 import Products from '@/components/Products';
 import Gallery from '@/components/Gallery';
@@ -23,6 +24,7 @@ export default async function Home() {
       <Categories />
       <VideoSection />
       <About />
+      <QualitySection />
       <Features />
       <Products initialProducts={products} fetchError={error} />
       <Gallery />
