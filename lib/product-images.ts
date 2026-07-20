@@ -37,8 +37,8 @@ export const PHOTOS = {
 /** Gallery — real product imagery from data folder + Unsplash */
 export const GALLERY_IMAGES = [
   {
-    src: '/assets/real/packaging.png',
-    label: 'تصميم التغليف الجديد (الرهان الماسي)',
+    src: '/assets/real/alrehan_approved_bag.png',
+    label: 'تصميم التغليف المعتمد (الرهان الماسي)',
     alt: 'تصميم كيس التغليف الحصري لمؤسسة الرهان الماسي',
     href: '/products',
   },
@@ -145,12 +145,12 @@ export const STORE_CATEGORIES = [
   {
     name: 'دجاج مجمد',
     subtitle: 'دجاج مجمد عالي الجودة',
-    image: '/assets/chicken-frozen-sadia-branded.png',
+    image: 'https://images.unsplash.com/photo-1604503468506-a8da13daff91?w=800&q=80&auto=format&fit=crop',
   },
   {
     name: 'دجاج مبرد',
     subtitle: 'دواجن مبردة طازجة يومياً',
-    image: '/assets/chicken-fresh-basket-branded.png',
+    image: 'https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=800&q=80&auto=format&fit=crop',
   },
   {
     name: 'شاورما مبردة',
@@ -165,7 +165,7 @@ export const STORE_CATEGORIES = [
   {
     name: 'بيض',
     subtitle: 'بيض مائدة طازج',
-    image: '/assets/eggs-tray.jpeg',
+    image: 'https://images.unsplash.com/photo-1587486913049-53fc88980cfc?w=800&q=80&auto=format&fit=crop',
   },
   {
     name: 'لحوم',
