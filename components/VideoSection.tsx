@@ -78,7 +78,7 @@ export default function VideoSection() {
                 poster="/assets/chicken-fresh-raw.jpeg"
                 playsInline
               >
-                <source src="/assets/slaughterhouse-video.mp4" type="video/mp4" />
+                <source src="/assets/real/media_4.mp4" type="video/mp4" />
                 متصفحك لا يدعم تشغيل الفيديو.
               </video>
             </div>

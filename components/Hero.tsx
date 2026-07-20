@@ -12,15 +12,15 @@ export default function Hero() {
     >
       {/* Farm background image */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="/assets/real/media_4.mp4" type="video/mp4" />
-        </video>
+        <Image
+          src="https://images.unsplash.com/photo-1548550160-a93f6a1a10c4?w=1920&h=1080&q=90&auto=format&fit=crop&crop=center"
+          alt="مزرعة دواجن الرهان الماسي"
+          fill
+          quality={100}
+          className="object-cover"
+          priority
+          referrerPolicy="no-referrer"
+        />
         {/* Deep overlay for readability */}
         <div className="absolute inset-0 bg-gradient-to-l from-blue-deep/90 via-blue-deep/75 to-blue-deep/50" />
         <div className="absolute inset-0 bg-gradient-to-t from-blue-deep/60 via-transparent to-transparent" />
