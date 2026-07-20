@@ -43,19 +43,19 @@ export default function Navbar() {
             href="/"
             className="flex items-center gap-3 min-w-0 flex-1 md:flex-none group touch-press active:scale-[0.98] transition-transform"
           >
-            <div className="relative h-10 w-10 md:h-14 md:w-14 shrink-0 group-hover:scale-[1.05] transition-transform duration-300">
+            <div className="relative h-10 w-10 md:h-14 md:w-14 shrink-0 bg-white rounded-full overflow-hidden p-1.5 shadow-[0_0_15px_rgba(255,255,255,0.1)] border border-white/10 group-hover:scale-[1.05] transition-transform duration-300 flex items-center justify-center">
               <Image
                 src="/logo.png"
                 alt="شعار الرهان الماسي"
                 fill
                 quality={100}
-                className="object-contain drop-shadow-sm"
+                className="object-contain scale-110 mix-blend-multiply"
                 priority
                 sizes="(max-width: 768px) 40px, 60px"
               />
             </div>
             <div className="flex flex-col justify-center min-w-0">
-              <span className="font-tajawal font-black text-xl md:text-2xl tracking-tight text-white drop-shadow-sm leading-none mt-1">
+              <span className="font-tajawal font-extrabold text-xl md:text-2xl tracking-tight text-white drop-shadow-sm leading-none mt-1">
                 الرهان الماسي
               </span>
             </div>
