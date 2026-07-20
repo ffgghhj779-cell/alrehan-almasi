@@ -47,17 +47,17 @@ export const GALLERY_IMAGES = [
     alt: 'طبق بيض طازج',
   },
   {
-    src: '/assets/chicken-frozen-sadia.jpeg',
+    src: '/assets/chicken-frozen-sadia-branded.png',
     label: 'دجاج مجمد بالجملة',
     alt: 'أكياس دجاج مجمد بالجملة',
   },
   {
-    src: '/assets/chicken-fresh-basket.jpeg',
+    src: '/assets/chicken-fresh-basket-branded.png',
     label: 'دجاج مبرد نخبة أولى',
     alt: 'كيسا دجاج مبرد في سلة مع ثلج',
   },
   {
-    src: '/assets/eggs-carton-front.jpeg',
+    src: '/assets/eggs-carton-front-branded.png',
     label: 'بيض طازج يومي',
     alt: 'صناديق بيض طازج',
   },
@@ -66,12 +66,12 @@ export const GALLERY_IMAGES = [
 /** Canonical image per SKU */
 export const SKU_IMAGES: Record<string, string> = {
   // Chilled chicken
-  'ARA-CHK-001': '/assets/chicken-fresh-basket.jpeg',
-  'ARA-CHK-002': '/assets/chicken-chilled-bag.jpeg',
+  'ARA-CHK-001': '/assets/chicken-fresh-basket-branded.png',
+  'ARA-CHK-002': '/assets/chicken-chilled-bag-branded.png',
   'ARA-CHK-003': '/assets/chicken-fresh-raw.jpeg',
   // Frozen chicken
-  'ARA-FRZ-001': '/assets/chicken-frozen-sadia.jpeg',
-  'ARA-FRZ-002': '/assets/chicken-frozen-box.jpeg',
+  'ARA-FRZ-001': '/assets/chicken-frozen-sadia-branded.png',
+  'ARA-FRZ-002': '/assets/chicken-frozen-box-branded.png',
   'ARA-FRZ-003': buildImageUrl(PHOTOS.breast),
   'ARA-FRZ-004': buildImageUrl(PHOTOS.chicken, { crop: 'entropy' }),
   // Shawarma
@@ -99,8 +99,8 @@ export const SKU_IMAGES: Record<string, string> = {
 };
 
 export const CATEGORY_IMAGES: Record<string, string> = {
-  'دجاج مجمد': '/assets/chicken-frozen-sadia.jpeg',
-  'دجاج مبرد': '/assets/chicken-fresh-basket.jpeg',
+  'دجاج مجمد': '/assets/chicken-frozen-sadia-branded.png',
+  'دجاج مبرد': '/assets/chicken-fresh-basket-branded.png',
   'شاورما مبردة': buildImageUrl(PHOTOS.shawarma),
   'مصنعات الدجاج': buildImageUrl(PHOTOS.nuggets),
   'بيض': '/assets/eggs-tray.jpeg',
@@ -108,10 +108,10 @@ export const CATEGORY_IMAGES: Record<string, string> = {
   'لحوم الأغنام': buildImageUrl(PHOTOS.lamb),
   // Legacy categories
   'الأسماك الطازجة': buildImageUrl(PHOTOS.fish),
-  'الدواجن الطازجة': '/assets/chicken-fresh-basket.jpeg',
+  'الدواجن الطازجة': '/assets/chicken-fresh-basket-branded.png',
   'الأرز': buildImageUrl(PHOTOS.rice),
   'الزيوت الغذائية': buildImageUrl(PHOTOS.oil),
-  'المنتجات المجمدة': '/assets/chicken-frozen-sadia.jpeg',
+  'المنتجات المجمدة': '/assets/chicken-frozen-sadia-branded.png',
   'اللحوم الطازجة': buildImageUrl(PHOTOS.meat),
   'المواد الغذائية': buildImageUrl(PHOTOS.grocery),
 };

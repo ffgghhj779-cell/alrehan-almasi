@@ -19,7 +19,7 @@ export default function About() {
           >
             <div className="relative h-[260px] sm:h-[380px] lg:h-[500px] w-full overflow-hidden luxury-shadow border-4 border-white rounded-xl">
               <Image
-                src="/assets/chicken-chilled-bag.jpeg"
+                src="/assets/chicken-chilled-bag-branded.png"
                 alt="دواجن الرهان الماسي — منتجات مبردة"
                 fill
                 quality={90}
