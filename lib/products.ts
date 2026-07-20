@@ -40,8 +40,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'دجاج مبرد نخبة أولى',
     category: 'دجاج مبرد',
     status: 'متوفر',
-    // media_12: سلة دجاج طازج مبرد بعلامة SHATR - صورة احترافية لدجاج مبرد طازج في سلة
-    image: '/assets/real/media_12.jpeg',
+    image: '/assets/real/chicken_chilled_basket.png',
     basePrice: 16.5,
     descriptionAr: 'دجاج مبرد طازج إنتاج محلي يومي، مذبوح على الطريقة الإسلامية.',
     stockQuantity: 1200,
@@ -55,8 +54,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'دجاج مجمد نخبة أولى',
     category: 'دجاج مجمد',
     status: 'متوفر',
-    // media_10: أكياس سادية مجمدة بالجملة - صورة واقعية لدجاج مجمد بكميات
-    image: '/assets/real/media_10.jpeg',
+    image: '/assets/real/chicken_frozen_sadia.png',
     basePrice: 14,
     descriptionAr: 'دجاج مجمد درجة أولى، مجمد بالصدمة للحفاظ على القيمة الغذائية والنكهة.',
     stockQuantity: 5000,
@@ -70,8 +68,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'شورما دجاج مبرد',
     category: 'شاورما مبردة',
     status: 'متوفر',
-    // Unsplash: صورة واقعية لشاورما دجاج خام
-    image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600&q=85&auto=format&fit=crop',
+    image: '/assets/real/raw_shawarma_bag.png',
     basePrice: 28,
     descriptionAr: 'صدور وأفخاذ دجاج متبلة أو سادة مجهزة للشاورما، إنتاج يومي طازج مبرد.',
     stockQuantity: 450,
@@ -85,8 +82,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'صدور دجاج مجمدة',
     category: 'دجاج مجمد',
     status: 'متوفر',
-    // media_11: صندوق دجاج مجمد Ukrainian - دجاج مجمد بأكياس في كرتون
-    image: '/assets/real/media_11.jpeg',
+    image: '/assets/real/chicken_frozen_sadia.png',
     basePrice: 22,
     descriptionAr: 'صدور دجاج مجمدة بدون عظم وجلد، مجمدة بتقنية الصدمة.',
     stockQuantity: 800,
@@ -100,8 +96,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'أفخاذ دجاج مجمدة',
     category: 'دجاج مجمد',
     status: 'متوفر',
-    // Unsplash: صورة واقعية لأفخاذ دجاج مجمدة خام
-    image: 'https://images.unsplash.com/photo-1604503468506-a8da13daff91?w=600&q=85&auto=format&fit=crop',
+    image: '/assets/real/chicken_frozen_sadia.png',
     basePrice: 18,
     descriptionAr: 'أفخاذ دجاج مجمدة درجة أولى، مجمدة بتقنية التبريد السريع.',
     stockQuantity: 600,
@@ -115,8 +110,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'شورما دجاج مجمدة',
     category: 'دجاج مجمد',
     status: 'متوفر',
-    // Unsplash: صورة واقعية لشاورما دجاج مجمدة
-    image: 'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=600&q=85&auto=format&fit=crop',
+    image: '/assets/real/raw_shawarma_bag.png',
     basePrice: 26,
     descriptionAr: 'شاورما دجاج مجمدة وجاهزة للتحضير، متبلة بتوابل طبيعية.',
     stockQuantity: 300,
@@ -130,8 +124,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'لحوم مبردة وطازجة',
     category: 'لحوم',
     status: 'متوفر',
-    // Unsplash: صورة واقعية لقطع لحم بقر/عجل طازجة على طاولة جزار
-    image: 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=600&q=85&auto=format&fit=crop',
+    image: '/assets/real/raw_beef_butcher.png',
     basePrice: 45,
     descriptionAr: 'لحم بقر/عجل طازج مبرد، تقطيع احترافي حسب طلب العميل.',
     stockQuantity: 150,
@@ -145,8 +138,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'لحوم أغنام',
     category: 'لحوم الأغنام',
     status: 'متوفر',
-    // Unsplash: صورة واقعية لذبيحة غنم طازجة
-    image: 'https://images.unsplash.com/photo-1544025162-d76538415491?w=600&q=85&auto=format&fit=crop',
+    image: '/assets/real/raw_lamb_butcher.png',
     basePrice: 60,
     descriptionAr: 'لحوم أغنام طازجة مبردة عالية الجودة، مذبوحة على الطريقة الإسلامية.',
     stockQuantity: 60,
@@ -160,8 +152,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'حري طازج',
     category: 'لحوم الأغنام',
     status: 'متوفر',
-    // Unsplash: صورة واقعية لخروف/غنم حي أو لحم غنم
-    image: 'https://images.unsplash.com/photo-1603048588665-791ca794ae1a?w=600&q=85&auto=format&fit=crop',
+    image: '/assets/real/raw_lamb_butcher.png',
     basePrice: 65,
     descriptionAr: 'لحم غنم حري بلدي طازج، من أجود أنواع الأغنام.',
     stockQuantity: 40,
@@ -175,8 +166,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'تيوس باكستاني',
     category: 'لحوم الأغنام',
     status: 'متوفر',
-    // Unsplash: صورة واقعية لقطع لحم أغنام/ماعز
-    image: 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=600&q=85&auto=format&fit=crop',
+    image: '/assets/real/raw_lamb_butcher.png',
     basePrice: 42,
     descriptionAr: 'لحم تيوس باكستاني طازج مستورد بالطائرات.',
     stockQuantity: 80,
@@ -190,8 +180,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'تيوس كيني مبردة',
     category: 'لحوم الأغنام',
     status: 'متوفر',
-    // Unsplash: لحم ماعز/تيوس نيء
-    image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=85&auto=format&fit=crop',
+    image: '/assets/real/raw_lamb_butcher.png',
     basePrice: 38,
     descriptionAr: 'لحم تيوس كيني مبردة مستوردة، جودة ممتازة لمطاعم المندي والمظبي.',
     stockQuantity: 100,
@@ -205,8 +194,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'تيوس باكستاني مبردة',
     category: 'لحوم الأغنام',
     status: 'متوفر',
-    // Unsplash: لحم ماعز مبرد
-    image: 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=600&q=85&auto=format&fit=crop',
+    image: '/assets/real/raw_lamb_butcher.png',
     basePrice: 40,
     descriptionAr: 'لحم تيوس باكستاني مبردة، طازج ومذبوح على الطريقة الإسلامية.',
     stockQuantity: 120,
@@ -220,8 +208,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'تيوس سواكني طازج',
     category: 'لحوم الأغنام',
     status: 'متوفر',
-    // Unsplash: لحم ضأن/أغنام طازج
-    image: 'https://images.unsplash.com/photo-1603048588665-791ca794ae1a?w=600&q=85&auto=format&fit=crop',
+    image: '/assets/real/raw_lamb_butcher.png',
     basePrice: 48,
     descriptionAr: 'لحم تيوس سواكني طازج مستورد، من أرقى أنواع اللحوم.',
     stockQuantity: 50,
@@ -235,8 +222,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'بيض مائدة طازج',
     category: 'بيض',
     status: 'متوفر',
-    // media_15: صواني بيض Almoroj الواقعية
-    image: '/assets/real/media_15.jpeg',
+    image: '/assets/real/eggs_tray_almoroj.png',
     basePrice: 18,
     descriptionAr: 'بيض مائدة طازج درجة أولى حجم كبير، من مزارع معتمدة.',
     stockQuantity: 2000,
@@ -250,8 +236,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'استربس دجاج',
     category: 'مصنعات الدجاج',
     status: 'متوفر',
-    // media_13: صورة استربس/نجت من موقع fakieh احترافية
-    image: '/assets/real/media_13.jpeg',
+    image: '/assets/real/chicken_strips_fakieh.png',
     basePrice: 32,
     descriptionAr: 'استربس دجاج مقرمشة، مصنوعة من صدور دجاج طازجة.',
     stockQuantity: 500,
