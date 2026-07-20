@@ -36,51 +36,54 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <div className="container mx-auto relative z-10 w-full space-y-5 md:space-y-7 flex flex-col items-start text-right max-w-2xl pt-8 md:pt-24">
+      <div className="container mx-auto relative z-10 w-full space-y-6 md:space-y-8 flex flex-col items-center text-center max-w-4xl pt-10 md:pt-20">
 
         {/* Badge */}
         <motion.div
-          className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 border border-white/20 backdrop-blur-md rounded-full"
+          className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/5 border border-white/10 backdrop-blur-md rounded-full shadow-lg"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-green-bright animate-pulse shrink-0" />
-          <span className="text-white/90 text-[10px] md:text-xs font-bold font-tajawal tracking-widest uppercase">
+          <span className="w-2 h-2 rounded-full bg-green-bright animate-pulse shrink-0" />
+          <span className="text-white/90 text-xs font-bold font-tajawal tracking-widest uppercase">
             الرهان الماسي للدواجن
           </span>
         </motion.div>
 
         {/* Main title */}
         <motion.h1
-          className="font-tajawal text-4xl md:text-5xl lg:text-[3.5rem] font-black leading-tight text-white drop-shadow-md"
+          className="font-tajawal font-bold leading-tight text-white drop-shadow-xl flex flex-col items-center gap-2 md:gap-3"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          مؤسسة الرهان الماسي للدواجن
+          <span className="text-4xl md:text-5xl lg:text-[4rem]">مؤسسة الرهان الماسي</span>
+          <span className="text-3xl md:text-4xl lg:text-[3rem] text-transparent bg-clip-text bg-gradient-to-l from-orange-accent to-yellow-300">للدواجن</span>
         </motion.h1>
 
-        {/* Slogan */}
+        {/* Premium Slogan */}
         <motion.div
-          className="flex items-center gap-3 w-full"
+          className="flex items-center justify-center w-full mt-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
         >
-          <div className="p-2 bg-orange-accent/10 rounded-lg border border-orange-accent/20">
-            <svg className="w-6 h-6 text-orange-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-            </svg>
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl">
+            <div className="p-1.5 bg-gradient-to-br from-orange-accent to-yellow-500 rounded-lg shadow-inner">
+              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+            </div>
+            <p className="text-white/95 text-lg md:text-2xl font-bold font-tajawal tracking-wide">
+              من المزرعة إلى المائدة
+            </p>
           </div>
-          <p className="text-secondary text-xl md:text-2xl lg:text-3xl font-bold font-tajawal drop-shadow-sm">
-            من المزرعة إلى المائدة
-          </p>
         </motion.div>
 
         {/* Description */}
         <motion.p
-          className="text-sm md:text-lg text-white/80 leading-relaxed max-w-xl font-tajawal"
+          className="text-sm md:text-lg text-white/70 leading-relaxed max-w-2xl font-tajawal pt-2"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
@@ -91,7 +94,7 @@ export default function Hero() {
 
         {/* CTA Buttons */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 pt-6 w-full max-w-sm sm:max-w-none items-stretch sm:items-center justify-start"
+          className="flex flex-col sm:flex-row gap-4 pt-6 w-full max-w-sm sm:max-w-none items-stretch sm:items-center justify-center"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.35, ease: 'easeOut' }}
