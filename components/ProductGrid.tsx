@@ -81,7 +81,7 @@ export default function ProductGrid({
 
   return (
     <>
-      {showSearch && !isLoading && !error && products.length > 0 && (
+      {showSearch && !isLoading && products.length > 0 && (
         <ProductSearchBar
           query={query}
           onQueryChange={setQuery}
@@ -124,7 +124,6 @@ export default function ProductGrid({
         )}
 
         {!isLoading &&
-          !error &&
           hasInitialData &&
           filtered.length === 0 && (
           <EmptyState
@@ -153,7 +152,6 @@ export default function ProductGrid({
         )}
 
         {!isLoading &&
-          !error &&
           filtered.map((prod, index) => (
             <ProductItem key={prod.id} prod={prod} index={index} />
           ))}
