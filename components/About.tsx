@@ -17,7 +17,7 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
           >
-            <div className="relative h-[260px] sm:h-[380px] lg:h-[500px] w-full overflow-visible fakieh-shadow rounded-xl">
+            <div className="relative h-[260px] sm:h-[380px] lg:h-[500px] w-full overflow-visible fakieh-shadow md:fakieh-shadow-md rounded-xl">
               <Image
                 src="/assets/chicken-chilled-bag-branded.png"
                 alt="دواجن الرهان الماسي — منتجات مبردة"

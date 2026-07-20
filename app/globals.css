@@ -18,10 +18,8 @@
   box-shadow: -20px 20px 0 5px var(--color-orange-accent);
 }
 
-@media (min-width: 768px) {
-  @utility fakieh-shadow {
-    box-shadow: -40px 40px 0 10px var(--color-orange-accent);
-  }
+@utility fakieh-shadow-md {
+  box-shadow: -40px 40px 0 10px var(--color-orange-accent);
 }
 
 @utility font-cairo {
