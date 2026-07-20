@@ -1,17 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #FFFFFF;
-  --color-secondary: #F8FAFC;
-  --color-blue-primary: #1D4ED8;
-  --color-blue-deep: #1E3A8A;
-  --color-orange-accent: #F97316;
-  --color-green-accent: #16A34A;
-  --color-green-bright: #22C55E;
-  --color-text-dark: #0F172A;
+  --color-primary: #FDFBF7;
+  --color-secondary: #EACCA0;
+  --color-blue-primary: #0c2549;
+  --color-blue-deep: #072040;
+  --color-orange-accent: #87714e;
+  --color-green-accent: #608ac8;
+  --color-green-bright: #EACCA0;
+  --color-text-dark: #072040;
 
   --font-family-cairo: var(--font-cairo), "Cairo", sans-serif;
   --font-family-tajawal: var(--font-tajawal), "Tajawal", sans-serif;
+}
+
+@utility fakieh-shadow {
+  box-shadow: -20px 20px 0 5px var(--color-orange-accent);
+}
+
+@media (min-width: 768px) {
+  @utility fakieh-shadow {
+    box-shadow: -40px 40px 0 10px var(--color-orange-accent);
+  }
 }
 
 @utility font-cairo {

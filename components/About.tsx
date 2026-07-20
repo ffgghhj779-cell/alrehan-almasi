@@ -7,7 +7,7 @@ import { CheckCircle2 } from 'lucide-react';
 export default function About() {
   return (
     <section className="py-12 md:py-20 bg-white relative overflow-hidden" id="من نحن">
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#F5D5A0]/20 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/4 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-secondary/20 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/4 pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-16">
@@ -17,7 +17,7 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
           >
-            <div className="relative h-[260px] sm:h-[380px] lg:h-[500px] w-full overflow-hidden luxury-shadow border-4 border-white rounded-xl">
+            <div className="relative h-[260px] sm:h-[380px] lg:h-[500px] w-full overflow-visible fakieh-shadow rounded-xl">
               <Image
                 src="/assets/chicken-chilled-bag-branded.png"
                 alt="دواجن الرهان الماسي — منتجات مبردة"
@@ -27,14 +27,14 @@ export default function About() {
               />
             </div>
             <motion.div
-              className="absolute -bottom-4 -left-2 sm:-bottom-6 sm:-left-6 bg-white p-4 sm:p-6 luxury-shadow border-l-4 border-[#E67E22] rounded-lg"
+              className="absolute -bottom-4 -left-2 sm:-bottom-6 sm:-left-6 bg-white p-4 sm:p-6 luxury-shadow border-l-4 border-orange-accent rounded-lg"
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3 }}
               viewport={{ once: true }}
             >
               <div className="flex items-center gap-4">
-                <div className="text-[#E67E22] text-4xl font-bold font-cairo">+10</div>
+                <div className="text-orange-accent text-4xl font-bold font-cairo">+10</div>
                 <div className="text-gray-600 font-bold leading-tight font-tajawal">
                   سنوات من
                   <br />
@@ -50,13 +50,13 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
           >
-            <p className="text-[#E67E22] text-xs font-bold tracking-[0.25em] uppercase mb-3 font-cairo">
+            <p className="text-orange-accent text-xs font-bold tracking-[0.25em] uppercase mb-3 font-cairo">
               About Us • من نحن
             </p>
-            <h2 className="font-cairo text-2xl md:text-5xl font-bold text-[#1B2B5E] mb-4 md:mb-6">
+            <h2 className="font-cairo text-2xl md:text-5xl font-bold text-blue-deep mb-4 md:mb-6">
               مؤسسة الرهان الماسي للدواجن
             </h2>
-            <div className="w-16 h-1 bg-[#E67E22] mb-5 md:mb-8 rounded-full" />
+            <div className="w-16 h-1 bg-orange-accent mb-5 md:mb-8 rounded-full" />
             <p className="text-sm md:text-lg text-gray-600 leading-relaxed mb-3 font-tajawal">
               مؤسسة الرهان الماسي للدواجن، شركة متخصصة في توريد الدواجن المبردة والمجمدة
               والبيض واللحوم داخل المملكة العربية السعودية.
@@ -75,8 +75,8 @@ export default function About() {
                 'التزام تام بمعايير الذبح الحلال وسلامة الغذاء',
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-4">
-                  <div className="w-8 h-8 bg-[#F5D5A0]/30 flex items-center justify-center shrink-0 rounded-lg">
-                    <CheckCircle2 className="text-[#E67E22]" size={20} />
+                  <div className="w-8 h-8 bg-secondary/30 flex items-center justify-center shrink-0 rounded-lg">
+                    <CheckCircle2 className="text-orange-accent" size={20} />
                   </div>
                   <span className="text-text-dark font-semibold text-sm md:text-base font-tajawal">{item}</span>
                 </div>
@@ -87,7 +87,7 @@ export default function About() {
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="tel:+966560706018"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#1B2B5E] text-white font-cairo font-bold rounded-xl hover:bg-[#0f1d42] transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-blue-deep text-white font-cairo font-bold rounded-xl hover:bg-blue-primary transition-colors"
               >
                 📞 اتصل بنا
               </a>

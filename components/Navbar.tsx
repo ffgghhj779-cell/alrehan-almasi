@@ -24,10 +24,10 @@ export default function Navbar() {
   return (
     <>
       <motion.header
-        className={`fixed top-0 w-full z-50 px-4 md:px-12 py-2.5 md:py-4 pt-safe gpu-layer ${
+        className={`fixed top-0 w-full z-50 px-4 md:px-12 py-2.5 md:py-4 pt-safe gpu-layer bg-blue-deep transition-shadow duration-300 ${
           isScrolled
-            ? 'glass-panel luxury-shadow border-b border-orange-accent/20'
-            : 'glass-panel border-b border-blue-primary/10'
+            ? 'luxury-shadow border-b border-orange-accent'
+            : 'border-b border-white/10'
         }`}
         initial={{ opacity: 0, y: -24 }}
         animate={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col justify-center min-w-0 md:gap-1.5">
-              <span className="font-cairo font-black tracking-tight text-base md:text-3xl text-blue-deep leading-tight truncate">
+              <span className="font-cairo font-black tracking-tight text-base md:text-3xl text-white leading-tight truncate">
                 الرهان الماسي
               </span>
               <span className="hidden md:block text-xs font-bold text-orange-accent tracking-wider">
@@ -60,7 +60,7 @@ export default function Navbar() {
             </div>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8 text-sm font-bold text-text-dark/80">
+          <nav className="hidden md:flex items-center gap-8 text-sm font-bold text-white">
             {navItems.map((item) => (
               <a
                 key={item}
@@ -81,7 +81,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             <Link
               href="/#منتجاتنا"
-              className="px-6 py-2.5 border border-orange-accent text-orange-accent text-sm font-bold hover:bg-orange-accent hover:text-white transition-all luxury-shadow touch-press active:scale-95"
+              className="px-6 py-2.5 bg-white text-blue-deep text-sm font-bold hover:bg-orange-accent hover:text-white transition-all luxury-shadow touch-press active:scale-95 rounded-sm"
             >
               طلب عرض سعر
             </Link>
@@ -89,7 +89,7 @@ export default function Navbar() {
 
           <button
             type="button"
-            className="md:hidden shrink-0 text-blue-primary touch-target touch-press active:scale-95 transition-transform flex items-center justify-center w-11 h-11 rounded-xl border border-blue-primary/10 bg-white/50"
+            className="md:hidden shrink-0 text-white touch-target touch-press active:scale-95 transition-transform flex items-center justify-center w-11 h-11 rounded-xl border border-white/20 bg-white/10"
             onClick={() => setIsMobileMenuOpen((open) => !open)}
             aria-label={isMobileMenuOpen ? 'إغلاق القائمة' : 'فتح القائمة'}
             aria-expanded={isMobileMenuOpen}

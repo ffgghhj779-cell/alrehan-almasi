@@ -22,13 +22,13 @@ export default function Hero() {
           referrerPolicy="no-referrer"
         />
         {/* Deep overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-l from-[#1B2B5E]/90 via-[#1B2B5E]/75 to-[#1B2B5E]/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1B2B5E]/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-l from-blue-deep/90 via-blue-deep/75 to-blue-deep/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-blue-deep/60 via-transparent to-transparent" />
       </div>
 
       {/* Decorative rings */}
-      <div className="absolute right-12 top-1/4 w-[320px] h-[320px] rounded-full border border-[#F5D5A0]/20 border-dashed animate-[spin_40s_linear_infinite] hidden md:block" />
-      <div className="absolute right-20 top-1/4 translate-y-8 w-[220px] h-[220px] rounded-full border border-[#F5D5A0]/10 hidden md:block" />
+      <div className="absolute right-12 top-1/4 w-[320px] h-[320px] rounded-full border border-secondary/20 border-dashed animate-[spin_40s_linear_infinite] hidden md:block" />
+      <div className="absolute right-20 top-1/4 translate-y-8 w-[220px] h-[220px] rounded-full border border-secondary/10 hidden md:block" />
 
       {/* Seamless blend at bottom */}
       <div
@@ -40,13 +40,13 @@ export default function Hero() {
 
         {/* Badge */}
         <motion.div
-          className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#F5D5A0]/20 border border-[#F5D5A0]/40 backdrop-blur-sm rounded-full"
+          className="inline-flex items-center gap-2 px-4 py-1.5 bg-secondary/20 border border-secondary/40 backdrop-blur-sm rounded-full"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="w-2 h-2 rounded-full bg-[#F5D5A0] animate-pulse shrink-0" />
-          <span className="text-[#F5D5A0] text-xs font-bold font-cairo tracking-widest uppercase">
+          <span className="w-2 h-2 rounded-full bg-secondary animate-pulse shrink-0" />
+          <span className="text-secondary text-xs font-bold font-cairo tracking-widest uppercase">
             Al Rehan Almasi • Premium Poultry
           </span>
         </motion.div>
@@ -59,7 +59,7 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
           مؤسسة الرهان الماسي{' '}
-          <span className="text-[#F5D5A0]">للدواجن</span>
+          <span className="text-secondary">للدواجن</span>
         </motion.h1>
 
         {/* Slogan */}
@@ -69,11 +69,11 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
         >
-          <div className="w-10 h-[2px] bg-[#E67E22] hidden sm:block" />
-          <p className="text-[#F5D5A0] text-lg sm:text-2xl font-bold font-cairo">
+          <div className="w-10 h-[2px] bg-orange-accent hidden sm:block" />
+          <p className="text-secondary text-lg sm:text-2xl font-bold font-cairo">
             من المزرعة إلى المائدة
           </p>
-          <div className="w-10 h-[2px] bg-[#E67E22] hidden sm:block" />
+          <div className="w-10 h-[2px] bg-orange-accent hidden sm:block" />
         </motion.div>
 
         {/* Description */}
@@ -96,7 +96,7 @@ export default function Hero() {
         >
           <a
             href="/#منتجاتنا"
-            className="w-full sm:w-auto sm:min-w-[200px] min-h-[52px] px-7 py-3.5 bg-[#E67E22] text-white font-bold text-sm sm:text-base luxury-shadow flex items-center justify-center gap-2 transition-all duration-300 hover:bg-[#d35400] rounded-xl touch-press active:scale-[0.98]"
+            className="w-full sm:w-auto sm:min-w-[200px] min-h-[52px] px-7 py-3.5 bg-orange-accent text-white font-bold text-sm sm:text-base luxury-shadow flex items-center justify-center gap-2 transition-all duration-300 hover:bg-orange-accent/80 rounded-xl touch-press active:scale-[0.98]"
           >
             <span>تصفح منتجاتنا</span>
             <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -106,7 +106,7 @@ export default function Hero() {
 
           <a
             href="tel:+966560706018"
-            className="w-full sm:w-auto sm:min-w-[200px] min-h-[52px] px-7 py-3.5 border-2 border-[#F5D5A0]/60 text-[#F5D5A0] font-bold text-sm sm:text-base flex items-center justify-center gap-2 rounded-xl hover:bg-[#F5D5A0]/10 transition-all duration-300 touch-press active:scale-[0.98]"
+            className="w-full sm:w-auto sm:min-w-[200px] min-h-[52px] px-7 py-3.5 border-2 border-secondary/60 text-secondary font-bold text-sm sm:text-base flex items-center justify-center gap-2 rounded-xl hover:bg-secondary/10 transition-all duration-300 touch-press active:scale-[0.98]"
           >
             <Phone size={18} />
             <span dir="ltr">+966 56 070 6018</span>
@@ -136,15 +136,15 @@ export default function Hero() {
         transition={{ delay: 0.8, duration: 0.6 }}
       >
         <div className="text-center px-4 border-l border-white/20">
-          <div className="text-[#F5D5A0] text-2xl font-black font-cairo">+10</div>
+          <div className="text-secondary text-2xl font-black font-cairo">+10</div>
           <div className="text-white/70 text-xs font-tajawal">سنوات خبرة</div>
         </div>
         <div className="text-center px-4 border-l border-white/20">
-          <div className="text-[#F5D5A0] text-2xl font-black font-cairo">100%</div>
+          <div className="text-secondary text-2xl font-black font-cairo">100%</div>
           <div className="text-white/70 text-xs font-tajawal">حلال معتمد</div>
         </div>
         <div className="text-center px-4">
-          <div className="text-[#F5D5A0] text-2xl font-black font-cairo">24/7</div>
+          <div className="text-secondary text-2xl font-black font-cairo">24/7</div>
           <div className="text-white/70 text-xs font-tajawal">خدمة مستمرة</div>
         </div>
       </motion.div>
