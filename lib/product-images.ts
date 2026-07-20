@@ -114,10 +114,10 @@ export const SKU_IMAGES: Record<string, string> = {
 };
 
 export const CATEGORY_IMAGES: Record<string, string> = {
-  'دجاج مجمد': '/assets/real/chicken_frozen_sadia.png',
   'دجاج مبرد': '/assets/real/chicken_chilled_basket.png',
+  'دجاج مجمد': '/assets/real/chicken_frozen_sadia.png',
   'شاورما مبردة': '/assets/real/raw_shawarma_bag.png',
-  'مصنعات الدجاج': '/assets/real/chicken_strips_fakieh.png',
+  'مصنعات الدجاج': '/assets/real/chicken_strips_clear.png',
   'بيض': '/assets/real/eggs_tray_almoroj.png',
   'لحوم': '/assets/real/raw_beef_butcher.png',
   'لحوم الأغنام': '/assets/real/raw_lamb_butcher.png',
@@ -149,36 +149,36 @@ export const STORE_CATEGORIES = [
   {
     name: 'دجاج مجمد',
     subtitle: 'دجاج مجمد عالي الجودة',
-    image: '/assets/real/media_10.jpeg',
+    image: '/assets/real/chicken_frozen_sadia.png',
   },
   {
     name: 'دجاج مبرد',
     subtitle: 'دواجن مبردة طازجة يومياً',
-    image: '/assets/real/media_5.jpeg',
+    image: '/assets/real/chicken_chilled_basket.png',
   },
   {
     name: 'شاورما مبردة',
     subtitle: 'شاورما طازجة جاهزة',
-    image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600&q=85&auto=format&fit=crop',
+    image: '/assets/real/raw_shawarma_bag.png',
   },
   {
     name: 'مصنعات الدجاج',
     subtitle: 'استربس، زنجر، بانيه والمزيد',
-    image: '/assets/real/media_13.jpeg',
+    image: '/assets/real/chicken_strips_clear.png',
   },
   {
     name: 'بيض',
     subtitle: 'بيض مائدة طازج',
-    image: '/assets/real/media_15.jpeg',
+    image: '/assets/real/eggs_tray_almoroj.png',
   },
   {
     name: 'لحوم',
     subtitle: 'لحوم بقر وعجل مبردة وطازجة',
-    image: 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=600&q=85&auto=format&fit=crop',
+    image: '/assets/real/raw_beef_butcher.png',
   },
   {
     name: 'لحوم الأغنام',
-    subtitle: 'لحوم أغنام طازجة (حري وسواكني)',
-    image: 'https://images.unsplash.com/photo-1544025162-d76538415491?w=600&q=85&auto=format&fit=crop',
+    subtitle: 'لحوم أغنام طازجة (حري، سواكني، تيوس)',
+    image: '/assets/real/raw_lamb_butcher.png',
   },
 ] as const;

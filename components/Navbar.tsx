@@ -54,11 +54,11 @@ export default function Navbar() {
                 sizes="(max-width: 768px) 40px, 80px"
               />
             </div>
-            <div className="flex flex-col justify-center min-w-0 md:gap-1.5">
-              <span className="font-cairo font-black text-xl md:text-3xl tracking-tight text-white drop-shadow-sm truncate leading-tight">
+            <div className="flex flex-col justify-center min-w-0 md:gap-0.5">
+              <span className="font-cairo font-black text-xl sm:text-2xl md:text-3xl tracking-tight text-white drop-shadow-sm leading-none mt-1">
                 الرهان الماسي
               </span>
-              <span className="text-orange-accent text-[11px] md:text-sm font-bold font-tajawal tracking-wide truncate">
+              <span className="text-orange-accent text-[10px] sm:text-[11px] md:text-sm font-bold font-tajawal tracking-widest uppercase mt-0.5 whitespace-normal leading-tight">
                 مؤسسة الرهان الماسي للدواجن
               </span>
             </div>
