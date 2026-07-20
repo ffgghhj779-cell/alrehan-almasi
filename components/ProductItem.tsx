@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { ShoppingCart, Check, PackageX, Sparkles } from 'lucide-react';
+import { ShoppingCart, Check, PackageX, Sparkles, Maximize2 } from 'lucide-react';
 import ProductImage from './ProductImage';
+import ProductModal from './ProductModal';
 import { useQuote } from './QuoteContext';
 import { useAuth } from './AuthContext';
 import { MagneticMotionButton } from './MagneticMotion';
@@ -18,6 +19,7 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
   const { tier, tierLabel, loading } = useAuth();
   const pointerFine = usePointerFine();
   const [justAdded, setJustAdded] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const discount = getDiscountForTier(tier);
   const tierPrice = calculateTierPrice(prod.basePrice, tier);
@@ -71,12 +73,14 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
   );
 
   return (
-    <motion.article
-      className={`group flex flex-col h-full w-full max-w-[320px] mx-auto rounded-2xl overflow-hidden bg-white ring-1 ring-gray-100/90 luxury-shadow-lg transition-all duration-300 gpu-accelerated touch-press ${
-        outOfStock
-          ? 'opacity-90'
-          : 'hover:ring-orange-accent/40 hover:luxury-shadow-lg active:scale-[0.98]'
-      }`}
+    <>
+      <motion.article
+        onClick={() => setIsModalOpen(true)}
+        className={`group cursor-pointer flex flex-col h-full w-full max-w-[320px] mx-auto rounded-2xl overflow-hidden bg-white ring-1 ring-gray-100/90 luxury-shadow-lg transition-all duration-300 gpu-accelerated touch-press ${
+          outOfStock
+            ? 'opacity-90'
+            : 'hover:ring-orange-accent/40 hover:luxury-shadow-lg active:scale-[0.98]'
+        }`}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
@@ -101,6 +105,12 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
           <span className="inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-bold font-cairo text-white bg-blue-deep/85 backdrop-blur-sm rounded-full border border-white/20">
             <Sparkles size={10} aria-hidden="true" />
             {prod.category}
+          </span>
+        </div>
+
+        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+          <span className="bg-white/90 backdrop-blur-md text-blue-deep px-4 py-2 rounded-full font-bold text-sm font-cairo flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all">
+            <Maximize2 size={16} /> عرض التفاصيل
           </span>
         </div>
 
@@ -175,7 +185,10 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
         <div className="mt-auto">
           {pointerFine ? (
             <MagneticMotionButton
-              onClick={handleAdd}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleAdd();
+              }}
               disabled={outOfStock}
               aria-label={
                 outOfStock ? `${prod.name} — نفدت الكمية` : `إضافة ${prod.name} إلى السلة`
@@ -187,7 +200,10 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
           ) : (
             <button
               type="button"
-              onClick={handleAdd}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleAdd();
+              }}
               disabled={outOfStock}
               aria-label={
                 outOfStock ? `${prod.name} — نفدت الكمية` : `إضافة ${prod.name} إلى السلة`
@@ -200,5 +216,11 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
         </div>
       </div>
     </motion.article>
+    <ProductModal 
+      product={prod} 
+      isOpen={isModalOpen} 
+      onClose={() => setIsModalOpen(false)} 
+    />
+  </>
   );
 }

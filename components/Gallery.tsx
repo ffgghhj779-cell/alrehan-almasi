@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { GALLERY_IMAGES } from '@/lib/product-images';
 
 const layoutClasses = [
@@ -40,23 +41,27 @@ export default function Gallery() {
             {GALLERY_IMAGES.map((item, i) => (
               <motion.div
                 key={item.label}
-                className="relative shrink-0 w-[260px] h-[200px] snap-start rounded-2xl overflow-hidden luxury-shadow-lg"
+                className="relative shrink-0 w-[260px] h-[200px] snap-start rounded-2xl overflow-hidden luxury-shadow-lg group touch-press active:scale-[0.98] transition-transform gpu-accelerated block"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
               >
+                <Link href={item.href} className="absolute inset-0 z-10">
+                  <span className="sr-only">تصفح {item.label}</span>
+                </Link>
                 <Image
                   src={item.src}
                   alt={item.alt}
                   fill
                   quality={100}
                   sizes="260px"
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1B2B5E]/85 via-[#1B2B5E]/20 to-transparent" />
-                <p className="absolute bottom-3 right-3 left-3 font-cairo font-bold text-white text-sm">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1B2B5E]/85 via-[#1B2B5E]/20 to-transparent pointer-events-none" />
+                <p className="absolute bottom-3 right-3 left-3 font-cairo font-bold text-white text-sm pointer-events-none flex items-center justify-between">
                   {item.label}
+                  <span className="text-orange-accent text-xs">تصفح &larr;</span>
                 </p>
               </motion.div>
             ))}
@@ -68,12 +73,15 @@ export default function Gallery() {
           {GALLERY_IMAGES.map((item, i) => (
             <motion.div
               key={item.label}
-              className={`relative rounded-2xl overflow-hidden group luxury-shadow-lg hover:luxury-shadow-lg transition-shadow duration-300 ${layoutClasses[i] ?? ''}`}
+              className={`relative rounded-2xl overflow-hidden group luxury-shadow-lg hover:luxury-shadow-lg touch-press active:scale-[0.98] transition-all duration-300 gpu-accelerated block ${layoutClasses[i] ?? ''}`}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
             >
+              <Link href={item.href} className="absolute inset-0 z-10">
+                <span className="sr-only">تصفح {item.label}</span>
+              </Link>
               <Image
                 src={item.src}
                 alt={item.alt}
@@ -82,10 +90,13 @@ export default function Gallery() {
                 sizes="(max-width: 1200px) 50vw, 25vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1B2B5E]/80 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
-              <p className="absolute bottom-4 right-4 left-4 font-cairo font-bold text-white text-lg">
-                {item.label}
-              </p>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1B2B5E]/80 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity pointer-events-none" />
+              <div className="absolute bottom-4 right-4 left-4 font-cairo font-bold text-white text-lg pointer-events-none flex items-end justify-between">
+                <span>{item.label}</span>
+                <span className="text-orange-accent text-sm opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                  تصفح &larr;
+                </span>
+              </div>
             </motion.div>
           ))}
         </div>

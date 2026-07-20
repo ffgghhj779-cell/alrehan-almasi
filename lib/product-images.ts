@@ -40,26 +40,31 @@ export const GALLERY_IMAGES = [
     src: '/assets/chicken-supermarket.jpeg',
     label: 'دواجن مبردة في الأسواق',
     alt: 'أكياس دجاج مبرد في ثلاجة السوبرماركت',
+    href: '/products?category=دجاج مبرد',
   },
   {
     src: '/assets/eggs-tray.jpeg',
     label: 'بيض مائدة الرهان الماسي',
     alt: 'طبق بيض طازج',
+    href: '/products?category=بيض',
   },
   {
     src: '/assets/chicken-frozen-sadia-branded.png',
     label: 'دجاج مجمد بالجملة',
     alt: 'أكياس دجاج مجمد بالجملة',
+    href: '/products?category=دجاج مجمد',
   },
   {
     src: '/assets/chicken-fresh-basket-branded.png',
     label: 'دجاج مبرد نخبة أولى',
     alt: 'كيسا دجاج مبرد في سلة مع ثلج',
+    href: '/products?category=دجاج مبرد',
   },
   {
     src: '/assets/eggs-carton-front-branded.png',
     label: 'بيض طازج يومي',
     alt: 'صناديق بيض طازج',
+    href: '/products?category=بيض',
   },
 ] as const;
 
