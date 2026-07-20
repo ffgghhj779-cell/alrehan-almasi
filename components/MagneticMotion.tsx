@@ -33,7 +33,7 @@ export function MagneticMotionAnchor({
 }
 
 type MagneticMotionButtonProps = {
-  onClick: () => void;
+  onClick: (e?: any) => void;
   disabled?: boolean;
   className?: string;
   'aria-label'?: string;
