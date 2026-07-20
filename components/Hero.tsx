@@ -36,49 +36,46 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <div className="container mx-auto relative z-10 w-full space-y-6 flex flex-col items-center text-center max-w-4xl pt-8 md:pt-16">
+      <div className="container mx-auto relative z-10 w-full space-y-5 md:space-y-6 flex flex-col items-center text-center max-w-3xl pt-8 md:pt-16">
 
         {/* Badge */}
         <motion.div
-          className="inline-flex items-center gap-2 px-4 py-1.5 bg-secondary/20 border border-secondary/40 backdrop-blur-sm rounded-full"
+          className="inline-flex items-center gap-2 px-4 py-1 bg-white/10 border border-white/20 backdrop-blur-md rounded-full"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="w-2 h-2 rounded-full bg-secondary animate-pulse shrink-0" />
-          <span className="text-secondary text-[10px] md:text-sm font-bold font-cairo tracking-widest uppercase">
+          <span className="w-1.5 h-1.5 rounded-full bg-green-bright animate-pulse shrink-0" />
+          <span className="text-white/90 text-[10px] md:text-xs font-bold font-cairo tracking-widest uppercase">
             الرهان الماسي للدواجن
           </span>
         </motion.div>
 
         {/* Main title */}
         <motion.h1
-          className="font-cairo text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white drop-shadow-md"
+          className="font-cairo text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.4] text-white drop-shadow-md"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          مؤسسة الرهان الماسي{' '}
-          <span className="text-secondary whitespace-nowrap">للدواجن</span>
+          مؤسسة الرهان الماسي للدواجن
         </motion.h1>
 
         {/* Slogan */}
         <motion.div
-          className="flex items-center gap-4 justify-center w-full"
+          className="flex items-center justify-center w-full"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
         >
-          <div className="w-12 md:w-20 h-[2px] bg-orange-accent/80 hidden sm:block" />
-          <p className="text-secondary text-lg md:text-2xl lg:text-3xl font-bold font-cairo drop-shadow-sm">
+          <p className="text-secondary text-lg md:text-xl lg:text-2xl font-bold font-cairo drop-shadow-sm">
             من المزرعة إلى المائدة
           </p>
-          <div className="w-12 md:w-20 h-[2px] bg-orange-accent/80 hidden sm:block" />
         </motion.div>
 
         {/* Description */}
         <motion.p
-          className="text-sm md:text-lg text-white/90 leading-relaxed max-w-2xl font-tajawal mx-auto"
+          className="text-sm md:text-base text-white/80 leading-relaxed max-w-xl font-tajawal mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}

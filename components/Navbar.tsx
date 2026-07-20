@@ -43,7 +43,7 @@ export default function Navbar() {
             href="/"
             className="flex items-center gap-3 min-w-0 flex-1 md:flex-none group touch-press active:scale-[0.98] transition-transform"
           >
-            <div className="relative h-10 w-10 md:h-16 md:w-16 shrink-0 rounded-xl md:rounded-xl overflow-hidden luxury-shadow ring-2 ring-white bg-white p-1 md:p-1.5 group-hover:scale-[1.02] transition-transform duration-300">
+            <div className="relative h-10 w-10 md:h-14 md:w-14 shrink-0 rounded-xl overflow-hidden luxury-shadow ring-2 ring-white bg-white p-1 md:p-1.5 group-hover:scale-[1.02] transition-transform duration-300">
               <Image
                 src="/logo.png"
                 alt="شعار الرهان الماسي"
@@ -51,15 +51,12 @@ export default function Navbar() {
                 quality={100}
                 className="object-contain"
                 priority
-                sizes="(max-width: 768px) 40px, 80px"
+                sizes="(max-width: 768px) 40px, 60px"
               />
             </div>
-            <div className="flex flex-col justify-center min-w-0 md:gap-0.5">
-              <span className="font-cairo font-extrabold text-xl sm:text-2xl md:text-3xl tracking-tight text-white drop-shadow-sm leading-none mt-1">
+            <div className="flex flex-col justify-center min-w-0">
+              <span className="font-cairo font-bold text-xl md:text-2xl tracking-tight text-white drop-shadow-sm leading-none mt-1">
                 الرهان الماسي
-              </span>
-              <span className="text-orange-accent text-[10px] sm:text-[11px] md:text-sm font-bold font-tajawal tracking-widest uppercase mt-0.5 whitespace-normal md:whitespace-nowrap leading-tight">
-                مؤسسة الرهان الماسي للدواجن
               </span>
             </div>
           </Link>
