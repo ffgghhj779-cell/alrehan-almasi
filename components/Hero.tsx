@@ -53,37 +53,34 @@ export default function Hero() {
 
         {/* Main title */}
         <motion.h1
-          className="font-tajawal font-bold leading-tight text-white drop-shadow-xl flex flex-col items-center gap-2 md:gap-3"
+          className="font-cairo font-bold leading-tight text-white drop-shadow-lg flex flex-col items-center gap-3"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <span className="text-4xl md:text-5xl lg:text-[4rem]">مؤسسة الرهان الماسي</span>
-          <span className="text-3xl md:text-4xl lg:text-[3rem] text-transparent bg-clip-text bg-gradient-to-l from-orange-accent to-yellow-300">للدواجن</span>
+          <span className="text-3xl md:text-4xl lg:text-5xl tracking-wide">مؤسسة الرهان الماسي</span>
+          <span className="text-2xl md:text-3xl lg:text-4xl text-orange-accent drop-shadow-md">للدواجن</span>
         </motion.h1>
 
         {/* Premium Slogan */}
         <motion.div
-          className="flex items-center justify-center w-full mt-2"
+          className="flex items-center justify-center w-full mt-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
         >
-          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl">
-            <div className="p-1.5 bg-gradient-to-br from-orange-accent to-yellow-500 rounded-lg shadow-inner">
-              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-              </svg>
-            </div>
-            <p className="text-white/95 text-lg md:text-2xl font-bold font-tajawal tracking-wide">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-[1px] bg-gradient-to-r from-transparent to-orange-accent/50 hidden md:block" />
+            <span className="text-white/90 text-lg md:text-xl font-cairo font-semibold tracking-widest px-4 py-1.5 border border-white/10 rounded-full bg-white/5 backdrop-blur-sm">
               من المزرعة إلى المائدة
-            </p>
+            </span>
+            <div className="w-12 h-[1px] bg-gradient-to-l from-transparent to-orange-accent/50 hidden md:block" />
           </div>
         </motion.div>
 
         {/* Description */}
         <motion.p
-          className="text-sm md:text-lg text-white/70 leading-relaxed max-w-2xl font-tajawal pt-2"
+          className="text-sm md:text-base lg:text-lg text-white/70 leading-relaxed max-w-2xl font-cairo font-medium pt-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
