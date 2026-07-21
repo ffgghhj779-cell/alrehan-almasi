@@ -13,7 +13,7 @@ type ProductsProps = {
 
 export default function Products({ initialProducts, fetchError }: ProductsProps) {
   return (
-    <section className="py-12 md:py-20 bg-white overflow-x-hidden" id="منتجاتنا">
+    <section className="py-12 md:py-20 bg-transparent overflow-x-hidden" id="منتجاتنا">
       <div className="container mx-auto px-4 md:px-8 max-w-[1400px] overflow-x-hidden">
         <motion.div
           className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-8 gap-4"

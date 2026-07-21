@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function QualitySection() {
   return (
-    <section className="bg-secondary py-16 md:py-24 relative overflow-hidden" dir="rtl">
+    <section className="bg-transparent py-16 md:py-24 relative overflow-hidden" dir="rtl">
       <div className="container mx-auto px-6 md:px-8 max-w-5xl">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           
@@ -19,7 +19,7 @@ export default function QualitySection() {
             transition={{ duration: 0.6 }}
           >
             {/* The offset shadow box */}
-            <div className="absolute right-8 top-8 md:right-16 md:top-12 w-[85%] aspect-square bg-orange-accent z-0" />
+            <div className="absolute right-8 top-8 md:right-16 md:top-12 w-[85%] aspect-square bg-shape-olive z-0" />
             
             {/* The main image box */}
             <div className="relative z-10 w-[85%] aspect-square bg-blue-deep flex items-center justify-center p-4">
