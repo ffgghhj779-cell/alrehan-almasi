@@ -1,0 +1,104 @@
+<svg viewBox="0 0 800 1200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600;900&amp;display=swap');
+      .font-black { font-family: 'Cairo', sans-serif; font-weight: 900; }
+      .font-bold { font-family: 'Cairo', sans-serif; font-weight: 600; }
+      .drop-shadow { filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); }
+      .glass { fill: rgba(255, 255, 255, 0.1); backdrop-filter: blur(4px); }
+    </style>
+    
+    <!-- Background Raw Chicken Image from Unsplash -->
+    <pattern id="chickenImg" patternUnits="userSpaceOnUse" width="800" height="1200">
+      <image href="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=800&amp;h=1200&amp;fit=crop" width="800" height="1200" preserveAspectRatio="xMidYMid slice" />
+    </pattern>
+
+    <!-- Gradients -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D" />
+      <stop offset="50%" stop-color="#D97706" />
+      <stop offset="100%" stop-color="#92400E" />
+    </linearGradient>
+    
+    <linearGradient id="navyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E3A8A" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EA580C" />
+      <stop offset="100%" stop-color="#C2410C" />
+    </linearGradient>
+
+    <!-- Diamond Pattern -->
+    <pattern id="diamondPat" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M20 0 L40 20 L20 40 L0 20 Z" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.15" />
+    </pattern>
+  </defs>
+
+  <!-- Main Bag Shape (Outer Boundary) -->
+  <!-- We use a clip-path for the bag shape -->
+  <clipPath id="bagShape">
+    <path d="M 150 100 C 300 0, 500 0, 650 100 C 750 300, 780 600, 780 900 C 780 1150, 650 1150, 400 1150 C 150 1150, 20 1150, 20 900 C 20 600, 50 300, 150 100 Z" />
+  </clipPath>
+
+  <g clip-path="url(#bagShape)">
+    <!-- Base Layer: Raw Chicken Image -->
+    <rect x="0" y="0" width="800" height="1200" fill="url(#chickenImg)" />
+    
+    <!-- Top Layer: Gold (curves down around the window) -->
+    <path d="M 0 0 L 800 0 L 800 550 C 600 480, 200 480, 0 550 Z" fill="url(#goldGrad)" opacity="0.95" />
+    <path d="M 0 0 L 800 0 L 800 550 C 600 480, 200 480, 0 550 Z" fill="url(#diamondPat)" />
+
+    <!-- Bottom Layer: Navy (curves up around the window) -->
+    <path d="M 0 1200 L 800 1200 L 800 800 C 600 880, 200 880, 0 800 Z" fill="url(#navyGrad)" opacity="0.98" />
+
+    <!-- Elegant Gold Foil Trim Lines -->
+    <path d="M 0 550 C 200 480, 600 480, 800 550" fill="none" stroke="#FDE047" stroke-width="6" class="drop-shadow" />
+    <path d="M 0 800 C 200 880, 600 880, 800 800" fill="none" stroke="#FDE047" stroke-width="6" class="drop-shadow" />
+
+    <!-- Top Branding -->
+    <rect x="250" y="160" width="300" height="120" rx="20" fill="#1E3A8A" stroke="#FDE047" stroke-width="4" class="drop-shadow" />
+    <text x="400" y="210" class="font-black drop-shadow" font-size="42" fill="#FFFFFF" text-anchor="middle">الرهان الماسي</text>
+    <text x="400" y="255" class="font-bold" font-size="24" fill="#FDE047" text-anchor="middle" letter-spacing="4">ALREHAN ALMASI</text>
+
+    <!-- Subtitle -->
+    <rect x="200" y="320" width="400" height="60" rx="30" class="glass" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.3" />
+    <text x="400" y="362" class="font-black drop-shadow" font-size="34" fill="#1E3A8A" text-anchor="middle">دجاج فاخر عالي الجودة</text>
+
+    <!-- Window Border inside -->
+    <path d="M 150 540 C 350 490, 450 490, 650 540 C 700 650, 700 700, 650 810 C 450 860, 350 860, 150 810 C 100 700, 100 650, 150 540 Z" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-opacity="0.5" stroke-dasharray="10 10" />
+
+    <!-- Weight Badge -->
+    <rect x="300" y="760" width="200" height="80" rx="40" fill="url(#orangeGrad)" stroke="#FFFFFF" stroke-width="3" class="drop-shadow" />
+    <text x="400" y="812" class="font-black drop-shadow" font-size="44" fill="#FFFFFF" text-anchor="middle">1000g</text>
+    <circle cx="300" cy="800" r="15" fill="#1E3A8A" stroke="#FDE047" stroke-width="2" />
+    <text x="300" y="805" class="font-bold" font-size="14" fill="#FFFFFF" text-anchor="middle">±50</text>
+
+    <!-- Bottom Features (Icons & Text) -->
+    <!-- Feature 1: Halal -->
+    <g transform="translate(150, 950)">
+      <circle cx="0" cy="0" r="45" fill="none" stroke="#FDE047" stroke-width="3" />
+      <text x="0" y="-2" class="font-black" font-size="24" fill="#FFFFFF" text-anchor="middle">حلال</text>
+      <text x="0" y="20" class="font-bold" font-size="14" fill="#FDE047" text-anchor="middle" letter-spacing="1">HALAL</text>
+    </g>
+
+    <!-- Feature 2: Saudi -->
+    <g transform="translate(400, 950)">
+      <circle cx="0" cy="0" r="45" fill="none" stroke="#FDE047" stroke-width="3" />
+      <text x="0" y="-5" class="font-bold" font-size="20" fill="#FFFFFF" text-anchor="middle">صناعة</text>
+      <text x="0" y="20" class="font-black" font-size="22" fill="#FDE047" text-anchor="middle">سعودية</text>
+    </g>
+
+    <!-- Feature 3: Veg Fed -->
+    <g transform="translate(650, 950)">
+      <circle cx="0" cy="0" r="45" fill="none" stroke="#FDE047" stroke-width="3" />
+      <text x="0" y="-5" class="font-bold" font-size="20" fill="#FFFFFF" text-anchor="middle">تغذية</text>
+      <text x="0" y="20" class="font-black" font-size="22" fill="#FDE047" text-anchor="middle">نباتية</text>
+    </g>
+    
+    <!-- Feature 4: No Antibiotics -->
+    <text x="400" y="1080" class="font-bold drop-shadow" font-size="22" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">خالي من المضادات الحيوية</text>
+    <path d="M 250 1072 L 300 1072 M 500 1072 L 550 1072" stroke="#FDE047" stroke-width="2" />
+  </g>
+</svg>
