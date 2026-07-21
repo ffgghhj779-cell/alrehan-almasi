@@ -151,7 +151,7 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
         )}
 
         {/* Price block */}
-        <div className="rounded-xl bg-secondary/70 ring-1 ring-gray-100 px-3 py-2.5 mb-3 min-h-[56px] flex flex-col justify-center">
+        <div className="rounded-xl bg-gray-50 ring-1 ring-gray-100 px-3 py-2.5 mb-3 min-h-[56px] flex flex-col justify-center">
           {loading ? (
             <div className="h-7 w-28 bg-gray-200 skeleton-shimmer rounded-md" aria-hidden="true" />
           ) : (

@@ -7,7 +7,7 @@ import { CheckCircle2 } from 'lucide-react';
 export default function About() {
   return (
     <section className="py-12 md:py-20 bg-transparent relative overflow-hidden" id="من نحن">
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-secondary/20 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/4 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-orange-accent/10 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/4 pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-16">
@@ -75,7 +75,7 @@ export default function About() {
                 'التزام تام بمعايير الذبح الحلال وسلامة الغذاء',
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-4">
-                  <div className="w-8 h-8 bg-secondary/30 flex items-center justify-center shrink-0 rounded-lg">
+                  <div className="w-8 h-8 bg-orange-accent/10 flex items-center justify-center shrink-0 rounded-lg">
                     <CheckCircle2 className="text-orange-accent" size={20} />
                   </div>
                   <span className="text-text-dark font-semibold text-sm md:text-base font-tajawal">{item}</span>

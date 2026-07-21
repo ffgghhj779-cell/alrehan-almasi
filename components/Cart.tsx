@@ -96,7 +96,7 @@ function CartEmptyState() {
 
 function OrderTotals({ subtotal, vatAmount, total }: { subtotal: number; vatAmount: number; total: number }) {
   return (
-    <div className="bg-secondary/80 border border-gray-100 rounded-xl p-4 space-y-2 text-sm font-tajawal">
+    <div className="bg-gray-50 border border-gray-100 rounded-xl p-4 space-y-2 text-sm font-tajawal">
       <div className="flex justify-between text-gray-600">
         <span>المجموع الفرعي</span>
         <span className="font-semibold text-text-dark">{formatSar(subtotal)}</span>
@@ -148,7 +148,7 @@ function CartSummaryStep({
               >
                 <Trash2 size={16} />
               </button>
-              <div className="flex items-center gap-1 bg-secondary rounded-lg border border-gray-100">
+              <div className="flex items-center gap-1 bg-gray-100 rounded-lg border border-gray-200">
                 <button
                   type="button"
                   onClick={() => decrementItem(item.id)}
@@ -324,7 +324,7 @@ function OrderSuccessStep({
       <p className="text-gray-600 font-tajawal text-sm mb-6 max-w-[280px] leading-relaxed">
         شكراً لثقتك بالرهان الماسي. سيتواصل معك فريقنا قريباً لتأكيد التوصيل.
       </p>
-      <div className="bg-secondary border border-blue-primary/10 rounded-2xl px-6 py-4 mb-8 w-full max-w-xs">
+      <div className="bg-gray-50 border border-blue-primary/10 rounded-2xl px-6 py-4 mb-8 w-full max-w-xs">
         <p className="text-xs text-gray-500 font-tajawal mb-1">رقم الطلب</p>
         <p className="font-mono font-bold text-xl text-orange-accent">#{orderNumber}</p>
       </div>

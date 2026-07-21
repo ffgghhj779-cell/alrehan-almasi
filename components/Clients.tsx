@@ -34,7 +34,7 @@ export default function Clients() {
               key={i}
               className="flex flex-col items-center justify-center w-48 md:w-64 opacity-50 hover:opacity-100 transition-opacity duration-300 group"
             >
-              <div className="w-20 h-20 rounded-full bg-secondary flex items-center justify-center mb-4 group-hover:bg-blue-primary transition-colors duration-300">
+              <div className="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center mb-4 group-hover:bg-blue-primary transition-colors duration-300">
                 <client.icon
                   size={36}
                   className="text-blue-deep group-hover:text-white transition-colors duration-300"

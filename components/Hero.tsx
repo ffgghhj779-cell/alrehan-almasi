@@ -27,8 +27,8 @@ export default function Hero() {
       </div>
 
       {/* Decorative rings */}
-      <div className="absolute right-12 top-1/4 w-[320px] h-[320px] rounded-full border border-secondary/20 border-dashed animate-[spin_40s_linear_infinite] hidden md:block" />
-      <div className="absolute right-20 top-1/4 translate-y-8 w-[220px] h-[220px] rounded-full border border-secondary/10 hidden md:block" />
+      <div className="absolute right-12 top-1/4 w-[320px] h-[320px] rounded-full border border-orange-accent/20 border-dashed animate-[spin_40s_linear_infinite] hidden md:block" />
+      <div className="absolute right-20 top-1/4 translate-y-8 w-[220px] h-[220px] rounded-full border border-orange-accent/10 hidden md:block" />
 
       {/* Seamless blend at bottom */}
       <div
@@ -69,10 +69,10 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
         >
-          <p className="text-secondary text-xl md:text-3xl font-tajawal font-bold tracking-wide drop-shadow-lg flex items-center gap-4">
-            <span className="w-10 md:w-16 h-[2px] bg-secondary/60 rounded-full"></span>
+          <p className="text-orange-accent text-xl md:text-3xl font-tajawal font-bold tracking-wide drop-shadow-lg flex items-center gap-4">
+            <span className="w-10 md:w-16 h-[2px] bg-orange-accent/60 rounded-full"></span>
             من المزرعة إلى المائدة
-            <span className="w-10 md:w-16 h-[2px] bg-secondary/60 rounded-full"></span>
+            <span className="w-10 md:w-16 h-[2px] bg-orange-accent/60 rounded-full"></span>
           </p>
         </motion.div>
 
@@ -125,15 +125,15 @@ export default function Hero() {
         transition={{ delay: 0.8, duration: 0.6 }}
       >
         <div className="text-center px-4 border-l border-white/20">
-          <div className="text-secondary text-2xl font-black font-cairo">+10</div>
+          <div className="text-orange-accent text-2xl font-black font-cairo">+10</div>
           <div className="text-white/70 text-xs font-tajawal">سنوات خبرة</div>
         </div>
         <div className="text-center px-4 border-l border-white/20">
-          <div className="text-secondary text-2xl font-black font-cairo">100%</div>
+          <div className="text-orange-accent text-2xl font-black font-cairo">100%</div>
           <div className="text-white/70 text-xs font-tajawal">حلال معتمد</div>
         </div>
         <div className="text-center px-4">
-          <div className="text-secondary text-2xl font-black font-cairo">24/7</div>
+          <div className="text-orange-accent text-2xl font-black font-cairo">24/7</div>
           <div className="text-white/70 text-xs font-tajawal">خدمة مستمرة</div>
         </div>
       </motion.div>

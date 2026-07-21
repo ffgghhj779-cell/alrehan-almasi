@@ -93,8 +93,8 @@ export default function CsvUploader({
 
   const baseClass =
     variant === 'compact'
-      ? 'flex-1 bg-white text-blue-deep border border-blue-primary/20 font-bold py-2 flex items-center justify-center gap-2 hover:bg-secondary transition-colors text-sm disabled:opacity-60'
-      : 'bg-white text-blue-deep border border-blue-primary/20 font-bold py-2 px-4 flex items-center justify-center gap-2 hover:bg-secondary transition-colors text-sm rounded-lg disabled:opacity-60';
+      ? 'flex-1 bg-white text-blue-deep border border-blue-primary/20 font-bold py-2 flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors text-sm disabled:opacity-60'
+      : 'bg-white text-blue-deep border border-blue-primary/20 font-bold py-2 px-4 flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors text-sm rounded-lg disabled:opacity-60';
 
   return (
     <div className={variant === 'compact' ? 'flex-1' : 'flex flex-col items-center gap-2'}>

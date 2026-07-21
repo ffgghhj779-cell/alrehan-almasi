@@ -107,7 +107,7 @@ export default function ProductGrid({
                   <div className="h-6 bg-gray-200 rounded-sm w-3/4 skeleton-shimmer" />
                   <div className="h-4 bg-gray-200 rounded-sm w-1/2 skeleton-shimmer" />
                   <div className="h-4 bg-gray-200 rounded-sm w-1/4 skeleton-shimmer" />
-                  <div className="mt-auto h-12 bg-secondary rounded-sm w-full skeleton-shimmer" />
+                  <div className="mt-auto h-12 bg-gray-100 rounded-sm w-full skeleton-shimmer" />
                 </div>
               </div>
             ))}
