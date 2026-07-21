@@ -61,7 +61,7 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-50 bg-blue-deep/60 backdrop-blur-sm"
+            className="fixed inset-0 z-50 bg-blue-deep/60"
           />
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 pointer-events-none">
             <motion.div
@@ -72,7 +72,7 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
             >
               <button
                 onClick={onClose}
-                className="absolute top-4 right-4 z-10 p-2 bg-white/80 backdrop-blur-md text-gray-500 hover:text-red-500 rounded-full transition-colors"
+                className="absolute top-4 right-4 z-10 p-2 bg-white/90 text-gray-500 hover:text-red-500 rounded-full transition-colors"
               >
                 <X size={24} />
               </button>
@@ -98,7 +98,7 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
                   <div className="absolute top-6 left-6">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold font-cairo text-white bg-blue-deep/90 backdrop-blur-md rounded-full">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold font-cairo text-white bg-blue-deep/90 rounded-full">
                       <Sparkles size={14} />
                       {product.category}
                     </span>

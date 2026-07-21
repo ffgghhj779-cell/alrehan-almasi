@@ -105,21 +105,21 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
         <div className="absolute top-2.5 right-2.5">
-          <span className="inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-bold font-cairo text-white bg-blue-deep/85 backdrop-blur-sm rounded-full border border-white/20">
+          <span className="inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-bold font-cairo text-white bg-blue-deep/90 rounded-full border border-white/20">
             <Sparkles size={10} aria-hidden="true" />
             {prod.category}
           </span>
         </div>
 
         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-          <span className="bg-white/90 backdrop-blur-md text-blue-deep px-4 py-2 rounded-full font-bold text-sm font-cairo flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all">
+          <span className="bg-white/95 text-blue-deep px-4 py-2 rounded-full font-bold text-sm font-cairo flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all">
             <Maximize2 size={16} /> عرض التفاصيل
           </span>
         </div>
 
         {prod.originCountry && (
           <div className="absolute top-2.5 left-2.5">
-            <span className="px-2 py-0.5 text-[9px] font-bold font-tajawal text-white/95 bg-black/40 backdrop-blur-sm rounded-md">
+            <span className="px-2 py-0.5 text-[9px] font-bold font-tajawal text-white/95 bg-black/50 rounded-md">
               {prod.originCountry}
             </span>
           </div>

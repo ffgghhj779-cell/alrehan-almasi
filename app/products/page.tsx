@@ -2,8 +2,9 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Cart from '@/components/Cart';
 import ProductGrid from '@/components/ProductGrid';
+import ProductGridServer from '@/components/ProductGridServer';
 import TierSelector from '@/components/TierSelector';
-import { fetchProductsResult } from '@/lib/products';
+import { Suspense } from 'react';
 
 export const revalidate = 60;
 
@@ -12,7 +13,6 @@ export default async function ProductsPage({
 }: {
   searchParams: Promise<{ category?: string }>;
 }) {
-  const { products, error } = await fetchProductsResult();
   const { category } = await searchParams;
 
   return (
@@ -41,12 +41,9 @@ export default async function ProductsPage({
           </div>
           <TierSelector />
           <div className="mt-8">
-            <ProductGrid
-              initialProducts={products}
-              showSearch
-              fetchError={error}
-              initialCategory={category ?? null}
-            />
+            <Suspense fallback={<ProductGrid showSearch initialCategory={category ?? null} />}>
+              <ProductGridServer category={category ?? null} />
+            </Suspense>
           </div>
         </div>
       </section>
