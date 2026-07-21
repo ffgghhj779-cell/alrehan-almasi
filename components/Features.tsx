@@ -59,11 +59,7 @@ const features: Feature[] = [
 
 function FeatureCard({ feat, index, compact = false }: { feat: Feature; index: number; compact?: boolean }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
-      transition={{ delay: Math.min(index * 0.07, 0.35), duration: 0.45 }}
+    <div
       className={compact ? 'shrink-0 w-[280px] snap-start' : ''}
     >
       <div
@@ -82,7 +78,7 @@ function FeatureCard({ feat, index, compact = false }: { feat: Feature; index: n
           {feat.desc}
         </p>
       </div>
-    </motion.div>
+    </div>
   );
 }
 

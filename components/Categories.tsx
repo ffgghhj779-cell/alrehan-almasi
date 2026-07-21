@@ -18,13 +18,7 @@ function CategoryCard({
   compact?: boolean;
 }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
-      transition={{ delay: Math.min(index * 0.07, 0.35), duration: 0.45 }}
-      className={className}
-    >
+    <div className={className}>
       <Link
         href={`/products?category=${encodeURIComponent(cat.name)}`}
         className={`group block relative overflow-hidden luxury-shadow-lg border border-white/80 touch-press active:scale-[0.98] transition-transform gpu-accelerated glass-panel ${
@@ -40,7 +34,7 @@ function CategoryCard({
           fill
           quality={100}
           sizes={compact ? '220px' : '(max-width: 768px) 50vw, 25vw'}
-          className="object-contain transition-transform duration-700 ease-out group-hover:scale-105 filter contrast-[1.1] saturate-[1.1] brightness-[1.05] p-2"
+          className="object-contain transition-transform duration-700 ease-out group-hover:scale-105 p-2"
           referrerPolicy="no-referrer"
         />
         
@@ -75,7 +69,7 @@ function CategoryCard({
 
         <div className="category-accent-bar absolute bottom-0 inset-x-0 h-0.5 bg-orange-accent z-10" />
       </Link>
-    </motion.div>
+    </div>
   );
 }
 

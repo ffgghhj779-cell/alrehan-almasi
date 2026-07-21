@@ -41,9 +41,9 @@ export default function Navbar() {
         <div className="container mx-auto flex justify-between items-center gap-3 min-h-[48px]">
           <Link
             href="/"
-            className="flex items-center gap-3 md:gap-4 min-w-0 flex-1 md:flex-none group touch-press active:scale-[0.98] transition-transform"
+            className="flex items-center gap-2 md:gap-4 min-w-0 group touch-press active:scale-[0.98] transition-transform"
           >
-            <div className="relative h-12 w-12 md:h-16 md:w-16 shrink-0 group-hover:scale-[1.05] transition-transform duration-300 flex items-center justify-center">
+            <div className="relative h-10 w-10 md:h-16 md:w-16 shrink-0 group-hover:scale-[1.05] transition-transform duration-300 flex items-center justify-center">
               <Image
                 src="/logo.png"
                 alt="شعار الرهان الماسي"
@@ -51,14 +51,14 @@ export default function Navbar() {
                 quality={100}
                 className="object-contain drop-shadow-md"
                 priority
-                sizes="(max-width: 768px) 48px, 64px"
+                sizes="(max-width: 768px) 40px, 64px"
               />
             </div>
             <div className="flex flex-col justify-center min-w-0">
-              <span className="font-tajawal font-black text-2xl md:text-[1.7rem] tracking-tighter text-white drop-shadow-md">
+              <span className="font-tajawal font-black text-[1.15rem] md:text-[1.7rem] leading-tight tracking-tight text-white drop-shadow-md whitespace-nowrap">
                 الرهان الماسي
               </span>
-              <span className="text-orange-accent/90 text-xs md:text-[13px] font-tajawal font-bold tracking-[0.2em] -mt-1 drop-shadow-sm">
+              <span className="text-orange-accent/90 text-[9px] md:text-[13px] font-tajawal font-bold tracking-widest md:tracking-[0.2em] drop-shadow-sm whitespace-nowrap">
                 من المزرعة إلى المائدة
               </span>
             </div>

@@ -74,18 +74,13 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
 
   return (
     <>
-      <motion.article
+      <article
         onClick={() => setIsModalOpen(true)}
         className={`group cursor-pointer flex flex-col h-full w-full max-w-[320px] mx-auto rounded-2xl overflow-hidden bg-white ring-1 ring-gray-100/90 luxury-shadow-lg transition-all duration-300 gpu-accelerated touch-press ${
           outOfStock
             ? 'opacity-90'
             : 'hover:ring-orange-accent/40 hover:luxury-shadow-lg active:scale-[0.98]'
         }`}
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ delay: Math.min(index * 0.06, 0.4), duration: 0.4 }}
-      style={{ willChange: 'transform, opacity' }}
     >
       {/* Image */}
       <div className="relative aspect-[4/3] overflow-hidden bg-white shrink-0 ring-1 ring-gray-100 flex items-center justify-center p-2">
@@ -94,7 +89,7 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
           sku={prod.sku}
           category={prod.category}
           alt={prod.name}
-          className={`transition-transform duration-700 ease-out object-contain w-full h-full filter contrast-[1.1] saturate-[1.1] brightness-[1.05] ${
+          className={`transition-transform duration-700 ease-out object-contain w-full h-full ${
             outOfStock ? 'grayscale-[40%] scale-100' : 'group-hover:scale-105'
           }`}
           sizes="(max-width: 640px) 100vw, 320px"
@@ -223,7 +218,7 @@ export function ProductItem({ prod, index }: { prod: Product; index: number }) {
           )}
         </div>
       </div>
-    </motion.article>
+    </article>
     <ProductModal 
       product={prod} 
       isOpen={isModalOpen} 
