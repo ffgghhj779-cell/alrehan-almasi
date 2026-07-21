@@ -31,7 +31,7 @@ export default function Gallery() {
           </h2>
           <div className="w-20 md:w-24 h-1 bg-orange-accent mx-auto rounded-full mb-4 md:mb-6" />
           <p className="text-gray-600 max-w-2xl mx-auto text-sm md:text-lg font-tajawal px-2">
-            من المزرعة إلى مائدتكم — جودة الدواجن والبيض واللحوم في كل صورة
+            من المزرعة إلى مائدتكم — جودة الدواجن والبيض في كل صورة
           </p>
         </motion.div>
 

@@ -286,7 +286,6 @@ VALUES
   ('ARA-OIL-001', 'زيت دوار الشمس',           'الزيوت',            'متوفر',     'https://picsum.photos/seed/cookingoil/500/400',    28.00),
   ('ARA-FRT-001', 'برتقال أبو صرة',           'الفواكه الطازجة',   'متوفر',     'https://picsum.photos/seed/freshorange/500/400',   22.00),
   ('ARA-FRZ-001', 'بطاطس مقلية نصف مقلية',    'المنتجات المجمدة',  'متوفر',     'https://picsum.photos/seed/frozenfries/500/400',   35.00),
-  ('ARA-MET-001', 'لحم عجل بلدي',             'اللحوم الطازجة',    'عند الطلب', 'https://picsum.photos/seed/freshmeat/500/400',    120.00),
   ('ARA-OLV-001', 'زيت زيتون بكر ممتاز',      'الزيوت',            'متوفر',     'https://picsum.photos/seed/oliveoil/500/400',      55.00),
   ('ARA-FSH-002', 'سمك الهامور الطازج',       'الأسماك الطازجة',   'متوفر',     'https://picsum.photos/seed/hammour/500/400',       95.00),
   ('ARA-DAI-001', 'لبن طازج كامل الدسم',      'المواد الغذائية',   'متوفر',     'https://picsum.photos/seed/freshmilk/500/400',     12.00),

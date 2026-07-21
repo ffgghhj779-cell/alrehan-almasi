@@ -23,7 +23,12 @@ UPDATE public.products SET image_url = 'https://images.unsplash.com/photo-149064
 UPDATE public.products SET image_url = 'https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=900&h=640&q=85&auto=format&fit=crop&crop=entropy' WHERE sku = 'ARA-FRZ-002';
 UPDATE public.products SET image_url = 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=900&h=640&q=85&auto=format&fit=crop&crop=entropy' WHERE sku = 'ARA-FRZ-003';
 UPDATE public.products SET image_url = 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=900&h=640&q=85&auto=format&fit=crop&crop=edges' WHERE sku = 'ARA-FRZ-004';
-UPDATE public.products SET image_url = 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=900&h=640&q=85&auto=format&fit=crop&crop=entropy' WHERE sku = 'ARA-MET-001';
 UPDATE public.products SET image_url = 'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=900&h=640&q=85&auto=format&fit=crop&crop=entropy' WHERE sku = 'ARA-DAI-001';
+
+-- Remove meat / lamb products from catalog
+DELETE FROM public.products
+WHERE sku LIKE 'ARA-MET-%'
+   OR sku LIKE 'ARA-LMB-%'
+   OR category IN ('لحوم', 'لحوم الأغنام', 'اللحوم الطازجة');
 
 COMMIT;

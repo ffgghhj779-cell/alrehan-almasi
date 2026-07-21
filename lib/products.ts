@@ -40,7 +40,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'دجاج مبرد نخبة أولى',
     category: 'دجاج مبرد',
     status: 'متوفر',
-    image: '/assets/real/chicken_chilled_basket.png',
+    image: '/assets/real/brand_chicken_chilled_basket_ad.png',
     basePrice: 16.5,
     descriptionAr: 'دجاج مبرد طازج إنتاج محلي يومي، مذبوح على الطريقة الإسلامية.',
     stockQuantity: 1200,
@@ -54,7 +54,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'دجاج مجمد نخبة أولى',
     category: 'دجاج مجمد',
     status: 'متوفر',
-    image: '/assets/real/chicken_frozen_sadia.png',
+    image: '/assets/real/brand_chicken_frozen_crate.png',
     basePrice: 14,
     descriptionAr: 'دجاج مجمد درجة أولى، مجمد بالصدمة للحفاظ على القيمة الغذائية والنكهة.',
     stockQuantity: 5000,
@@ -68,7 +68,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'شورما دجاج مبرد',
     category: 'شاورما مبردة',
     status: 'متوفر',
-    image: '/assets/real/raw_shawarma_bag.png',
+    image: '/assets/real/brand_chicken_chilled_bag.png',
     basePrice: 28,
     descriptionAr: 'صدور وأفخاذ دجاج متبلة أو سادة مجهزة للشاورما، إنتاج يومي طازج مبرد.',
     stockQuantity: 450,
@@ -82,7 +82,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'صدور دجاج مجمدة',
     category: 'دجاج مجمد',
     status: 'متوفر',
-    image: '/assets/real/chicken_frozen_sadia.png',
+    image: '/assets/real/brand_chicken_breast_frozen.png',
     basePrice: 22,
     descriptionAr: 'صدور دجاج مجمدة بدون عظم وجلد، مجمدة بتقنية الصدمة.',
     stockQuantity: 800,
@@ -96,7 +96,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'أفخاذ دجاج مجمدة',
     category: 'دجاج مجمد',
     status: 'متوفر',
-    image: '/assets/real/chicken_frozen_sadia.png',
+    image: '/assets/real/brand_chicken_chilled_bag.png',
     basePrice: 18,
     descriptionAr: 'أفخاذ دجاج مجمدة درجة أولى، مجمدة بتقنية التبريد السريع.',
     stockQuantity: 600,
@@ -110,7 +110,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     name: 'شورما دجاج مجمدة',
     category: 'دجاج مجمد',
     status: 'متوفر',
-    image: '/assets/real/raw_shawarma_bag.png',
+    image: '/assets/real/brand_chicken_breast_frozen.png',
     basePrice: 26,
     descriptionAr: 'شاورما دجاج مجمدة وجاهزة للتحضير، متبلة بتوابل طبيعية.',
     stockQuantity: 300,
@@ -120,104 +120,6 @@ const FALLBACK_PRODUCTS: Product[] = [
   },
   {
     id: 7,
-    sku: 'ARA-MET-001',
-    name: 'لحوم مبردة وطازجة',
-    category: 'لحوم',
-    status: 'متوفر',
-    image: '/assets/real/raw_beef_butcher.png',
-    basePrice: 45,
-    descriptionAr: 'لحم بقر/عجل طازج مبرد، تقطيع احترافي حسب طلب العميل.',
-    stockQuantity: 150,
-    unitLabel: 'كجم',
-    originCountry: 'المملكة العربية السعودية',
-    packaging: 'ذبيحة أو أرباع (تغليف مبرد)',
-  },
-  {
-    id: 8,
-    sku: 'ARA-LMB-001',
-    name: 'لحوم أغنام',
-    category: 'لحوم الأغنام',
-    status: 'متوفر',
-    image: '/assets/real/raw_lamb_butcher.png',
-    basePrice: 60,
-    descriptionAr: 'لحوم أغنام طازجة مبردة عالية الجودة، مذبوحة على الطريقة الإسلامية.',
-    stockQuantity: 60,
-    unitLabel: 'كجم',
-    originCountry: 'المملكة العربية السعودية',
-    packaging: 'ذبيحة كاملة مبردة',
-  },
-  {
-    id: 9,
-    sku: 'ARA-LMB-002',
-    name: 'حري طازج',
-    category: 'لحوم الأغنام',
-    status: 'متوفر',
-    image: '/assets/real/raw_lamb_butcher.png',
-    basePrice: 65,
-    descriptionAr: 'لحم غنم حري بلدي طازج، من أجود أنواع الأغنام.',
-    stockQuantity: 40,
-    unitLabel: 'كجم',
-    originCountry: 'المملكة العربية السعودية',
-    packaging: 'ذبيحة كاملة',
-  },
-  {
-    id: 10,
-    sku: 'ARA-LMB-003',
-    name: 'تيوس باكستاني',
-    category: 'لحوم الأغنام',
-    status: 'متوفر',
-    image: '/assets/real/raw_lamb_butcher.png',
-    basePrice: 42,
-    descriptionAr: 'لحم تيوس باكستاني طازج مستورد بالطائرات.',
-    stockQuantity: 80,
-    unitLabel: 'كجم',
-    originCountry: 'باكستان',
-    packaging: 'ذبيحة كاملة',
-  },
-  {
-    id: 11,
-    sku: 'ARA-LMB-004',
-    name: 'تيوس كيني مبردة',
-    category: 'لحوم الأغنام',
-    status: 'متوفر',
-    image: '/assets/real/raw_lamb_butcher.png',
-    basePrice: 38,
-    descriptionAr: 'لحم تيوس كيني مبردة مستوردة، جودة ممتازة لمطاعم المندي والمظبي.',
-    stockQuantity: 100,
-    unitLabel: 'كجم',
-    originCountry: 'كينيا',
-    packaging: 'ذبيحة كاملة',
-  },
-  {
-    id: 12,
-    sku: 'ARA-LMB-005',
-    name: 'تيوس باكستاني مبردة',
-    category: 'لحوم الأغنام',
-    status: 'متوفر',
-    image: '/assets/real/raw_lamb_butcher.png',
-    basePrice: 40,
-    descriptionAr: 'لحم تيوس باكستاني مبردة، طازج ومذبوح على الطريقة الإسلامية.',
-    stockQuantity: 120,
-    unitLabel: 'كجم',
-    originCountry: 'باكستان',
-    packaging: 'ذبيحة كاملة',
-  },
-  {
-    id: 13,
-    sku: 'ARA-LMB-006',
-    name: 'تيوس سواكني طازج',
-    category: 'لحوم الأغنام',
-    status: 'متوفر',
-    image: '/assets/real/raw_lamb_butcher.png',
-    basePrice: 48,
-    descriptionAr: 'لحم تيوس سواكني طازج مستورد، من أرقى أنواع اللحوم.',
-    stockQuantity: 50,
-    unitLabel: 'كجم',
-    originCountry: 'السودان',
-    packaging: 'ذبيحة كاملة',
-  },
-  {
-    id: 14,
     sku: 'ARA-EGG-001',
     name: 'بيض مائدة طازج',
     category: 'بيض',
@@ -231,12 +133,12 @@ const FALLBACK_PRODUCTS: Product[] = [
     packaging: 'كرتون 12 طبق (30 بيضة/طبق)',
   },
   {
-    id: 15,
+    id: 8,
     sku: 'ARA-NUG-001',
     name: 'استربس دجاج',
     category: 'مصنعات الدجاج',
     status: 'متوفر',
-    image: '/assets/real/chicken_strips_fakieh.png',
+    image: '/assets/real/brand_chicken_breast_frozen.png',
     basePrice: 32,
     descriptionAr: 'استربس دجاج مقرمشة، مصنوعة من صدور دجاج طازجة.',
     stockQuantity: 500,
@@ -248,6 +150,17 @@ const FALLBACK_PRODUCTS: Product[] = [
 
 export function isProductOutOfStock(prod: Product): boolean {
   return prod.stockQuantity === 0 || prod.status === 'نفدت الكمية';
+}
+
+const MEAT_CATEGORIES = new Set(['لحوم', 'لحوم الأغنام', 'اللحوم الطازجة']);
+
+function isMeatProduct(prod: Pick<Product, 'sku' | 'category'>): boolean {
+  const sku = prod.sku.toUpperCase();
+  return (
+    MEAT_CATEGORIES.has(prod.category) ||
+    sku.startsWith('ARA-MET-') ||
+    sku.startsWith('ARA-LMB-')
+  );
 }
 
 export function mapProductRow(row: DbProductRow): Product {
@@ -281,10 +194,6 @@ export async function fetchProductsResult(limit?: number): Promise<FetchProducts
     .eq('is_active', true)
     .order('id', { ascending: true });
 
-  if (limit) {
-    query = query.limit(limit);
-  }
-
   const { data, error } = await query;
 
   if (error) {
@@ -305,8 +214,12 @@ export async function fetchProductsResult(limit?: number): Promise<FetchProducts
     };
   }
 
+  const products = data
+    .map((row) => mapProductRow(row as DbProductRow))
+    .filter((p) => !isMeatProduct(p));
+
   return {
-    products: data.map((row) => mapProductRow(row as DbProductRow)),
+    products: limit ? products.slice(0, limit) : products,
     error: null,
     fromFallback: false,
   };
@@ -337,7 +250,8 @@ export async function lookupProductBySku(sku: string): Promise<Product | null> {
     return FALLBACK_PRODUCTS.find((p) => p.sku.toUpperCase() === normalized) ?? null;
   }
 
-  return mapProductRow(data as DbProductRow);
+  const product = mapProductRow(data as DbProductRow);
+  return isMeatProduct(product) ? null : product;
 }
 
 export async function getProductById(id: number): Promise<Product | null> {
@@ -358,7 +272,8 @@ export async function getProductById(id: number): Promise<Product | null> {
     return FALLBACK_PRODUCTS.find((p) => p.id === id) ?? null;
   }
 
-  return mapProductRow(data as DbProductRow);
+  const product = mapProductRow(data as DbProductRow);
+  return isMeatProduct(product) ? null : product;
 }
 
 export { isMockSupabase, FALLBACK_PRODUCTS as PRODUCTS };

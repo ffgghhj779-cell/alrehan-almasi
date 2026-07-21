@@ -25,11 +25,11 @@ export default function QualitySection() {
             <div className="relative z-10 w-[85%] aspect-square bg-blue-deep flex items-center justify-center p-4">
               <div className="relative w-full h-full">
                 <Image 
-                  src="/assets/nugget-fork.png" 
+                  src="/assets/real/brand_chicken_chilled_bag.png" 
                   alt="جودة فائقة - الرهان الماسي"
                   fill
                   quality={100}
-                  className="object-contain scale-110"
+                  className="object-contain"
                 />
               </div>
               

@@ -13,13 +13,12 @@ export default function Hero() {
       {/* Farm background image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1548550160-a93f6a1a10c4?w=1920&h=1080&q=90&auto=format&fit=crop&crop=center"
-          alt="مزرعة دواجن الرهان الماسي"
+          src="/assets/real/brand_supermarket_shelf.png"
+          alt="منتجات دواجن الرهان الماسي في الأسواق"
           fill
           quality={100}
           className="object-cover"
           priority
-          referrerPolicy="no-referrer"
         />
         {/* Deep overlay for readability */}
         <div className="absolute inset-0 bg-gradient-to-l from-blue-deep/90 via-blue-deep/75 to-blue-deep/50" />
@@ -83,7 +82,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
         >
-          نقدم أجود أنواع الدواجن المبردة والمجمدة والبيض واللحوم بمعايير جودة عالمية،
+          نقدم أجود أنواع الدواجن المبردة والمجمدة والبيض بمعايير جودة عالمية،
           ملتزمون بأعلى معايير الذبح الحلال وسلامة الغذاء.
         </motion.p>
 

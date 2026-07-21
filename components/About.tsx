@@ -19,11 +19,11 @@ export default function About() {
           >
             <div className="relative h-[260px] sm:h-[380px] lg:h-[500px] w-full overflow-visible fakieh-shadow md:fakieh-shadow-md rounded-xl">
               <Image
-                src="/assets/chicken-chilled-bag-branded.png"
-                alt="دواجن الرهان الماسي — منتجات مبردة"
+                src="/assets/real/brand_packaging_box_bags.png"
+                alt="تعبئة وتغليف دواجن الرهان الماسي"
                 fill
                 quality={100}
-                className="object-cover"
+                className="object-contain bg-blue-deep/5"
               />
             </div>
             <motion.div
@@ -59,7 +59,7 @@ export default function About() {
             <div className="w-16 h-1 bg-orange-accent mb-5 md:mb-8 rounded-full" />
             <p className="text-sm md:text-lg text-gray-600 leading-relaxed mb-3 font-tajawal">
               مؤسسة الرهان الماسي للدواجن، شركة متخصصة في توريد الدواجن المبردة والمجمدة
-              والبيض واللحوم داخل المملكة العربية السعودية.
+              والبيض داخل المملكة العربية السعودية.
             </p>
             <p className="text-sm md:text-base text-gray-500 leading-relaxed mb-6 md:mb-8 font-tajawal">
               نقدم حلول توريد متكاملة للمطاعم والفنادق والأسواق المركزية وشركات التموين،
@@ -70,7 +70,6 @@ export default function About() {
               {[
                 'دجاج مبرد ومجمد بأعلى معايير الجودة',
                 'بيض مائدة طازج يومياً',
-                'لحوم أغنام (حري وسواكني) طازجة ومبردة',
                 'مصنعات دجاج (استربس · زنجر · بانيه)',
                 'التزام تام بمعايير الذبح الحلال وسلامة الغذاء',
               ].map((item, i) => (

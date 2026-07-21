@@ -8,7 +8,7 @@ const features = [
   {
     icon: Leaf,
     title: 'تغذية نباتية 100%',
-    description: 'نعتمد على أعلاف نباتية طبيعية خالية من أي إضافات حيوانية لضمان جودة ونقاء اللحوم.',
+    description: 'نعتمد على أعلاف نباتية طبيعية خالية من أي إضافات حيوانية لضمان جودة ونقاء الدواجن.',
   },
   {
     icon: ShieldCheck,
@@ -18,7 +18,7 @@ const features = [
   {
     icon: Sun,
     title: 'بيئة طبيعية مفتوحة',
-    description: 'نحرص على توفير بيئة صحية خالية من الإجهاد للطيور والمواشي لضمان أفضل طعم.',
+    description: 'نحرص على توفير بيئة صحية خالية من الإجهاد للطيور لضمان أفضل طعم.',
   },
 ];
 
@@ -41,10 +41,10 @@ export default function FarmSection() {
           >
             <div className="relative aspect-[4/3] md:aspect-[4/5] rounded-[30px] overflow-hidden luxury-shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=85&auto=format&fit=crop"
-                alt="مزارع الرهان الماسي"
+                src="/assets/real/brand_chicken_chilled_basket_ad.png"
+                alt="دجاج طازج مبرد من مزارع الرهان الماسي"
                 fill
-                className="object-cover filter contrast-[1.05] saturate-[1.1]"
+                className="object-cover filter contrast-[1.05] saturate-[1.05]"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />

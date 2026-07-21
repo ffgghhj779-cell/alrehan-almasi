@@ -19,7 +19,7 @@ export default async function ProductsPage() {
           <div className="relative rounded-3xl overflow-hidden mb-12 luxury-shadow">
             <div className="absolute inset-0 bg-blue-deep">
               <img
-                src="https://images.unsplash.com/photo-1548550160-a93f6a1a10c4?w=1920&h=400&q=90&auto=format&fit=crop&crop=center"
+                src="/assets/real/brand_supermarket_shelf.png"
                 alt="دليل المنتجات"
                 className="w-full h-full object-cover opacity-40 mix-blend-overlay"
               />

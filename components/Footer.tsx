@@ -15,7 +15,7 @@ export default function Footer() {
             </div>
             <p className="text-white/70 text-base leading-relaxed mb-8 font-tajawal">
               مؤسسة الرهان الماسي للدواجن — شريكك الموثوق لتوريد الدواجن المبردة والمجمدة
-              والبيض واللحوم داخل المملكة العربية السعودية.
+              والبيض داخل المملكة العربية السعودية.
             </p>
             <div className="flex gap-4">
               {[

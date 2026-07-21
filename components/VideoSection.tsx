@@ -75,7 +75,7 @@ export default function VideoSection() {
                 className="w-full aspect-video object-cover"
                 controls
                 preload="metadata"
-                poster="/assets/chicken-fresh-raw.jpeg"
+                poster="/assets/real/brand_chicken_chilled_bag.png"
                 playsInline
               >
                 <source src="/assets/real/media_4.mp4" type="video/mp4" />
