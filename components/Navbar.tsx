@@ -114,60 +114,61 @@ export default function Navbar() {
           </div>
 
           {/* ==================================
-              MOBILE LAYOUT (Premium Centered)
+              MOBILE LAYOUT (Premium Flex)
               ================================== */}
-          <div className="flex md:hidden items-center justify-between w-full min-h-[50px] relative">
-            {/* Right Side (RTL) - Hamburger Menu */}
-            <button
-              type="button"
-              className="p-2 -mr-2 text-white hover:text-orange-accent transition-colors touch-target touch-press active:scale-95"
-              onClick={() => setIsMobileMenuOpen((open) => !open)}
-              aria-label={isMobileMenuOpen ? 'إغلاق القائمة' : 'فتح القائمة'}
-              aria-expanded={isMobileMenuOpen}
-            >
-              {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
-            </button>
-
-            {/* Center - Perfectly Centered Logo */}
+          <div className="flex md:hidden items-center justify-between w-full min-h-[64px]">
+            {/* Right Side (RTL) - Logo & Text */}
             <Link
               href="/"
-              className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center justify-center top-1/2 -translate-y-1/2 w-max touch-press active:scale-[0.98] transition-transform"
+              className="flex items-center gap-2.5 min-w-0 touch-press active:scale-[0.98] transition-transform"
             >
-              <div className="flex items-center gap-2">
-                <div className="relative h-8 w-8 shrink-0">
-                  <Image
-                    src="/logo.png"
-                    alt="شعار الرهان الماسي"
-                    fill
-                    quality={100}
-                    className="object-contain drop-shadow-md"
-                    priority
-                    sizes="32px"
-                  />
-                </div>
-                <span className="font-tajawal font-black text-xl leading-none text-white drop-shadow-md whitespace-nowrap">
+              <div className="relative h-11 w-11 shrink-0 flex items-center justify-center">
+                <Image
+                  src="/logo.png"
+                  alt="شعار الرهان الماسي"
+                  fill
+                  quality={100}
+                  className="object-contain drop-shadow-md"
+                  priority
+                  sizes="48px"
+                />
+              </div>
+              <div className="flex flex-col justify-center min-w-0 pt-1">
+                <span className="font-cairo font-black text-xl leading-none text-white drop-shadow-md whitespace-nowrap">
                   الرهان الماسي
                 </span>
+                <span className="text-orange-accent/90 text-[10px] font-tajawal font-bold tracking-[0.15em] mt-1 drop-shadow-sm whitespace-nowrap">
+                  من المزرعة إلى المائدة
+                </span>
               </div>
-              <span className="text-orange-accent/90 text-[9px] font-tajawal font-bold tracking-[0.18em] mt-1 drop-shadow-sm whitespace-nowrap">
-                من المزرعة إلى المائدة
-              </span>
             </Link>
 
-            {/* Left Side (RTL) - Cart */}
-            <button
-              type="button"
-              onClick={() => window.dispatchEvent(new Event('open-cart'))}
-              className="relative p-2 -ml-2 text-white hover:text-orange-accent transition-colors touch-target touch-press active:scale-95"
-              aria-label={itemCount > 0 ? `عرض السلة (${itemCount} منتج)` : 'عرض السلة'}
-            >
-              <ShoppingBag size={24} />
-              {itemCount > 0 && (
-                <span className="absolute top-0 right-0 bg-orange-accent text-white text-[10px] font-bold min-w-[18px] h-[18px] px-1 flex items-center justify-center rounded-full luxury-shadow">
-                  {itemCount}
-                </span>
-              )}
-            </button>
+            {/* Left Side (RTL) - Icons (Cart & Menu) */}
+            <div className="flex items-center gap-1 shrink-0">
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new Event('open-cart'))}
+                className="relative p-2 text-white hover:text-orange-accent transition-colors touch-target touch-press active:scale-95"
+                aria-label={itemCount > 0 ? `عرض السلة (${itemCount} منتج)` : 'عرض السلة'}
+              >
+                <ShoppingBag size={24} />
+                {itemCount > 0 && (
+                  <span className="absolute top-1 right-0 bg-orange-accent text-white text-[10px] font-bold min-w-[18px] h-[18px] px-1 flex items-center justify-center rounded-full luxury-shadow border border-blue-deep">
+                    {itemCount}
+                  </span>
+                )}
+              </button>
+              
+              <button
+                type="button"
+                className="p-2 -ml-2 text-white hover:text-orange-accent transition-colors touch-target touch-press active:scale-95"
+                onClick={() => setIsMobileMenuOpen((open) => !open)}
+                aria-label={isMobileMenuOpen ? 'إغلاق القائمة' : 'فتح القائمة'}
+                aria-expanded={isMobileMenuOpen}
+              >
+                {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              </button>
+            </div>
           </div>
         </div>
       </motion.header>
