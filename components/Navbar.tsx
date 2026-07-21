@@ -41,22 +41,25 @@ export default function Navbar() {
         <div className="container mx-auto flex justify-between items-center gap-3 min-h-[48px]">
           <Link
             href="/"
-            className="flex items-center gap-3 min-w-0 flex-1 md:flex-none group touch-press active:scale-[0.98] transition-transform"
+            className="flex items-center gap-3 md:gap-4 min-w-0 flex-1 md:flex-none group touch-press active:scale-[0.98] transition-transform"
           >
-            <div className="relative h-10 w-10 md:h-14 md:w-14 shrink-0 group-hover:scale-[1.05] transition-transform duration-300 flex items-center justify-center">
+            <div className="relative h-12 w-12 md:h-16 md:w-16 shrink-0 group-hover:scale-[1.05] transition-transform duration-300 flex items-center justify-center">
               <Image
                 src="/logo.png"
                 alt="شعار الرهان الماسي"
                 fill
                 quality={100}
-                className="object-contain drop-shadow-sm"
+                className="object-contain drop-shadow-md"
                 priority
-                sizes="(max-width: 768px) 40px, 60px"
+                sizes="(max-width: 768px) 48px, 64px"
               />
             </div>
-            <div className="flex flex-col justify-center min-w-0">
-              <span className="font-tajawal font-extrabold text-xl md:text-2xl tracking-tight text-white drop-shadow-sm leading-none mt-1">
+            <div className="flex flex-col justify-center min-w-0 gap-0.5">
+              <span className="font-tajawal font-black text-2xl md:text-3xl tracking-tight text-white drop-shadow-md leading-none">
                 الرهان الماسي
+              </span>
+              <span className="text-orange-accent/90 text-[11px] md:text-sm font-tajawal font-medium tracking-widest leading-none">
+                من المزرعة إلى المائدة
               </span>
             </div>
           </Link>
