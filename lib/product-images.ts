@@ -37,12 +37,6 @@ export const PHOTOS = {
 /** Gallery — real product imagery from data folder + Unsplash */
 export const GALLERY_IMAGES = [
   {
-    src: '/assets/real/alrehan_approved_bag.png',
-    label: 'تصميم التغليف المعتمد (الرهان الماسي)',
-    alt: 'تصميم كيس التغليف الحصري لمؤسسة الرهان الماسي',
-    href: '/products',
-  },
-  {
     src: '/assets/chicken-supermarket.jpeg',
     label: 'دواجن مبردة في الأسواق',
     alt: 'أكياس دجاج مبرد في ثلاجة السوبرماركت',
