@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState, useCallback } from 'react';
+import { useMemo, useState, useCallback, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { PackageOpen } from 'lucide-react';
 import { ProductItem } from './ProductItem';
 import ProductSearchBar from './ProductSearchBar';
@@ -13,7 +14,6 @@ type ProductGridProps = {
   limit?: number;
   showSearch?: boolean;
   fetchError?: string | null;
-  initialCategory?: string | null;
 };
 
 function filterProducts(
@@ -38,8 +38,10 @@ export default function ProductGrid({
   limit,
   showSearch = false,
   fetchError: initialError = null,
-  initialCategory = null,
 }: ProductGridProps) {
+  const searchParams = useSearchParams();
+  const initialCategory = searchParams.get('category');
+  
   const hasInitialData = Boolean(initialProducts?.length);
   const [products, setProducts] = useState<Product[]>(() =>
     hasInitialData
@@ -52,6 +54,11 @@ export default function ProductGrid({
   const [error, setError] = useState<string | null>(initialError);
   const [query, setQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<string | null>(initialCategory);
+
+  // Sync with URL changes if user uses back/forward navigation
+  useEffect(() => {
+    setActiveCategory(searchParams.get('category'));
+  }, [searchParams]);
 
   const loadProducts = useCallback(async () => {
     setIsLoading(true);

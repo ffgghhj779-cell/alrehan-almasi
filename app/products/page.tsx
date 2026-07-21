@@ -2,18 +2,14 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Cart from '@/components/Cart';
 import ProductGrid from '@/components/ProductGrid';
-import ProductGridServer from '@/components/ProductGridServer';
 import TierSelector from '@/components/TierSelector';
+import { fetchProductsResult } from '@/lib/products';
 import { Suspense } from 'react';
 
 export const revalidate = 60;
 
-export default async function ProductsPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ category?: string }>;
-}) {
-  const { category } = await searchParams;
+export default async function ProductsPage() {
+  const { products, error } = await fetchProductsResult();
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-primary via-secondary/30 to-primary overflow-x-hidden mobile-contain">
@@ -41,8 +37,18 @@ export default async function ProductsPage({
           </div>
           <TierSelector />
           <div className="mt-8">
-            <Suspense fallback={<ProductGrid showSearch initialCategory={category ?? null} />}>
-              <ProductGridServer category={category ?? null} />
+            <Suspense fallback={
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 justify-items-center mx-auto w-full max-w-6xl">
+                {Array(8).fill(0).map((_, i) => (
+                  <div key={i} className="bg-white rounded-2xl h-[420px] w-full max-w-[320px] skeleton-shimmer" />
+                ))}
+              </div>
+            }>
+              <ProductGrid
+                initialProducts={products}
+                showSearch
+                fetchError={error}
+              />
             </Suspense>
           </div>
         </div>
