@@ -41,11 +41,13 @@ export default function FarmSection() {
           >
             <div className="relative aspect-[4/3] md:aspect-[4/5] rounded-[30px] overflow-hidden luxury-shadow-2xl">
               <Image
-                src="/assets/real/brand_chicken_chilled_basket_ad.png"
-                alt="دجاج طازج مبرد من مزارع الرهان الماسي"
+                src="https://images.unsplash.com/photo-1683549188056-9c0e20095b8d?w=1200&h=1500&q=90&auto=format&fit=crop"
+                alt="مزرعة دجاج حقيقية — تربية طبيعية في الهواء الطلق"
                 fill
-                className="object-cover filter contrast-[1.05] saturate-[1.05]"
+                quality={90}
+                className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
               
