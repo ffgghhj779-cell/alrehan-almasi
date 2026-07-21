@@ -39,15 +39,15 @@ export default function FarmSection() {
             transition={{ duration: 0.7 }}
             className="w-full lg:w-1/2 relative"
           >
-            <div className="relative aspect-[4/3] md:aspect-[4/5] rounded-[30px] overflow-hidden luxury-shadow-2xl">
+            <div className="relative aspect-[4/3] rounded-[30px] overflow-hidden luxury-shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1683549188056-9c0e20095b8d?w=1200&h=1500&q=90&auto=format&fit=crop"
-                alt="مزرعة دجاج حقيقية — تربية طبيعية في الهواء الطلق"
+                src="/assets/real/farm_full_flock.jpg"
+                alt="مزرعة دواجن كاملة — حظيرة وتربية في بيئة مفتوحة"
                 fill
-                quality={90}
-                className="object-cover"
+                quality={95}
+                className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                referrerPolicy="no-referrer"
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
               
