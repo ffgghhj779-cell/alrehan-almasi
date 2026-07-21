@@ -54,11 +54,11 @@ export default function Navbar() {
                 sizes="(max-width: 768px) 48px, 64px"
               />
             </div>
-            <div className="flex flex-col justify-center min-w-0 gap-0.5">
-              <span className="font-tajawal font-black text-2xl md:text-3xl tracking-tight text-white drop-shadow-md leading-none">
+            <div className="flex flex-col justify-center min-w-0">
+              <span className="font-tajawal font-black text-2xl md:text-[1.7rem] tracking-tighter text-white drop-shadow-md">
                 الرهان الماسي
               </span>
-              <span className="text-orange-accent/90 text-[11px] md:text-sm font-tajawal font-medium tracking-widest leading-none">
+              <span className="text-orange-accent/90 text-xs md:text-[13px] font-tajawal font-bold tracking-[0.2em] -mt-1 drop-shadow-sm">
                 من المزرعة إلى المائدة
               </span>
             </div>
