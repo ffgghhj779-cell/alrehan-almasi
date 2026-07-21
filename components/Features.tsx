@@ -67,7 +67,7 @@ function FeatureCard({ feat, index, compact = false }: { feat: Feature; index: n
       className={compact ? 'shrink-0 w-[280px] snap-start' : ''}
     >
       <div
-        className={`relative overflow-hidden rounded-2xl border border-white/80 bg-gradient-to-br ${feat.accent} backdrop-blur-sm luxury-shadow-lg h-full touch-press active:scale-[0.98] transition-transform ${
+        className={`relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-xl h-full touch-press active:scale-[0.98] transition-transform ${
           compact ? 'p-5 min-h-[200px]' : 'p-6 md:p-8'
         }`}
       >
@@ -77,8 +77,8 @@ function FeatureCard({ feat, index, compact = false }: { feat: Feature; index: n
           <feat.icon className="text-blue-primary" size={compact ? 24 : 28} aria-hidden="true" />
         </div>
 
-        <h3 className="font-cairo font-bold text-base md:text-xl text-blue-deep mb-2">{feat.title}</h3>
-        <p className="text-gray-600 leading-relaxed font-tajawal text-sm md:text-base line-clamp-3">
+        <h3 className="font-cairo font-bold text-base md:text-xl text-white mb-2">{feat.title}</h3>
+        <p className="text-white/70 leading-relaxed font-tajawal text-sm md:text-base line-clamp-3">
           {feat.desc}
         </p>
       </div>
@@ -88,7 +88,9 @@ function FeatureCard({ feat, index, compact = false }: { feat: Feature; index: n
 
 export default function Features() {
   return (
-    <section className="py-12 md:py-20 bg-gradient-to-b from-secondary to-primary overflow-x-hidden" id="المميزات">
+    <section className="py-12 md:py-20 bg-blue-deep overflow-x-hidden relative" id="المميزات">
+      {/* Subtle decorative background elements */}
+      <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-primary/40 via-transparent to-transparent pointer-events-none" />
       <div className="container mx-auto px-4 md:px-8">
         <motion.div
           className="text-center mb-8 md:mb-14"
@@ -96,11 +98,11 @@ export default function Features() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
         >
-          <h2 className="font-cairo text-2xl md:text-5xl font-bold text-blue-deep mb-3 md:mb-4">
+          <h2 className="font-cairo text-2xl md:text-5xl font-bold text-white mb-3 md:mb-4">
             لماذا تختار الرهان الماسي؟
           </h2>
           <div className="w-20 md:w-24 h-1 bg-orange-accent mx-auto rounded-full" />
-          <p className="mt-4 text-sm md:text-base text-gray-500 font-tajawal max-w-lg mx-auto">
+          <p className="mt-4 text-sm md:text-base text-white/70 font-tajawal max-w-lg mx-auto">
             شريك توريد موثوق للمطاعم والفنادق والأسواق في المملكة
           </p>
         </motion.div>
