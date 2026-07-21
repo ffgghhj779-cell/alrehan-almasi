@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion } from 'motion/react';
 import ProductGrid from './ProductGrid';
 import TierSelector from './TierSelector';
+import { Suspense } from 'react';
 import type { Product } from '@/lib/products';
 
 type ProductsProps = {
@@ -38,11 +39,19 @@ export default function Products({ initialProducts, fetchError }: ProductsProps)
         <TierSelector />
 
         <div className="mt-6 md:mt-8">
-          <ProductGrid
-            initialProducts={initialProducts}
-            limit={8}
-            fetchError={fetchError}
-          />
+          <Suspense fallback={
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 justify-items-center mx-auto w-full max-w-6xl">
+              {Array(8).fill(0).map((_, i) => (
+                <div key={i} className="bg-white rounded-2xl h-[420px] w-full max-w-[320px] skeleton-shimmer" />
+              ))}
+            </div>
+          }>
+            <ProductGrid
+              initialProducts={initialProducts}
+              limit={8}
+              fetchError={fetchError}
+            />
+          </Suspense>
         </div>
       </div>
     </section>
