@@ -32,81 +32,144 @@ export const PHOTOS = {
   foodBowl: '1546069901-ba9599a7e63c',
 } as const;
 
-/** Official brand packaging assets */
+/** Official brand packaging assets — mapped by product type */
 export const BRAND = {
+  /** Bulk carton: 9× whole chilled bags 1300g (top-down real photo) */
+  chilledCarton: '/assets/real/brand_chicken_chilled_carton.png',
+  /** Whole chilled chicken promo (basket + ice) */
   chilledBasket: '/assets/real/brand_chicken_chilled_basket_ad.png',
+  /** Single whole chicken retail bag 1300g */
   chilledBag: '/assets/real/brand_chicken_chilled_bag.png',
+  /** Skinless boneless chicken breast bag ~1000g */
   breastFrozen: '/assets/real/brand_chicken_breast_frozen.png',
+  /** Bulk 5kg frozen bags in transport crate */
   frozenCrate: '/assets/real/brand_chicken_frozen_crate.png',
+  /** Frozen thighs/drumsticks — realistic bag photo */
+  frozenThighs: '/assets/real/chicken_thighs_bag_real.png',
+  /** Shipping box + retail bags set */
   packagingSet: '/assets/real/brand_packaging_box_bags.png',
+  /** Supermarket shelf display */
   supermarketShelf: '/assets/real/brand_supermarket_shelf.png',
-  eggs: '/assets/real/eggs_tray_almoroj.png',
-  strips: '/assets/real/chicken_strips_clear.png',
+  /** Fresh table eggs — 4 pack sizes */
+  eggs6: '/assets/real/eggs_pack_6.png',
+  eggs15: '/assets/real/eggs_pack_15.png',
+  eggs30Large: '/assets/real/eggs_pack_30_large.png',
+  eggs30Medium: '/assets/real/eggs_pack_30_medium.png',
+  /** Category cover: open 30-egg large tray */
+  eggs: '/assets/real/eggs_pack_30_large.png',
+  /** Breaded chicken strips / manufactured */
+  strips: '/assets/real/chicken_strips_fakieh.png',
+  stripsClear: '/assets/real/chicken_strips_clear.png',
+  /** Marinated chilled shawarma vacuum bag */
   rawShawarma: '/assets/real/raw_shawarma_bag.png',
+  /** New catalog — fresh cuts / marinated / offal / manufactured */
+  cutBreastBone: '/assets/real/catalog/cut_breast_bone_tray.png',
+  cutBreastBoneless: '/assets/real/catalog/cut_breast_boneless_tray.png',
+  cutThighsBoneless: '/assets/real/catalog/cut_thighs_boneless_tray.png',
+  cutMixed: '/assets/real/catalog/cut_mixed_tray.png',
+  cutWings: '/assets/real/catalog/cut_wings_tray.png',
+  cutLegs: '/assets/real/catalog/cut_legs_tray.png',
+  cutDrumsticks: '/assets/real/catalog/cut_drumsticks_tray.png',
+  cutWholeTriple: '/assets/real/catalog/cut_whole_triple_tray.png',
+  freshWholeBag1kg: '/assets/real/catalog/fresh_whole_bag_1kg.png',
+  offalLiver: '/assets/real/catalog/offal_liver_tray.png',
+  offalHearts: '/assets/real/catalog/offal_hearts_tray.png',
+  offalMinced: '/assets/real/catalog/offal_minced_tray.png',
+  marinatedOmega3: '/assets/real/catalog/marinated_omega3_tray.png',
+  marinatedShaqra: '/assets/real/catalog/marinated_shaqra_tray.png',
+  marinatedButter: '/assets/real/catalog/marinated_butter_tray.png',
+  marinatedBbq: '/assets/real/catalog/marinated_bbq_tray.png',
+  mfgNuggets: '/assets/real/catalog/mfg_nuggets_bag.png',
+  mfgFillet: '/assets/real/catalog/mfg_fillet_bag.png',
+  mfgTenderloin: '/assets/real/catalog/mfg_tenderloin_bag.png',
+  mfgStripsKorean: '/assets/real/catalog/mfg_strips_korean_bag.png',
 } as const;
 
 /** Gallery — branded product photography */
 export const GALLERY_IMAGES = [
   {
-    src: BRAND.supermarketShelf,
-    label: 'منتجاتنا في الأسواق',
-    alt: 'دجاج الرهان الماسي معروض في ثلاجة السوبرماركت',
+    src: BRAND.chilledCarton,
+    label: 'دجاج مبرد كامل 1300g',
+    alt: 'كرتون جملة دجاج مبرد معبأ — 9 حبات × 1300 جرام',
     href: '/products?category=دجاج مبرد',
   },
   {
-    src: BRAND.chilledBasket,
-    label: 'دجاج طازج مبرد',
-    alt: 'دجاج مبرد فاخر في سلة مع ثلج',
-    href: '/products?category=دجاج مبرد',
+    src: BRAND.cutMixed,
+    label: 'مقطعات طازجة',
+    alt: 'صينية قطع دجاج مشكلة طازجة',
+    href: '/products?category=مقطعات طازجة',
   },
   {
-    src: BRAND.frozenCrate,
-    label: 'دجاج مجمد بالجملة',
-    alt: 'أكياس دجاج مجمد 5 كجم في صناديق النقل',
-    href: '/products?category=دجاج مجمد',
+    src: BRAND.marinatedBbq,
+    label: 'دجاج متبّل BBQ',
+    alt: 'صينية دجاج شوي متبّل',
+    href: '/products?category=دجاج متبّل',
   },
   {
-    src: BRAND.packagingSet,
-    label: 'تعبئة وتغليف احترافي',
-    alt: 'صندوق شحن وأكياس تجزئة من الرهان الماسي',
-    href: '/products',
+    src: BRAND.mfgNuggets,
+    label: 'مصنعات الدجاج',
+    alt: 'كيس ناجتس دجاج مجمدة',
+    href: '/products?category=مصنعات الدجاج',
   },
   {
-    src: BRAND.breastFrozen,
-    label: 'صدر دجاج مجمد',
-    alt: 'كيس صدر دجاج بدون عظم وجلد',
-    href: '/products?category=دجاج مجمد',
+    src: BRAND.eggs30Large,
+    label: 'بيض أبيض كبير 30',
+    alt: 'طبق بيض أبيض كبير 30 بيضة',
+    href: '/products?category=بيض',
   },
 ] as const;
 
-/** Canonical image per SKU */
+/** Canonical image per SKU — image must match product name & pack */
 export const SKU_IMAGES: Record<string, string> = {
-  // Chilled chicken
-  'ARA-CHK-001': BRAND.chilledBasket,
+  // Chilled whole chicken
+  'ARA-CHK-001': BRAND.chilledCarton,
   'ARA-CHK-002': BRAND.chilledBag,
-  'ARA-CHK-003': BRAND.chilledBag,
+  'ARA-CHK-003': BRAND.chilledBasket,
   // Frozen chicken
   'ARA-FRZ-001': BRAND.frozenCrate,
   'ARA-FRZ-002': BRAND.breastFrozen,
-  'ARA-FRZ-003': BRAND.chilledBag,
+  'ARA-FRZ-003': BRAND.frozenThighs,
   'ARA-FRZ-004': BRAND.frozenCrate,
   // Shawarma
   'ARA-SHW-001': BRAND.rawShawarma,
   'ARA-SHW-002': BRAND.rawShawarma,
-  // Manufactured / cuts
-  'ARA-MNF-001': BRAND.breastFrozen,
-  'ARA-MNF-002': BRAND.breastFrozen,
+  // Manufactured / strips
+  'ARA-MNF-001': BRAND.strips,
+  'ARA-MNF-002': BRAND.stripsClear,
   'ARA-NUG-001': BRAND.strips,
-  // Eggs
-  'ARA-EGG-001': BRAND.eggs,
-  'ARA-EGG-002': BRAND.eggs,
-  // Specialty Cuts
-  'ARA-CUT-001': BRAND.packagingSet,
-  'ARA-CUT-002': BRAND.chilledBag,
-  'ARA-CUT-003': BRAND.chilledBag,
-  // BBQ & Marinated
-  'ARA-BBQ-001': BRAND.rawShawarma,
-  'ARA-BBQ-002': BRAND.rawShawarma,
+  // Eggs — 4 pack sizes
+  'ARA-EGG-001': BRAND.eggs6,
+  'ARA-EGG-002': BRAND.eggs15,
+  'ARA-EGG-003': BRAND.eggs30Large,
+  'ARA-EGG-004': BRAND.eggs30Medium,
+  // Fresh cuts
+  'ARA-CUT-001': BRAND.cutWings,
+  'ARA-CUT-002': BRAND.offalLiver,
+  'ARA-CUT-003': BRAND.offalMinced,
+  'ARA-CUT-004': BRAND.cutBreastBone,
+  'ARA-CUT-005': BRAND.cutBreastBoneless,
+  'ARA-CUT-006': BRAND.cutThighsBoneless,
+  'ARA-CUT-007': BRAND.cutLegs,
+  'ARA-CUT-008': BRAND.cutDrumsticks,
+  'ARA-CUT-009': BRAND.cutMixed,
+  'ARA-CUT-010': BRAND.cutWholeTriple,
+  'ARA-CHK-004': BRAND.freshWholeBag1kg,
+  // Offal
+  'ARA-OFL-001': BRAND.offalLiver,
+  'ARA-OFL-002': BRAND.offalHearts,
+  'ARA-OFL-003': BRAND.offalMinced,
+  // Marinated
+  'ARA-MAR-001': BRAND.marinatedOmega3,
+  'ARA-MAR-002': BRAND.marinatedShaqra,
+  'ARA-MAR-003': BRAND.marinatedButter,
+  'ARA-MAR-004': BRAND.marinatedBbq,
+  'ARA-BBQ-001': BRAND.marinatedBbq,
+  'ARA-BBQ-002': BRAND.marinatedButter,
+  // Extra manufactured
+  'ARA-NUG-002': BRAND.mfgNuggets,
+  'ARA-MNF-003': BRAND.mfgFillet,
+  'ARA-MNF-004': BRAND.mfgTenderloin,
+  'ARA-MNF-005': BRAND.mfgStripsKorean,
   'ARA-SAL-001': buildImageUrl(PHOTOS.salmon),
   'ARA-FSH-002': buildImageUrl(PHOTOS.fish, { crop: 'center' }),
   'ARA-SHR-001': buildImageUrl(PHOTOS.shrimp),
@@ -115,15 +178,21 @@ export const SKU_IMAGES: Record<string, string> = {
   'ARA-DAI-001': buildImageUrl(PHOTOS.milk),
 };
 
+/** Category cover images — each cover must match the category product type */
 export const CATEGORY_IMAGES: Record<string, string> = {
-  'دجاج مبرد': BRAND.chilledBasket,
+  'دجاج مبرد': BRAND.chilledCarton,
   'دجاج مجمد': BRAND.frozenCrate,
-  'شاورما مبردة': BRAND.chilledBag,
-  'مصنعات الدجاج': BRAND.breastFrozen,
-  'بيض': BRAND.eggs,
-  // Legacy categories
+  'مقطعات طازجة': BRAND.cutMixed,
+  'دجاج متبّل': BRAND.marinatedBbq,
+  'شاورما مبردة': BRAND.rawShawarma,
+  'مصنعات الدجاج': BRAND.mfgNuggets,
+  'كبدة وقلوب ومفروم': BRAND.offalLiver,
+  'بيض': BRAND.eggs30Large,
+  // Legacy
+  'مقطعات الدجاج': BRAND.cutMixed,
+  'الشواء والتبخير': BRAND.marinatedBbq,
   'الأسماك الطازجة': buildImageUrl(PHOTOS.fish),
-  'الدواجن الطازجة': BRAND.chilledBasket,
+  'الدواجن الطازجة': BRAND.chilledCarton,
   'الأرز': buildImageUrl(PHOTOS.rice),
   'الزيوت الغذائية': buildImageUrl(PHOTOS.oil),
   'المنتجات المجمدة': BRAND.frozenCrate,
@@ -146,28 +215,43 @@ export function resolveProductImage(
 
 export const STORE_CATEGORIES = [
   {
+    name: 'دجاج مبرد',
+    subtitle: 'دجاج كامل مبرد 1300g',
+    image: BRAND.chilledCarton,
+  },
+  {
     name: 'دجاج مجمد',
-    subtitle: 'دجاج مجمد عالي الجودة',
+    subtitle: 'كامل · صدور · أفخاذ',
     image: BRAND.frozenCrate,
   },
   {
-    name: 'دجاج مبرد',
-    subtitle: 'دواجن مبردة طازجة يومياً',
-    image: BRAND.chilledBasket,
+    name: 'مقطعات طازجة',
+    subtitle: 'صدور · أفخاذ · أجنحة · سيقان',
+    image: BRAND.cutMixed,
+  },
+  {
+    name: 'دجاج متبّل',
+    subtitle: 'شقرى · زبدة · BBQ · أوميغا 3',
+    image: BRAND.marinatedBbq,
   },
   {
     name: 'شاورما مبردة',
     subtitle: 'شاورما طازجة جاهزة',
-    image: BRAND.chilledBag,
+    image: BRAND.rawShawarma,
   },
   {
     name: 'مصنعات الدجاج',
-    subtitle: 'استربس، زنجر، بانيه والمزيد',
-    image: BRAND.breastFrozen,
+    subtitle: 'ناجتس · استربس · فيليه',
+    image: BRAND.mfgNuggets,
+  },
+  {
+    name: 'كبدة وقلوب ومفروم',
+    subtitle: 'كبدة · قلوب · مفروم طازج',
+    image: BRAND.offalLiver,
   },
   {
     name: 'بيض',
-    subtitle: 'بيض مائدة طازج',
-    image: BRAND.eggs,
+    subtitle: '4 أصناف — 6 · 15 · 30 بيضة',
+    image: BRAND.eggs30Large,
   },
 ] as const;

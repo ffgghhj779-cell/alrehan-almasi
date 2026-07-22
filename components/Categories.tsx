@@ -107,7 +107,7 @@ export default function Categories() {
         </div>
 
         {/* Desktop grid */}
-        <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-4 gap-4">
           {STORE_CATEGORIES.map((cat, index) => (
             <CategoryCard key={cat.name} cat={cat} index={index} />
           ))}

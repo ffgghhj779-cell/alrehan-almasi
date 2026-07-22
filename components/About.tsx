@@ -19,8 +19,8 @@ export default function About() {
           >
             <div className="relative h-[260px] sm:h-[380px] lg:h-[500px] w-full overflow-visible fakieh-shadow md:fakieh-shadow-md rounded-xl">
               <Image
-                src="/assets/real/brand_packaging_box_bags.png"
-                alt="تعبئة وتغليف دواجن الرهان الماسي"
+                src="/assets/real/brand_chicken_chilled_carton.png"
+                alt="كرتون دجاج مبرد كامل 1300g — الرهان الماسي"
                 fill
                 quality={100}
                 className="object-contain bg-blue-deep/5"
