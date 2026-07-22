@@ -60,7 +60,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     descriptionAr: 'دجاج مجمد درجة أولى في أكياس 5 كجم، مجمد بالصدمة للحفاظ على القيمة الغذائية والنكهة.',
     stockQuantity: 5000,
     unitLabel: 'كيس',
-    originCountry: 'البرازيل',
+    originCountry: 'المملكة العربية السعودية',
     packaging: 'كيس 5 كجم',
   },
   {
@@ -88,7 +88,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     descriptionAr: 'صدر دجاج مجمد بدون عظم وجلد، وزن صافي 1000g ±50g، مجمد بتقنية الصدمة.',
     stockQuantity: 800,
     unitLabel: 'كيس',
-    originCountry: 'البرازيل',
+    originCountry: 'المملكة العربية السعودية',
     packaging: 'كيس 1000g ±50g',
   },
   {
@@ -102,7 +102,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     descriptionAr: 'أفخاذ دجاج مجمدة درجة أولى داخل كيس شفاف، مجمدة بتقنية التبريد السريع.',
     stockQuantity: 600,
     unitLabel: 'كيس',
-    originCountry: 'البرازيل',
+    originCountry: 'المملكة العربية السعودية',
     packaging: 'كيس مجمد 2 كجم',
   },
   {
@@ -490,6 +490,13 @@ function isMeatProduct(prod: Pick<Product, 'sku' | 'category'>): boolean {
   );
 }
 
+const SAUDI_ORIGIN = 'المملكة العربية السعودية';
+
+/** Storefront shows Saudi origin only — never foreign country labels. */
+function normalizeOriginCountry(_value?: string | null): string {
+  return SAUDI_ORIGIN;
+}
+
 export function mapProductRow(row: DbProductRow): Product {
   return {
     id: row.id,
@@ -502,7 +509,7 @@ export function mapProductRow(row: DbProductRow): Product {
     descriptionAr: row.description_ar ?? null,
     stockQuantity: row.stock_quantity ?? 0,
     unitLabel: row.unit_label ?? 'كجم',
-    originCountry: row.origin_country ?? null,
+    originCountry: normalizeOriginCountry(row.origin_country),
     packaging: row.packaging ?? null,
   };
 }
