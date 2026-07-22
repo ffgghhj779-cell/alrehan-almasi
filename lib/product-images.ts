@@ -55,8 +55,8 @@ export const BRAND = {
   eggs15: '/assets/real/eggs_pack_15.png',
   eggs30Large: '/assets/real/eggs_pack_30_large.png',
   eggs30Medium: '/assets/real/eggs_pack_30_medium.png',
-  /** Category cover: open 30-egg large tray */
-  eggs: '/assets/real/eggs_pack_30_large.png',
+  /** Category cover: clear 15-egg pack (no yellow trays) */
+  eggs: '/assets/real/eggs_pack_15.png',
   /** Breaded chicken strips / manufactured */
   strips: '/assets/real/chicken_strips_fakieh.png',
   stripsClear: '/assets/real/chicken_strips_clear.png',
@@ -112,9 +112,9 @@ export const GALLERY_IMAGES = [
     href: '/products?category=مصنعات الدجاج',
   },
   {
-    src: BRAND.eggs30Large,
-    label: 'بيض أبيض كبير 30',
-    alt: 'طبق بيض أبيض كبير 30 بيضة',
+    src: BRAND.eggs15,
+    label: 'بيض أبيض كبير 15',
+    alt: 'علبة شفافة بيض أبيض كبير 15 بيضة',
     href: '/products?category=بيض',
   },
 ] as const;
@@ -187,7 +187,7 @@ export const CATEGORY_IMAGES: Record<string, string> = {
   'شاورما مبردة': BRAND.rawShawarma,
   'مصنعات الدجاج': BRAND.mfgNuggets,
   'كبدة وقلوب ومفروم': BRAND.offalLiver,
-  'بيض': BRAND.eggs30Large,
+  'بيض': BRAND.eggs15,
   // Legacy
   'مقطعات الدجاج': BRAND.cutMixed,
   'الشواء والتبخير': BRAND.marinatedBbq,
@@ -252,6 +252,6 @@ export const STORE_CATEGORIES = [
   {
     name: 'بيض',
     subtitle: '4 أصناف — 6 · 15 · 30 بيضة',
-    image: BRAND.eggs30Large,
+    image: BRAND.eggs15,
   },
 ] as const;
