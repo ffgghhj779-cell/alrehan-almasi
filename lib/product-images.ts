@@ -71,7 +71,10 @@ export const BRAND = {
   cutLegs: '/assets/real/catalog/cut_legs_tray.png',
   cutDrumsticks: '/assets/real/catalog/cut_drumsticks_tray.png',
   cutWholeTriple: '/assets/real/catalog/cut_whole_triple_tray.png',
-  freshWholeBag1kg: '/assets/real/catalog/fresh_whole_bag_1kg.png',
+  /** Fresh whole chicken retail bag 1300g — navy/gold brand */
+  freshWholeBag1300: '/assets/real/catalog/fresh_whole_bag_1300.png',
+  /** @deprecated alias — same as 1300g navy bag */
+  freshWholeBag1kg: '/assets/real/catalog/fresh_whole_bag_1300.png',
   offalLiver: '/assets/real/catalog/offal_liver_tray.png',
   offalHearts: '/assets/real/catalog/offal_hearts_tray.png',
   offalMinced: '/assets/real/catalog/offal_minced_tray.png',
@@ -153,7 +156,7 @@ export const SKU_IMAGES: Record<string, string> = {
   'ARA-CUT-008': BRAND.cutDrumsticks,
   'ARA-CUT-009': BRAND.cutMixed,
   'ARA-CUT-010': BRAND.cutWholeTriple,
-  'ARA-CHK-004': BRAND.freshWholeBag1kg,
+  'ARA-CHK-004': BRAND.freshWholeBag1300,
   // Offal
   'ARA-OFL-001': BRAND.offalLiver,
   'ARA-OFL-002': BRAND.offalHearts,

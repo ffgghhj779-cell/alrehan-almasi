@@ -361,16 +361,16 @@ const FALLBACK_PRODUCTS: Product[] = [
   {
     id: 24,
     sku: 'ARA-CHK-004',
-    name: 'دجاج كامل طازج كيس 1000g',
+    name: 'دجاج كامل طازج كيس 1300g',
     category: 'دجاج مبرد',
     status: 'متوفر',
-    image: '/assets/real/catalog/fresh_whole_bag_1kg.png',
+    image: '/assets/real/catalog/fresh_whole_bag_1300.png',
     basePrice: 15.0,
-    descriptionAr: 'دجاج كامل طازج في كيس غذائي بوزن صافي تقريبي 1000 جرام، إنتاج يومي محلي.',
+    descriptionAr: 'دجاج كامل طازج في كيس علامة الرهان الماسي بوزن صافي 1300 جرام، إنتاج يومي محلي.',
     stockQuantity: 900,
     unitLabel: 'كيس',
     originCountry: 'المملكة العربية السعودية',
-    packaging: 'كيس 1000 جرام',
+    packaging: 'كيس 1300 جرام',
   },
   // ── دجاج متبّل ──
   {
