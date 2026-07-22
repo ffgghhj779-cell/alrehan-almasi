@@ -43,11 +43,11 @@ const FALLBACK_PRODUCTS: Product[] = [
     image: '/assets/real/brand_chicken_chilled_carton.png',
     basePrice: 16.5,
     descriptionAr:
-      'دجاج كامل مبرد فاخر عالي الجودة، وزن صافي 1300g ±50g، يُحفظ بين 0/+5°C، صناعة سعودية، معبأ بأكياس علامة الرهان الماسي داخل كرتون جملة.',
+      'دجاج كامل مبرد فاخر عالي الجودة، وزن صافي 1300g ±50g، يُحفظ بين 0/+5°C، صناعة سعودية، معبأ بأكياس علامة الرهان الماسي داخل كرتون جملة 10 حبات.',
     stockQuantity: 1200,
     unitLabel: 'حبة',
     originCountry: 'المملكة العربية السعودية',
-    packaging: 'كرتون 9 حبات × 1300g',
+    packaging: 'كرتون 10 حبات × 1300g',
   },
   {
     id: 2,

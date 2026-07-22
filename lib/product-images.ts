@@ -94,7 +94,7 @@ export const GALLERY_IMAGES = [
   {
     src: BRAND.chilledCarton,
     label: 'دجاج مبرد كامل 1300g',
-    alt: 'كرتون جملة دجاج مبرد معبأ — 9 حبات × 1300 جرام',
+    alt: 'كرتون جملة دجاج مبرد معبأ — 10 حبات × 1300 جرام',
     href: '/products?category=دجاج مبرد',
   },
   {
