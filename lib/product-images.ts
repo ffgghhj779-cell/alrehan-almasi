@@ -86,6 +86,7 @@ export const BRAND = {
   mfgFillet: '/assets/real/catalog/mfg_fillet_bag.png',
   mfgTenderloin: '/assets/real/catalog/mfg_tenderloin_bag.png',
   mfgStripsKorean: '/assets/real/catalog/mfg_strips_korean_bag.png',
+  mfgStripsOriginal: '/assets/real/catalog/mfg_strips_original_bag.png',
 } as const;
 
 /** Gallery — branded product photography */
@@ -137,9 +138,13 @@ export const SKU_IMAGES: Record<string, string> = {
   'ARA-SHW-001': BRAND.rawShawarma,
   'ARA-SHW-002': BRAND.rawShawarma,
   // Manufactured / strips
-  'ARA-MNF-001': BRAND.strips,
+  'ARA-MNF-001': BRAND.mfgStripsOriginal,
   'ARA-MNF-002': BRAND.stripsClear,
-  'ARA-NUG-001': BRAND.strips,
+  'ARA-NUG-001': BRAND.mfgStripsOriginal,
+  'ARA-NUG-002': BRAND.mfgNuggets,
+  'ARA-MNF-003': BRAND.mfgFillet,
+  'ARA-MNF-004': BRAND.mfgTenderloin,
+  'ARA-MNF-005': BRAND.mfgStripsKorean,
   // Eggs — 4 pack sizes
   'ARA-EGG-001': BRAND.eggs6,
   'ARA-EGG-002': BRAND.eggs15,
@@ -168,11 +173,6 @@ export const SKU_IMAGES: Record<string, string> = {
   'ARA-MAR-004': BRAND.marinatedBbq,
   'ARA-BBQ-001': BRAND.marinatedBbq,
   'ARA-BBQ-002': BRAND.marinatedButter,
-  // Extra manufactured
-  'ARA-NUG-002': BRAND.mfgNuggets,
-  'ARA-MNF-003': BRAND.mfgFillet,
-  'ARA-MNF-004': BRAND.mfgTenderloin,
-  'ARA-MNF-005': BRAND.mfgStripsKorean,
   'ARA-SAL-001': buildImageUrl(PHOTOS.salmon),
   'ARA-FSH-002': buildImageUrl(PHOTOS.fish, { crop: 'center' }),
   'ARA-SHR-001': buildImageUrl(PHOTOS.shrimp),
@@ -188,7 +188,7 @@ export const CATEGORY_IMAGES: Record<string, string> = {
   'مقطعات طازجة': BRAND.cutMixed,
   'دجاج متبّل': BRAND.marinatedBbq,
   'شاورما مبردة': BRAND.rawShawarma,
-  'مصنعات الدجاج': BRAND.mfgNuggets,
+  'مصنعات الدجاج': BRAND.mfgStripsOriginal,
   'كبدة وقلوب ومفروم': BRAND.offalLiver,
   'بيض': BRAND.eggs15,
   // Legacy

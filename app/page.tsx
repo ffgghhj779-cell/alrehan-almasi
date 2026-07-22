@@ -2,12 +2,14 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Categories from '@/components/Categories';
 import EggsSpotlightSection from '@/components/EggsSpotlightSection';
+import ManufacturedShowcaseSection from '@/components/ManufacturedShowcaseSection';
 import FarmSection from '@/components/FarmSection';
 import ProductionStorySection from '@/components/ProductionStorySection';
 import VideoSection from '@/components/VideoSection';
 import About from '@/components/About';
 import QualitySection from '@/components/QualitySection';
 import FreshnessGuideSection from '@/components/FreshnessGuideSection';
+import BrandPillarsSection from '@/components/BrandPillarsSection';
 import Features from '@/components/Features';
 import Products from '@/components/Products';
 import Gallery from '@/components/Gallery';
@@ -27,12 +29,14 @@ export default async function Home() {
       <Hero />
       <Categories />
       <EggsSpotlightSection />
+      <ManufacturedShowcaseSection />
       <FarmSection />
       <ProductionStorySection />
       <VideoSection />
       <About />
       <QualitySection />
       <FreshnessGuideSection />
+      <BrandPillarsSection />
       <Features />
       <Products initialProducts={products} fetchError={error} />
       <Gallery />

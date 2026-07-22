@@ -124,6 +124,30 @@ export default function ProductGrid({
         </div>
       )}
 
+      {showSearch && activeCategory === 'مصنعات الدجاج' && !isLoading && (
+        <div className="relative w-full max-w-6xl mx-auto mb-8 rounded-3xl overflow-hidden luxury-shadow border border-white/70">
+          <div className="relative aspect-[21/9] min-h-[160px] w-full bg-blue-deep">
+            <Image
+              src="/assets/real/mfg_slide_lineup.png"
+              alt="مصنعات الرهان الماسي — ستريبس وناجتس"
+              fill
+              quality={85}
+              sizes="(max-width: 768px) 100vw, 1100px"
+              className="object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-deep/75 via-transparent to-blue-deep/15" />
+            <div className="absolute bottom-4 right-4 md:bottom-6 md:right-8 text-right">
+              <p className="font-cairo font-black text-white text-lg md:text-2xl drop-shadow">
+                ستريبس وناجتس بعلامة الرهان
+              </p>
+              <p className="font-tajawal text-white/85 text-xs md:text-sm mt-1">
+                100% سعودي · ملائم للقلاية الهوائية
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 justify-items-center mx-auto w-full max-w-6xl">
         {isLoading &&
           Array(skeletonCount)
