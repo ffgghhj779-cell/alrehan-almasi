@@ -2,6 +2,7 @@
 
 import { useMemo, useState, useCallback, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Image from 'next/image';
 import { PackageOpen } from 'lucide-react';
 import { ProductItem } from './ProductItem';
 import ProductSearchBar from './ProductSearchBar';
@@ -97,6 +98,30 @@ export default function ProductGrid({
           onCategoryChange={setActiveCategory}
           resultCount={filtered.length}
         />
+      )}
+
+      {showSearch && activeCategory === 'بيض' && !isLoading && (
+        <div className="relative w-full max-w-6xl mx-auto mb-8 rounded-3xl overflow-hidden luxury-shadow border border-white/70">
+          <div className="relative aspect-[21/9] min-h-[160px] w-full bg-blue-deep">
+            <Image
+              src="/assets/real/eggs_promo_banner.png"
+              alt="بيض الرهان الماسي — بطل الوجبات الصحية"
+              fill
+              quality={85}
+              sizes="(max-width: 768px) 100vw, 1100px"
+              className="object-cover object-[center_30%]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-deep/70 via-transparent to-blue-deep/20" />
+            <div className="absolute bottom-4 right-4 md:bottom-6 md:right-8 text-right">
+              <p className="font-cairo font-black text-white text-lg md:text-2xl drop-shadow">
+                بطل الوجبات الصحية
+              </p>
+              <p className="font-tajawal text-white/85 text-xs md:text-sm mt-1">
+                بيض طازج بعلامة الرهان الماسي
+              </p>
+            </div>
+          </div>
+        </div>
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 justify-items-center mx-auto w-full max-w-6xl">

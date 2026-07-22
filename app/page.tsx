@@ -1,11 +1,13 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Categories from '@/components/Categories';
+import EggsSpotlightSection from '@/components/EggsSpotlightSection';
 import FarmSection from '@/components/FarmSection';
 import ProductionStorySection from '@/components/ProductionStorySection';
 import VideoSection from '@/components/VideoSection';
 import About from '@/components/About';
 import QualitySection from '@/components/QualitySection';
+import FreshnessGuideSection from '@/components/FreshnessGuideSection';
 import Features from '@/components/Features';
 import Products from '@/components/Products';
 import Gallery from '@/components/Gallery';
@@ -24,11 +26,13 @@ export default async function Home() {
       <Navbar />
       <Hero />
       <Categories />
+      <EggsSpotlightSection />
       <FarmSection />
       <ProductionStorySection />
       <VideoSection />
       <About />
       <QualitySection />
+      <FreshnessGuideSection />
       <Features />
       <Products initialProducts={products} fetchError={error} />
       <Gallery />
