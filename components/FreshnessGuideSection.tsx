@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from 'motion/react';
+import Image from 'next/image';
 import { Check, X, Sparkles } from 'lucide-react';
 
 const FRESH = [
@@ -56,34 +57,47 @@ export default function FreshnessGuideSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.5 }}
-            className="relative rounded-3xl border border-green-accent/25 bg-gradient-to-b from-green-accent/10 to-white p-6 md:p-8 luxury-shadow overflow-hidden"
+            className="relative rounded-3xl border border-green-accent/25 bg-gradient-to-b from-green-accent/10 to-white luxury-shadow overflow-hidden"
           >
-            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-l from-green-accent to-green-accent/40" />
-            <div className="flex items-center gap-3 mb-6">
-              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-green-accent text-white shadow-lg shadow-green-accent/25">
-                <Check size={22} strokeWidth={2.5} />
-              </span>
-              <div>
-                <h3 className="font-cairo text-xl md:text-2xl font-black text-blue-deep">
-                  الدجاج الطازج
-                </h3>
-                <p className="font-tajawal text-xs text-green-accent">
-                  معايير الرهان الماسي
-                </p>
-              </div>
+            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-l from-green-accent to-green-accent/40 z-10" />
+            <div className="relative aspect-[4/3] w-full overflow-hidden">
+              <Image
+                src="/assets/real/chicken_fresh_visual.png"
+                alt="دجاج طازج — لون وردي فاتح وجلد لامع"
+                fill
+                quality={90}
+                sizes="(max-width: 768px) 100vw, 480px"
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-80" />
             </div>
-            <ul className="space-y-3.5">
-              {FRESH.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-accent/15 text-green-accent">
-                    <Check size={14} strokeWidth={3} />
-                  </span>
-                  <span className="font-tajawal text-sm md:text-base font-semibold text-blue-deep/90">
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <div className="p-5 md:p-8 pt-4">
+              <div className="flex items-center gap-3 mb-5">
+                <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-green-accent text-white shadow-lg shadow-green-accent/25">
+                  <Check size={22} strokeWidth={2.5} />
+                </span>
+                <div>
+                  <h3 className="font-cairo text-xl md:text-2xl font-black text-blue-deep">
+                    الدجاج الطازج
+                  </h3>
+                  <p className="font-tajawal text-xs text-green-accent">
+                    معايير الرهان الماسي
+                  </p>
+                </div>
+              </div>
+              <ul className="space-y-3.5">
+                {FRESH.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-accent/15 text-green-accent">
+                      <Check size={14} strokeWidth={3} />
+                    </span>
+                    <span className="font-tajawal text-sm md:text-base font-semibold text-blue-deep/90">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </motion.article>
 
           <motion.article
@@ -91,34 +105,47 @@ export default function FreshnessGuideSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.5, delay: 0.08 }}
-            className="relative rounded-3xl border border-rose-200/80 bg-gradient-to-b from-rose-50/80 to-white p-6 md:p-8 luxury-shadow overflow-hidden"
+            className="relative rounded-3xl border border-rose-200/80 bg-gradient-to-b from-rose-50/80 to-white luxury-shadow overflow-hidden"
           >
-            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-l from-rose-500 to-rose-300" />
-            <div className="flex items-center gap-3 mb-6">
-              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-rose-500 text-white shadow-lg shadow-rose-500/25">
-                <X size={22} strokeWidth={2.5} />
-              </span>
-              <div>
-                <h3 className="font-cairo text-xl md:text-2xl font-black text-rose-800">
-                  الدجاج غير الطازج
-                </h3>
-                <p className="font-tajawal text-xs text-rose-700/70">
-                  علامات يجب تجنبها
-                </p>
-              </div>
+            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-l from-rose-500 to-rose-300 z-10" />
+            <div className="relative aspect-[4/3] w-full overflow-hidden">
+              <Image
+                src="/assets/real/chicken_not_fresh_visual.png"
+                alt="دجاج غير طازج — لون باهت وجلد مترهل"
+                fill
+                quality={90}
+                sizes="(max-width: 768px) 100vw, 480px"
+                className="object-cover object-center saturate-[0.85] brightness-[0.95]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-80" />
             </div>
-            <ul className="space-y-3.5">
-              {NOT_FRESH.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-rose-500/15 text-rose-600">
-                    <X size={14} strokeWidth={3} />
-                  </span>
-                  <span className="font-tajawal text-sm md:text-base font-semibold text-blue-deep/90">
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <div className="p-5 md:p-8 pt-4">
+              <div className="flex items-center gap-3 mb-5">
+                <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-rose-500 text-white shadow-lg shadow-rose-500/25">
+                  <X size={22} strokeWidth={2.5} />
+                </span>
+                <div>
+                  <h3 className="font-cairo text-xl md:text-2xl font-black text-rose-800">
+                    الدجاج غير الطازج
+                  </h3>
+                  <p className="font-tajawal text-xs text-rose-700/70">
+                    علامات يجب تجنبها
+                  </p>
+                </div>
+              </div>
+              <ul className="space-y-3.5">
+                {NOT_FRESH.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-rose-500/15 text-rose-600">
+                      <X size={14} strokeWidth={3} />
+                    </span>
+                    <span className="font-tajawal text-sm md:text-base font-semibold text-blue-deep/90">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </motion.article>
         </div>
 

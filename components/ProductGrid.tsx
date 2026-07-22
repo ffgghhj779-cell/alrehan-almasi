@@ -102,14 +102,14 @@ export default function ProductGrid({
 
       {showSearch && activeCategory === 'بيض' && !isLoading && (
         <div className="relative w-full max-w-6xl mx-auto mb-8 rounded-3xl overflow-hidden luxury-shadow border border-white/70">
-          <div className="relative aspect-[21/9] min-h-[160px] w-full bg-blue-deep">
+          <div className="relative aspect-[4/5] sm:aspect-[16/10] md:aspect-[21/9] min-h-[180px] max-h-[420px] md:max-h-none w-full bg-blue-deep">
             <Image
               src="/assets/real/eggs_promo_banner.png"
               alt="بيض الرهان الماسي — بطل الوجبات الصحية"
               fill
               quality={85}
               sizes="(max-width: 768px) 100vw, 1100px"
-              className="object-cover object-[center_30%]"
+              className="object-cover object-[72%_12%] sm:object-[65%_20%] md:object-[center_25%]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-blue-deep/70 via-transparent to-blue-deep/20" />
             <div className="absolute bottom-4 right-4 md:bottom-6 md:right-8 text-right">

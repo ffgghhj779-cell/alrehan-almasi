@@ -8,7 +8,7 @@ import { ArrowLeft } from 'lucide-react';
 export default function EggsSpotlightSection() {
   return (
     <section
-      className="py-12 md:py-20 relative overflow-hidden"
+      className="py-10 md:py-20 relative overflow-hidden"
       id="البيض"
       dir="rtl"
     >
@@ -20,7 +20,7 @@ export default function EggsSpotlightSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.55 }}
-          className="mb-8 md:mb-10 text-center md:text-right"
+          className="mb-6 md:mb-10 text-center md:text-right"
         >
           <p className="text-orange-accent text-xs font-bold tracking-[0.2em] uppercase mb-2 font-cairo">
             بيض المائدة • Eggs
@@ -38,37 +38,38 @@ export default function EggsSpotlightSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="relative rounded-3xl overflow-hidden luxury-shadow-lg border border-white/70 group"
+          className="relative rounded-2xl md:rounded-3xl overflow-hidden luxury-shadow-lg border border-white/70 group"
         >
-          <div className="relative aspect-[16/10] md:aspect-[21/9] w-full bg-blue-deep">
+          {/* Mobile: taller crop on the man · Desktop: wide cinematic banner */}
+          <div className="relative w-full bg-blue-deep aspect-[4/5] sm:aspect-[16/10] md:aspect-[21/9] max-h-[520px] md:max-h-none">
             <Image
               src="/assets/real/eggs_promo_banner.png"
               alt="بيض الرهان الماسي — بطل الوجبات الصحية"
               fill
               quality={90}
-              sizes="(max-width: 768px) 100vw, 1100px"
-              className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1100px"
+              className="object-cover object-[72%_12%] sm:object-[65%_20%] md:object-[center_25%] transition-transform duration-700 group-hover:scale-[1.02]"
               priority={false}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-deep/80 via-blue-deep/20 to-transparent md:bg-gradient-to-l md:from-blue-deep/75 md:via-transparent md:to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-deep/90 via-blue-deep/35 to-transparent md:bg-gradient-to-l md:from-blue-deep/80 md:via-blue-deep/20 md:to-transparent" />
           </div>
 
-          <div className="absolute bottom-0 inset-x-0 p-5 md:p-8 md:max-w-md md:mr-auto">
-            <div className="inline-flex items-center gap-2 mb-3 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm border border-white/25">
+          <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 md:p-8 md:max-w-md md:mr-auto">
+            <div className="inline-flex items-center gap-2 mb-2 md:mb-3 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm border border-white/25">
               <span className="w-1.5 h-1.5 rounded-full bg-orange-accent" />
               <span className="text-white/90 text-[11px] font-cairo font-bold">
                 الرهان الماسي
               </span>
             </div>
-            <h3 className="font-cairo text-xl md:text-3xl font-black text-white leading-snug mb-2">
+            <h3 className="font-cairo text-lg sm:text-xl md:text-3xl font-black text-white leading-snug mb-1.5 md:mb-2">
               طازج من المزرعة إلى مائدتكم
             </h3>
-            <p className="font-tajawal text-white/80 text-xs md:text-sm mb-4 leading-relaxed">
+            <p className="font-tajawal text-white/80 text-[11px] sm:text-xs md:text-sm mb-3 md:mb-4 leading-relaxed">
               أصناف متعددة: ×6 · ×15 · ×30 — جاهزة للمنزل والتموين.
             </p>
             <Link
               href={`/products?category=${encodeURIComponent('بيض')}`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-orange-accent text-white font-cairo font-bold text-sm rounded-xl hover:bg-orange-accent/90 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2.5 md:px-5 bg-orange-accent text-white font-cairo font-bold text-sm rounded-xl hover:bg-orange-accent/90 transition-colors"
             >
               تصفح أصناف البيض
               <ArrowLeft size={16} aria-hidden />
