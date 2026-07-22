@@ -51,43 +51,47 @@ export default function ProductSearchBar({
         )}
       </div>
 
-      <div
-        className="flex gap-2 overflow-x-auto scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap snap-x snap-mandatory"
-        role="group"
-        aria-label="تصفية حسب الفئة"
-      >
-        <button
-          type="button"
-          onClick={() => onCategoryChange(null)}
-          className={`shrink-0 snap-start px-4 py-2.5 text-sm font-bold transition-all touch-press active:scale-95 min-h-[44px] ${
-            activeCategory === null
-              ? 'bg-blue-primary text-white luxury-shadow'
-              : 'bg-white text-blue-deep border border-blue-primary/20 hover:border-orange-accent'
-          }`}
-          aria-pressed={activeCategory === null}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div
+          className="flex gap-2 overflow-x-auto scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap snap-x snap-mandatory flex-grow"
+          role="group"
+          aria-label="تصفية حسب الفئة"
         >
-          الكل
-        </button>
-        {categories.map((cat) => (
           <button
-            key={cat}
             type="button"
-            onClick={() => onCategoryChange(cat === activeCategory ? null : cat)}
-            className={`shrink-0 snap-start px-4 py-2.5 text-sm font-bold transition-all touch-press active:scale-95 min-h-[44px] ${
-              activeCategory === cat
-                ? 'bg-orange-accent text-white luxury-shadow'
+            onClick={() => onCategoryChange(null)}
+            className={`shrink-0 snap-start px-4 py-2.5 text-sm font-bold transition-all touch-press active:scale-95 min-h-[44px] rounded-xl ${
+              activeCategory === null
+                ? 'bg-blue-primary text-white shadow-md'
                 : 'bg-white text-blue-deep border border-blue-primary/20 hover:border-orange-accent'
             }`}
-            aria-pressed={activeCategory === cat}
+            aria-pressed={activeCategory === null}
           >
-            {cat}
+            الكل
           </button>
-        ))}
-      </div>
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              type="button"
+              onClick={() => onCategoryChange(cat === activeCategory ? null : cat)}
+              className={`shrink-0 snap-start px-4 py-2.5 text-sm font-bold transition-all touch-press active:scale-95 min-h-[44px] rounded-xl ${
+                activeCategory === cat
+                  ? 'bg-orange-accent text-white shadow-md'
+                  : 'bg-white text-blue-deep border border-blue-primary/20 hover:border-orange-accent'
+              }`}
+              aria-pressed={activeCategory === cat}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
 
-      <p className="text-sm text-gray-500 font-tajawal" aria-live="polite">
-        {resultCount} منتج{resultCount !== 1 ? '' : ''} متاح
-      </p>
+        <div className="flex items-center gap-4 justify-between md:justify-end">
+          <p className="text-sm text-gray-500 font-tajawal whitespace-nowrap" aria-live="polite">
+            {resultCount} منتج{resultCount !== 1 ? '' : ''} متاح
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

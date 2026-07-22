@@ -41,6 +41,8 @@ export const BRAND = {
   packagingSet: '/assets/real/brand_packaging_box_bags.png',
   supermarketShelf: '/assets/real/brand_supermarket_shelf.png',
   eggs: '/assets/real/eggs_tray_almoroj.png',
+  strips: '/assets/real/chicken_strips_clear.png',
+  rawShawarma: '/assets/real/raw_shawarma_bag.png',
 } as const;
 
 /** Gallery — branded product photography */
@@ -88,16 +90,23 @@ export const SKU_IMAGES: Record<string, string> = {
   'ARA-FRZ-002': BRAND.breastFrozen,
   'ARA-FRZ-003': BRAND.chilledBag,
   'ARA-FRZ-004': BRAND.frozenCrate,
-  // Shawarma — branded whole-bag packaging as closest match
-  'ARA-SHW-001': BRAND.chilledBag,
-  'ARA-SHW-002': BRAND.breastFrozen,
+  // Shawarma
+  'ARA-SHW-001': BRAND.rawShawarma,
+  'ARA-SHW-002': BRAND.rawShawarma,
   // Manufactured / cuts
   'ARA-MNF-001': BRAND.breastFrozen,
   'ARA-MNF-002': BRAND.breastFrozen,
-  'ARA-NUG-001': BRAND.breastFrozen,
+  'ARA-NUG-001': BRAND.strips,
   // Eggs
   'ARA-EGG-001': BRAND.eggs,
-  // Legacy SKUs
+  'ARA-EGG-002': BRAND.eggs,
+  // Specialty Cuts
+  'ARA-CUT-001': BRAND.packagingSet,
+  'ARA-CUT-002': BRAND.chilledBag,
+  'ARA-CUT-003': BRAND.chilledBag,
+  // BBQ & Marinated
+  'ARA-BBQ-001': BRAND.rawShawarma,
+  'ARA-BBQ-002': BRAND.rawShawarma,
   'ARA-SAL-001': buildImageUrl(PHOTOS.salmon),
   'ARA-FSH-002': buildImageUrl(PHOTOS.fish, { crop: 'center' }),
   'ARA-SHR-001': buildImageUrl(PHOTOS.shrimp),
