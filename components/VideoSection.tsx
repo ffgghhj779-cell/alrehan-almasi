@@ -12,6 +12,7 @@ export default function VideoSection() {
       ref={ref}
       className="relative py-16 md:py-24 overflow-hidden"
       style={{ background: 'linear-gradient(135deg, #1B2B5E 0%, #0f1d42 60%, #1B2B5E 100%)' }}
+      id="المسلخ"
     >
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#E67E22] via-[#F5D5A0] to-[#E67E22]" />
       <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#E67E22] via-[#F5D5A0] to-[#E67E22]" />
@@ -26,11 +27,11 @@ export default function VideoSection() {
           transition={{ duration: 0.7 }}
         >
           <p className="text-[#F5D5A0]/60 text-xs font-bold tracking-[0.25em] uppercase mb-3 font-cairo">
-            Farm · Plant · Market
+            Farm to Table
           </p>
 
           <h2 className="font-cairo text-3xl md:text-5xl font-black text-white mb-4">
-            من <span className="text-[#F5D5A0]">المزرعة</span> إلى <span className="text-[#E67E22]">السوق</span>
+            من <span className="text-[#F5D5A0]">المزرعة</span> إلى <span className="text-[#E67E22]">المائدة</span>
           </h2>
 
           <div className="flex items-center justify-center gap-4 mb-5">
@@ -40,38 +41,37 @@ export default function VideoSection() {
           </div>
 
           <p className="text-white/70 text-sm md:text-lg font-tajawal max-w-2xl mx-auto leading-relaxed">
-            شاهد سلسلة الإنتاج المتكاملة: مزارع معيارية، مصنع تعقيم يومي، تعبئة حسب الطلب، وتوريد يلبي احتياجات الأسواق المختلفة
+            نضمن أعلى معايير الذبح الحلال والنظافة في كل مرحلة، من المزرعة حتى تصل إلى مائدتك
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,340px)_1fr] gap-8 md:gap-12 items-center justify-items-center lg:justify-items-stretch">
-          {/* Portrait video — matches source 9:16 */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative w-full max-w-[320px] md:max-w-[360px]"
+            className="relative"
           >
             <div className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-[#F5D5A0]/20 via-[#E67E22]/10 to-[#F5D5A0]/5 blur-sm" />
 
-            <div className="relative rounded-2xl overflow-hidden border border-[#F5D5A0]/20 shadow-2xl bg-black">
+            <div className="relative rounded-2xl overflow-hidden border border-[#F5D5A0]/20 shadow-2xl">
               <div className="bg-[#0f1d42] px-4 py-2.5 flex items-center gap-2 border-b border-[#F5D5A0]/10">
                 <div className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
                 <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
                 <div className="w-2.5 h-2.5 rounded-full bg-green-400/80" />
                 <span className="mr-auto text-[#F5D5A0]/60 text-[10px] font-cairo">
-                  سلسلة إنتاج الرهان الماسي
+                  مسلخ دواجن الرهان الماسي
                 </span>
               </div>
 
               <video
-                className="w-full aspect-[9/16] object-cover bg-black"
+                className="w-full aspect-video object-cover"
                 controls
                 preload="metadata"
-                poster="/assets/real/farm_to_market_poster.jpg"
+                poster="/assets/real/brand_chicken_chilled_bag.png"
                 playsInline
               >
-                <source src="/assets/real/farm_to_market.mp4" type="video/mp4" />
+                <source src="/assets/real/media_4.mp4" type="video/mp4" />
                 متصفحك لا يدعم تشغيل الفيديو.
               </video>
             </div>
@@ -80,7 +80,7 @@ export default function VideoSection() {
               <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-green-500/10 border border-green-500/30 rounded-full">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                 <span className="text-green-300 text-xs font-bold font-cairo">
-                  مزارع معيارية · مصنع معقّم · توريد احترافي
+                  مذبوح على الطريقة الإسلامية • Halal Certified
                 </span>
               </span>
             </div>
@@ -90,38 +90,32 @@ export default function VideoSection() {
             initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="space-y-6 w-full"
+            className="space-y-6"
           >
             {[
               {
-                en: 'Standardized Farms',
-                ar: 'مزارع معيارية عالية الجودة',
-                desc: 'مزارع ذاتية التشغيل بمعايير تربية موحّدة لضمان صحة الدواجن وجودة اللحم',
-                icon: '🐔',
+                en: 'Halal Slaughter',
+                ar: 'ذبح حلال معتمد',
+                desc: 'نلتزم بأعلى معايير الذبح الحلال الإسلامي في كل مرحلة من مراحل الإنتاج',
+                icon: '🕌',
               },
               {
-                en: 'Own Production Plant',
-                ar: 'مصنع إنتاج خاص',
-                desc: 'خط إنتاج موحّد ومعقّم يومياً في بيئة خالية من الغبار لضمان أعلى معايير النظافة',
-                icon: '🏭',
-              },
-              {
-                en: 'Hygiene & Disinfection',
-                ar: 'تعقيم وسلامة غذائية',
-                desc: 'ورش الإنتاج تُعقَّم يومياً مع التزام كامل بملابس وممرات التعقيم للعاملين',
+                en: 'Quality Control',
+                ar: 'رقابة جودة صارمة',
+                desc: 'فريق متخصص يراقب جودة المنتج في كل خطوة من خطوات التصنيع والتعبئة',
                 icon: '✅',
               },
               {
-                en: 'Custom Packaging',
-                ar: 'تعبئة حسب الطلب',
-                desc: 'نخصص المواصفات وأشكال التعبئة لتناسب متطلبات المطاعم والفنادق والتموين',
-                icon: '📦',
+                en: 'Cold Chain',
+                ar: 'سلسلة تبريد متكاملة',
+                desc: 'شبكة تبريد لا تنقطع من لحظة الإنتاج حتى وصول المنتج إلى عميلنا',
+                icon: '❄️',
               },
               {
-                en: 'Market Supply',
-                ar: 'توريد يلبي الأسواق',
-                desc: 'سلسلة توريد متكاملة تلبي احتياجات الأسواق والعملاء المختلفين بكفاءة عالية',
-                icon: '🚢',
+                en: 'Fresh Daily',
+                ar: 'طازج يومياً',
+                desc: 'إنتاج يومي مستمر لضمان توفر أجود المنتجات الطازجة على مدار الأسبوع',
+                icon: '🐔',
               },
             ].map((item, i) => (
               <motion.div
