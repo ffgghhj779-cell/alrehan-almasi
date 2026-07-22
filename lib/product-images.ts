@@ -46,8 +46,8 @@ export const BRAND = {
   frozenCrate: '/assets/real/brand_chicken_frozen_crate.png',
   /** Frozen thighs/drumsticks — realistic bag photo */
   frozenThighs: '/assets/real/chicken_thighs_bag_real.png',
-  /** Shipping box + retail bags set */
-  packagingSet: '/assets/real/brand_packaging_box_bags.png',
+  /** Shipping carton + retail bag (official packaging set) */
+  packagingSet: '/assets/real/brand_packaging_box_bag.png',
   /** Supermarket shelf display */
   supermarketShelf: '/assets/real/brand_supermarket_shelf.png',
   /** Fresh table eggs — 4 pack sizes */

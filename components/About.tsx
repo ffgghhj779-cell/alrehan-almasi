@@ -17,13 +17,14 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
           >
-            <div className="relative h-[260px] sm:h-[380px] lg:h-[500px] w-full overflow-visible fakieh-shadow md:fakieh-shadow-md rounded-xl">
+            <div className="relative aspect-[3/2] w-full overflow-visible">
               <Image
-                src="/assets/real/brand_chicken_chilled_carton.png"
-                alt="كرتون دجاج مبرد كامل 1300g — الرهان الماسي"
+                src="/assets/real/brand_packaging_box_bag.png"
+                alt="تغليف الرهان الماسي — كرتون جملة وكيس دجاج مبرد 1300g"
                 fill
                 quality={100}
-                className="object-contain bg-blue-deep/5"
+                priority
+                className="object-contain drop-shadow-2xl"
               />
             </div>
             <motion.div
