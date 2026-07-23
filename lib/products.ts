@@ -366,7 +366,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     status: 'متوفر',
     image: '/assets/real/catalog/fresh_whole_bag_1300.png',
     basePrice: 15.0,
-    descriptionAr: 'دجاج كامل طازج في كيس علامة الرهان الماسي بوزن صافي 1300 جرام، إنتاج يومي محلي.',
+    descriptionAr: 'دجاج كامل طازج في كيس علامة الرهان الماسي بتصميم كحلي وذهبي، وزن صافي 1300 جرام، إنتاج يومي محلي.',
     stockQuantity: 900,
     unitLabel: 'كيس',
     originCountry: 'المملكة العربية السعودية',
