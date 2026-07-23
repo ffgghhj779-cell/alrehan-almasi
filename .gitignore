@@ -14,7 +14,5 @@ tsconfig.tsbuildinfo
 # Vercel
 .vercel
 
-# IDE / OS
-.idea/
-.vscode/
-Thumbs.db
+# Local design drafts — not deployed
+designs/
